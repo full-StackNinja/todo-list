@@ -1,0 +1,20 @@
+/* Set overall page structure */
+.page-container {
+     display: grid;
+     grid-template-areas:
+          header header
+          sidebar content;
+     grid-template-columns: auto minmax(300px, 1fr);
+}
+
+.header-container {
+     grid-area: header;
+}
+
+.sidebar-container {
+     grid-area: sidebar;
+}
+
+.content-container {
+     grid-area: content;
+}
