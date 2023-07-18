@@ -1,14 +1,26 @@
+
 /* Set overall page structure */
 .page-container {
+     border: 3px solid red;
+     width: 100vh;
      display: grid;
      grid-template-areas:
-          header header
-          sidebar content;
-     grid-template-columns: auto minmax(300px, 1fr);
+          "header header"
+          "sidebar content";
+     grid-template-columns: auto minmax(300rem, 1fr);
+     grid-template-rows: auto 1fr;
 }
 
 .header-container {
+     border: 3px solid black;
      grid-area: header;
+
+     display: flex;
+     height: 100rem;
+}
+
+.header-item {
+     height: 30rem;
 }
 
 .sidebar-container {
