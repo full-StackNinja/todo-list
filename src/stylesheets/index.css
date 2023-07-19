@@ -2,12 +2,11 @@
 /* Set overall page structure */
 .page-container {
      border: 3px solid red;
-     width: 100vh;
      display: grid;
      grid-template-areas:
           "header header"
           "sidebar content";
-     grid-template-columns: auto minmax(300rem, 1fr);
+     grid-template-columns: auto 1fr;
      grid-template-rows: auto 1fr;
 }
 
@@ -25,7 +24,18 @@
 
 .sidebar-container {
      grid-area: sidebar;
+     border:  2px solid yellow;
 }
+
+.sidebar-container > div{
+     height: 50rem;
+     border: 1px solid ;
+}
+
+.projects :nth-child(n){
+     height: 20rem;
+}
+
 
 .content-container {
      grid-area: content;

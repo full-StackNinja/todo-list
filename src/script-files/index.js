@@ -11,4 +11,7 @@ import domManipulation from "./dom-manipulation";
 domManipulation.setPageStructure();
 
 // Add header Items
-domManipulation.addHeaderItems();
+domManipulation.setHeaderStructure();
+
+// Add sidebar items
+domManipulation.setSidebarStructure();

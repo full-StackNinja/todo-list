@@ -4,15 +4,20 @@ import homeIcon from "../assets/header/home.svg";
 import searchIcon from "../assets/header/search.svg";
 import userIcon from "../assets/header/user-icon.svg";
 
+// Import required assets for sidebar section
+import plusIconPath from "../assets/sidebar/plus.svg";
+import chevronDownPath from "../assets/sidebar/chevron-down.svg";
+import chevronLeftPath from "../assets/sidebar/chevron-left.svg";
+
 // IIFE Module for all the dom-manipulation related tasks
 const domManipulation = (function () {
      // Set overall page structure
      const setPageStructure = function () {
           // create Container Elements
           const pageContainer = document.createElement("div");
-          const headerContainer = document.createElement("div");
+          const headerContainer = document.createElement("header");
           const sidebarContainer = document.createElement("div");
-          const contentContainer = document.createElement("div");
+          const contentContainer = document.createElement("main");
 
           // Add classes to each container
           pageContainer.classList.add("page-container");
@@ -30,7 +35,7 @@ const domManipulation = (function () {
      };
 
      // Add header items
-     const addHeaderItems = function () {
+     const setHeaderStructure = function () {
           const headerContainer = document.querySelector(".header-container");
 
           const loginBtn = document.createElement("button");
@@ -69,13 +74,73 @@ const domManipulation = (function () {
      };
 
      // Add sidebar items
-     const addSidebarItems = function () {
-          
+     const setSidebarStructure = function () {
+          // Call sidebar container
+          const sidebarContainer = document.querySelector(".sidebar-container");
+
+          // Define containers of each sidebar item
+          // const todayTaskContainer = document.createElement("div");
+          // const thisWeekContainer = document.createElement("div");
+          // const allTasksContainer = document.createElement("div");
+          // const projectsContainer = document.createElement("div");
+
+          const todayTask = document.createElement("div");
+          const thisWeekTasks = document.createElement("div");
+          const allTasks = document.createElement("div");
+          const projects = document.createElement("div");
+
+          // Add classes
+          todayTask.classList.add("sidebar-item", "today-task");
+          thisWeekTasks.classList.add("sidebar-item", "this-week-tasks");
+          allTasks.classList.add("sidebar-item", "all-taks");
+          projects.classList.add("sidebar-item", "projects");
+
+          const todayTaskIcon = document.createElement("span");
+          const todayTaskText = document.createElement("span");
+
+          todayTaskIcon.innerHTML = "&#x23F0";
+          todayTaskText.innerHTML = "Today";
+
+          // Append to their immediate parent
+          todayTask.append(todayTaskIcon, todayTaskText);
+
+          const thisWeekIcon = document.createElement("span");
+          const thisWeekText = document.createElement("span");
+
+          thisWeekIcon.innerHTML = "&#x1F5D3";
+          thisWeekText.innerHTML = "This Week";
+
+          // Append them to their immediate parent
+          thisWeekTasks.append(thisWeekIcon, thisWeekText);
+
+          const allTasksIcon = document.createElement("span");
+          const allTasksText = document.createElement("span");
+
+          allTasksIcon.innerHTML = "&#x1F4DC";
+          allTasksText.innerHTML = "All Tasks";
+
+          // Append to their parent
+          allTasks.append(allTasksIcon, allTasksText);
+
+          const projectText = document.createElement("span");
+          const projectPlusIcon = new Image();
+          const projectChevronIcon = new Image();
+
+          projectText.innerHTML = "Projects";
+          projectPlusIcon.src = plusIconPath;
+          projectChevronIcon.src = chevronDownPath;
+
+          // Append them to their parent
+          projects.append(projectText, projectPlusIcon, projectChevronIcon);
+
+          // Append sidebar children
+          sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projects);
      };
 
      return {
           setPageStructure,
-          addHeaderItems,
+          setHeaderStructure,
+          setSidebarStructure,
      };
 })();
 
