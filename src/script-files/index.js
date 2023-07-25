@@ -15,3 +15,14 @@ domManipulation.setHeaderStructure();
 
 // Add sidebar items
 domManipulation.setSidebarStructure();
+
+// Toggle sidebar container on menu icon click
+const menuIcon = document.querySelector(".menu-item");
+
+menuIcon.onclick = domManipulation.toggleSidebar;
+
+// show/hide projects' add icons on mouse enter to/leave from sidebar container
+const sidebarContainer = document.querySelector(".sidebar-container");
+
+sidebarContainer.onmouseover = domManipulation.showProjectIcons;
+sidebarContainer.onmouseleave = domManipulation.hideProjectIcons;

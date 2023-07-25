@@ -1,41 +1,152 @@
-
 /* Set overall page structure */
 .page-container {
-     border: 3px solid red;
+     height: 100%;
+     width: 100%;
      display: grid;
+     overflow-y: hidden;
      grid-template-areas:
           "header header"
           "sidebar content";
-     grid-template-columns: auto 1fr;
+     grid-template-columns: minmax(auto, 250rem) 1fr;
      grid-template-rows: auto 1fr;
 }
 
 .header-container {
-     border: 3px solid black;
+     padding: 10rem 40rem;
      grid-area: header;
-
-     display: flex;
-     height: 100rem;
+     background-color: #e2e8f0;
+     display: grid;
+     grid-auto-flow: column;
+     grid-template-columns: auto auto;
+     justify-content: space-between;
+     align-items: center;
 }
 
 .header-item {
+     height: 40rem;
+     border-radius: 5rem;
+}
+
+.header-left {
+     display: flex;
+     gap: 10rem;
+}
+
+.header-right {
+     display: flex;
+     gap: 10rem;
+}
+
+.login-button,
+.signup-button {
+     padding: 8rem 40rem;
+     border-radius: 8rem;
+}
+
+input {
+     margin: 0;
+     padding-left: 20rem;
+     padding-right: 10rem;
+}
+
+.header-left :hover,
+.header-right :hover {
+     background-color: #cbd5e1;
+     cursor: pointer;
+}
+
+.searchbar-container {
      height: 30rem;
+     border-radius: 5rem;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     align-items: center;
 }
 
-.sidebar-container {
-     grid-area: sidebar;
-     border:  2px solid yellow;
+.searchbar-container input {
+     background-color: hsla(0, 9%, 87%, 0.8);
 }
 
-.sidebar-container > div{
-     height: 50rem;
-     border: 1px solid ;
+.searchbar-container :hover {
+     cursor: text;
+     background-color: #fafaf9;
 }
 
-.projects :nth-child(n){
+.searchbar-container :focus {
+     width: 400rem;
+}
+
+.search-bar {
+     height: 30rem;
+     align-self: center;
+     border: none;
+     outline: none;
+     border-radius: 5rem;
+     position: relative;
+}
+
+.search-item {
+     position: absolute;
+     z-index: 1;
      height: 20rem;
 }
 
+.header-left .menu-item {
+     position: relative;
+}
+
+.sidebar-container {
+     display: flex;
+     position: relative;
+     transition: ease left 0.3s;
+     left: 0;
+     height: 100vh;
+     flex-direction: column;
+     background-color: #f1f5f9;
+     color: #222;
+     padding: 10rem;
+}
+
+.toggle {
+     left: -100%;
+}
+
+.sidebar-container .projects {
+     margin-top: 40rem;
+}
+
+.projects span {
+     display: inline-block;
+     margin-right: auto;
+}
+
+.projects :nth-child(n+2){
+     opacity: 0;
+}
+
+.projects .show-icon{
+     opacity: 1;
+}
+
+.sidebar-container div {
+     display: flex;
+     gap: 16rem;
+     justify-content: left;
+     align-items: center;
+     padding: 5rem;
+     border-radius: 5rem;
+     cursor: pointer;
+}
+
+.sidebar-container div:hover,
+.sidebar-container div:focus {
+     background-color: #ccc;
+}
+
+.projects :nth-child(n) {
+     height: 20rem;
+}
 
 .content-container {
      grid-area: content;

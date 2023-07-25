@@ -38,6 +38,14 @@ const domManipulation = (function () {
      const setHeaderStructure = function () {
           const headerContainer = document.querySelector(".header-container");
 
+          const headerLeft = document.createElement("div");
+          const headerRight = document.createElement("div");
+          const searchBarContainer = document.createElement("div");
+
+          headerLeft.classList.add("header-left");
+          headerRight.classList.add("header-right");
+          searchBarContainer.classList.add("searchbar-container");
+
           const loginBtn = document.createElement("button");
           const signupBtn = document.createElement("button");
           const searchBar = document.createElement("input");
@@ -54,35 +62,33 @@ const domManipulation = (function () {
 
           menuItem.classList.add("menu-item", "header-item");
           homeItem.classList.add("home-item", "header-item");
-          searchItem.classList.add("search-item", "header-item");
-          userPicture.classList.add("user-picture", "header-item");
+          searchBar.classList.add("search-bar", "header-item");
+          searchItem.classList.add("search-item");
 
           loginBtn.classList.add("login-button", "header-item");
           signupBtn.classList.add("signup-button", "header-item");
-          searchBar.classList.add("search-bar", "header-item");
+          userPicture.classList.add("user-picture", "header-item");
 
           searchBar.type = "search";
 
-          // Append search icon to search bar
-          searchBar.appendChild(searchItem);
+          // Append search items to searchbar container
+          searchBarContainer.append(searchItem, searchBar);
 
           loginBtn.textContent = "Login";
           signupBtn.textContent = "Sign up";
 
-          // Append all childen to their parent header container
-          headerContainer.append(menuItem, homeItem, searchBar, loginBtn, signupBtn, userPicture);
+          // Append  left side and right side items to parents
+          headerLeft.append(menuItem, homeItem, searchBarContainer);
+          headerRight.append(loginBtn, signupBtn, userPicture);
+
+          // Append header left and right to header container
+          headerContainer.append(headerLeft, headerRight);
      };
 
      // Add sidebar items
      const setSidebarStructure = function () {
           // Call sidebar container
           const sidebarContainer = document.querySelector(".sidebar-container");
-
-          // Define containers of each sidebar item
-          // const todayTaskContainer = document.createElement("div");
-          // const thisWeekContainer = document.createElement("div");
-          // const allTasksContainer = document.createElement("div");
-          // const projectsContainer = document.createElement("div");
 
           const todayTask = document.createElement("div");
           const thisWeekTasks = document.createElement("div");
@@ -137,10 +143,34 @@ const domManipulation = (function () {
           sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projects);
      };
 
+     // Toggle sidebar container on 'menu icon' click
+     const toggleSidebar = function () {
+          const sidebarContainer = document.querySelector(".sidebar-container");
+          sidebarContainer.classList.toggle("toggle");
+     };
+
+     // show/hide projects' add icons on mouse enter to/leave from sidebar container
+     const showProjectIcons = function () {
+          const projects = document.querySelector(".projects");
+          projects.querySelectorAll("img").forEach((image) => {
+               image.classList.add("show-icon");
+          });
+     };
+
+     const hideProjectIcons = function () {
+          const projects = document.querySelector(".projects");
+          projects.querySelectorAll("img").forEach((image) => {
+               image.classList.remove("show-icon");
+          });
+     };
+
      return {
           setPageStructure,
           setHeaderStructure,
           setSidebarStructure,
+          toggleSidebar,
+          showProjectIcons,
+          hideProjectIcons,
      };
 })();
 
