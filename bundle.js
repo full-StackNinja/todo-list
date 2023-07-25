@@ -21,39 +21,150 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `
-/* Set overall page structure */
+___CSS_LOADER_EXPORT___.push([module.id, `/* Set overall page structure */
 .page-container {
-     border: 3px solid red;
-     width: 100vh;
+     height: 100%;
+     width: 100%;
      display: grid;
+     overflow-y: hidden;
      grid-template-areas:
           "header header"
           "sidebar content";
-     grid-template-columns: auto minmax(300rem, 1fr);
+     grid-template-columns: minmax(300rem, auto) 1fr;
      grid-template-rows: auto 1fr;
 }
 
 .header-container {
-     border: 3px solid black;
+     padding: 10rem 40rem;
      grid-area: header;
-
-     display: flex;
-     height: 100rem;
+     background-color: #e2e8f0;
+     display: grid;
+     grid-auto-flow: column;
+     grid-template-columns: auto auto;
+     justify-content: space-between;
+     align-items: center;
 }
 
 .header-item {
+     height: 40rem;
+     border-radius: 5rem;
+}
+
+.header-left {
+     display: flex;
+     gap: 10rem;
+}
+
+.header-right {
+     display: flex;
+     gap: 10rem;
+}
+
+.login-button,
+.signup-button {
+     padding: 8rem 40rem;
+     border-radius: 8rem;
+}
+
+input {
+     margin: 0;
+     padding-left: 20rem;
+     padding-right: 10rem;
+}
+
+.header-left :hover,
+.header-right :hover {
+     background-color: #cbd5e1;
+     cursor: pointer;
+}
+
+.searchbar-container {
      height: 30rem;
+     border-radius: 5rem;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     align-items: center;
+}
+
+.searchbar-container input {
+     background-color: hsla(0, 9%, 87%, 0.8);
+}
+
+.searchbar-container :hover {
+     cursor: text;
+     background-color: #fafaf9;
+}
+
+.searchbar-container :focus {
+     width: 400rem;
+}
+
+.search-bar {
+     height: 30rem;
+     align-self: center;
+     border: none;
+     outline: none;
+     border-radius: 5rem;
+     position: relative;
+}
+
+.search-item {
+     position: absolute;
+     z-index: 1;
+     height: 20rem;
+}
+
+.header-left .menu-item {
+     position: relative;
 }
 
 .sidebar-container {
-     grid-area: sidebar;
+     display: flex;
+     height: 100vh;
+     flex-direction: column;
+     background-color: #f1f5f9;
+     color: #222;
+     padding: 10rem;
+}
+
+/* .sidebar-container .toggle{
+     position: relative;
+     left: -300rem;
+} */
+
+.sidebar-container .projects {
+     margin-top: 40rem;
+}
+
+.projects span {
+     display: inline-block;
+     margin-right: auto;
+}
+
+.sidebar-container div {
+     display: flex;
+     gap: 16rem;
+     justify-content: left;
+     align-items: center;
+     padding: 5rem;
+     border-radius: 5rem;
+     cursor: pointer;
+}
+
+.sidebar-container div:hover,
+.sidebar-container div:focus {
+     background-color: #ccc;
+}
+
+.projects :nth-child(n) {
+     height: 20rem;
 }
 
 .content-container {
      grid-area: content;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":";AACA,+BAA+B;AAC/B;KACK,qBAAqB;KACrB,YAAY;KACZ,aAAa;KACb;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,uBAAuB;KACvB,iBAAiB;;KAEjB,aAAa;KACb,cAAc;AACnB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;AACvB","sourcesContent":["\n/* Set overall page structure */\n.page-container {\n     border: 3px solid red;\n     width: 100vh;\n     display: grid;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: auto minmax(300rem, 1fr);\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     border: 3px solid black;\n     grid-area: header;\n\n     display: flex;\n     height: 100rem;\n}\n\n.header-item {\n     height: 30rem;\n}\n\n.sidebar-container {\n     grid-area: sidebar;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,cAAc;AACnB;;AAEA;;;GAGG;;AAEH;KACK,iBAAiB;AACtB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,sBAAsB;AAC3B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(300rem, auto) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 10rem;\n}\n\n/* .sidebar-container .toggle{\n     position: relative;\n     left: -300rem;\n} */\n\n.sidebar-container .projects {\n     margin-top: 40rem;\n}\n\n.projects span {\n     display: inline-block;\n     margin-right: auto;\n}\n\n.sidebar-container div {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container div:hover,\n.sidebar-container div:focus {\n     background-color: #ccc;\n}\n\n.projects :nth-child(n) {\n     height: 20rem;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1168,8 +1279,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_header_home_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/header/home.svg */ "./src/assets/header/home.svg");
 /* harmony import */ var _assets_header_search_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/header/search.svg */ "./src/assets/header/search.svg");
 /* harmony import */ var _assets_header_user_icon_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/header/user-icon.svg */ "./src/assets/header/user-icon.svg");
+/* harmony import */ var _assets_sidebar_plus_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/sidebar/plus.svg */ "./src/assets/sidebar/plus.svg");
+/* harmony import */ var _assets_sidebar_chevron_down_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/sidebar/chevron-down.svg */ "./src/assets/sidebar/chevron-down.svg");
+/* harmony import */ var _assets_sidebar_chevron_left_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/sidebar/chevron-left.svg */ "./src/assets/sidebar/chevron-left.svg");
 // Import required assets for header section
 
+
+
+
+
+// Import required assets for sidebar section
 
 
 
@@ -1180,9 +1299,9 @@ const domManipulation = (function () {
      const setPageStructure = function () {
           // create Container Elements
           const pageContainer = document.createElement("div");
-          const headerContainer = document.createElement("div");
+          const headerContainer = document.createElement("header");
           const sidebarContainer = document.createElement("div");
-          const contentContainer = document.createElement("div");
+          const contentContainer = document.createElement("main");
 
           // Add classes to each container
           pageContainer.classList.add("page-container");
@@ -1200,8 +1319,16 @@ const domManipulation = (function () {
      };
 
      // Add header items
-     const addHeaderItems = function () {
+     const setHeaderStructure = function () {
           const headerContainer = document.querySelector(".header-container");
+
+          const headerLeft = document.createElement("div");
+          const headerRight = document.createElement("div");
+          const searchBarContainer = document.createElement("div");
+
+          headerLeft.classList.add("header-left");
+          headerRight.classList.add("header-right");
+          searchBarContainer.classList.add("searchbar-container");
 
           const loginBtn = document.createElement("button");
           const signupBtn = document.createElement("button");
@@ -1212,34 +1339,117 @@ const domManipulation = (function () {
           const searchItem = new Image();
           const userPicture = new Image();
 
-          menuItem.src = _assets_header_menu_icon_svg__WEBPACK_IMPORTED_MODULE_0__;
+          menuItem.src = menuIcon;
           homeItem.src = _assets_header_home_svg__WEBPACK_IMPORTED_MODULE_1__;
           searchItem.src = _assets_header_search_svg__WEBPACK_IMPORTED_MODULE_2__;
           userPicture.src = _assets_header_user_icon_svg__WEBPACK_IMPORTED_MODULE_3__;
 
           menuItem.classList.add("menu-item", "header-item");
           homeItem.classList.add("home-item", "header-item");
-          searchItem.classList.add("search-item", "header-item");
-          userPicture.classList.add("user-picture", "header-item");
+          searchBar.classList.add("search-bar", "header-item");
+          searchItem.classList.add("search-item");
 
           loginBtn.classList.add("login-button", "header-item");
           signupBtn.classList.add("signup-button", "header-item");
-          searchBar.classList.add("search-bar", "header-item");
+          userPicture.classList.add("user-picture", "header-item");
 
           searchBar.type = "search";
 
-          // Append search icon to search bar
-          searchBar.appendChild(searchItem);
+          // Append search items to searchbar container
+          searchBarContainer.append(searchItem, searchBar);
 
           loginBtn.textContent = "Login";
-          signupBtn.textContent= "Sign up";
+          signupBtn.textContent = "Sign up";
 
-          // Append all childen to their parent header container
-          headerContainer.append(menuItem, homeItem, searchBar, loginBtn, signupBtn, userPicture);
+          // Append  left side and right side items to parents
+          headerLeft.append(menuItem, homeItem, searchBarContainer);
+          headerRight.append(loginBtn, signupBtn, userPicture);
+
+          // Append header left and right to header container
+          headerContainer.append(headerLeft, headerRight);
      };
+
+     // Add sidebar items
+     const setSidebarStructure = function () {
+          // Call sidebar container
+          const sidebarContainer = document.querySelector(".sidebar-container");
+
+          // Define containers of each sidebar item
+          // const todayTaskContainer = document.createElement("div");
+          // const thisWeekContainer = document.createElement("div");
+          // const allTasksContainer = document.createElement("div");
+          // const projectsContainer = document.createElement("div");
+
+          const todayTask = document.createElement("div");
+          const thisWeekTasks = document.createElement("div");
+          const allTasks = document.createElement("div");
+          const projects = document.createElement("div");
+
+          // Add classes
+          todayTask.classList.add("sidebar-item", "today-task");
+          thisWeekTasks.classList.add("sidebar-item", "this-week-tasks");
+          allTasks.classList.add("sidebar-item", "all-taks");
+          projects.classList.add("sidebar-item", "projects");
+
+          const todayTaskIcon = document.createElement("span");
+          const todayTaskText = document.createElement("span");
+
+          todayTaskIcon.innerHTML = "&#x23F0";
+          todayTaskText.innerHTML = "Today";
+
+          // Append to their immediate parent
+          todayTask.append(todayTaskIcon, todayTaskText);
+
+          const thisWeekIcon = document.createElement("span");
+          const thisWeekText = document.createElement("span");
+
+          thisWeekIcon.innerHTML = "&#x1F5D3";
+          thisWeekText.innerHTML = "This Week";
+
+          // Append them to their immediate parent
+          thisWeekTasks.append(thisWeekIcon, thisWeekText);
+
+          const allTasksIcon = document.createElement("span");
+          const allTasksText = document.createElement("span");
+
+          allTasksIcon.innerHTML = "&#x1F4DC";
+          allTasksText.innerHTML = "All Tasks";
+
+          // Append to their parent
+          allTasks.append(allTasksIcon, allTasksText);
+
+          const projectText = document.createElement("span");
+          const projectPlusIcon = new Image();
+          const projectChevronIcon = new Image();
+
+          projectText.innerHTML = "Projects";
+          projectPlusIcon.src = _assets_sidebar_plus_svg__WEBPACK_IMPORTED_MODULE_4__;
+          projectChevronIcon.src = _assets_sidebar_chevron_down_svg__WEBPACK_IMPORTED_MODULE_5__;
+
+          // Append them to their parent
+          projects.append(projectText, projectPlusIcon, projectChevronIcon);
+
+          // Append sidebar children
+          sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projects);
+     };
+
+     // Toggle sidebar container on 'menu icon' click
+
+     const sidebarContainer = document.querySelector('.sidebar-container')
+     const menuIcon = document.querySelector(".menu-item")
+     
+     // Listen click events on menu icon
+     menuIcon.onclick = function () {
+          
+     }
+
+
+
+
      return {
           setPageStructure,
-          addHeaderItems,
+          setHeaderStructure,
+          setSidebarStructure,
      };
 })();
 
@@ -1274,7 +1484,7 @@ module.exports = __webpack_require__.p + "4f140de7684063011fa6.svg";
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "74f645187b511ff810da.svg";
+module.exports = __webpack_require__.p + "2d8096ec2e669bd4bbb1.svg";
 
 /***/ }),
 
@@ -1285,6 +1495,36 @@ module.exports = __webpack_require__.p + "74f645187b511ff810da.svg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "efdab8d30dcc8bfc8e8b.svg";
+
+/***/ }),
+
+/***/ "./src/assets/sidebar/chevron-down.svg":
+/*!*********************************************!*\
+  !*** ./src/assets/sidebar/chevron-down.svg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "da1d4548b671a011dfa4.svg";
+
+/***/ }),
+
+/***/ "./src/assets/sidebar/chevron-left.svg":
+/*!*********************************************!*\
+  !*** ./src/assets/sidebar/chevron-left.svg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "3490f5eea08639f690a3.svg";
+
+/***/ }),
+
+/***/ "./src/assets/sidebar/plus.svg":
+/*!*************************************!*\
+  !*** ./src/assets/sidebar/plus.svg ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "3cffe9a515498593b872.svg";
 
 /***/ })
 
@@ -1421,7 +1661,10 @@ __webpack_require__.r(__webpack_exports__);
 _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].setPageStructure();
 
 // Add header Items
-_dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].addHeaderItems();
+_dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].setHeaderStructure();
+
+// Add sidebar items
+_dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].setSidebarStructure();
 
 })();
 
