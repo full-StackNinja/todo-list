@@ -8,6 +8,8 @@ import userIcon from "../assets/header/user-icon.svg";
 import plusIconPath from "../assets/sidebar/plus.svg";
 import chevronDownPath from "../assets/sidebar/chevron-down.svg";
 import chevronLeftPath from "../assets/sidebar/chevron-left.svg";
+import projectListIcon from "../assets/sidebar/circle-outline.svg";
+import removeIcon from "../assets/sidebar/close.svg";
 
 // IIFE Module for all the dom-manipulation related tasks
 const domManipulation = (function () {
@@ -93,13 +95,21 @@ const domManipulation = (function () {
           const todayTask = document.createElement("div");
           const thisWeekTasks = document.createElement("div");
           const allTasks = document.createElement("div");
-          const projects = document.createElement("div");
-
+          const projectsContainer = document.createElement("div");
+          const projectsHeader = document.createElement("div");
           // Add classes
           todayTask.classList.add("sidebar-item", "today-task");
           thisWeekTasks.classList.add("sidebar-item", "this-week-tasks");
-          allTasks.classList.add("sidebar-item", "all-taks");
-          projects.classList.add("sidebar-item", "projects");
+          allTasks.classList.add("sidebar-item", "all-tasks");
+          projectsHeader.classList.add("projects-header");
+          projectsContainer.classList.add("sidebar-item", "projects-container");
+
+          // Add tabindex attributes to make them focusable
+          todayTask.setAttribute("tabindex", "-1");
+          thisWeekTasks.setAttribute("tabindex", "-1");
+          allTasks.setAttribute("tabindex", "-1");
+          projectsHeader.setAttribute("tabindex", "-1");
+          projectsContainer.setAttribute("tabindex", "-1");
 
           const todayTaskIcon = document.createElement("span");
           const todayTaskText = document.createElement("span");
@@ -136,11 +146,19 @@ const domManipulation = (function () {
           projectPlusIcon.src = plusIconPath;
           projectChevronIcon.src = chevronDownPath;
 
+          // Add classes
+          projectText.classList.add("projects-heading");
+          projectPlusIcon.classList.add("add-project");
+          projectChevronIcon.classList.add("toggle-projects-list");
+
           // Append them to their parent
-          projects.append(projectText, projectPlusIcon, projectChevronIcon);
+          projectsHeader.append(projectText, projectPlusIcon, projectChevronIcon);
+
+          // Append projects header to projectsContainer
+          projectsContainer.appendChild(projectsHeader);
 
           // Append sidebar children
-          sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projects);
+          sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projectsContainer);
      };
 
      // Toggle sidebar container on 'menu icon' click
@@ -151,17 +169,121 @@ const domManipulation = (function () {
 
      // show/hide projects' add icons on mouse enter to/leave from sidebar container
      const showProjectIcons = function () {
-          const projects = document.querySelector(".projects");
-          projects.querySelectorAll("img").forEach((image) => {
+          const projectsHeader = document.querySelector(".projects-header");
+          projectsHeader.querySelectorAll("img").forEach((image) => {
                image.classList.add("show-icon");
           });
      };
 
      const hideProjectIcons = function () {
-          const projects = document.querySelector(".projects");
-          projects.querySelectorAll("img").forEach((image) => {
+          const projectsHeader = document.querySelector(".projects-header");
+          projectsHeader.querySelectorAll("img").forEach((image) => {
                image.classList.remove("show-icon");
           });
+     };
+
+     // Show addTask form
+     const showAddTaskForm = function () {
+          // TODO - show task form stuff here
+     };
+
+     // Get taskForm data
+
+     const getTaskFormData = function () {
+          // TODO - related stuff here
+     };
+     // Count total projects
+     let projectCount = 0;
+     const showProjectForm = function () {
+          const projectsContainer = document.querySelector(".projects-container");
+
+          const projectForm = document.createElement("form");
+          const projectName = document.createElement("input");
+          const projectBtns = document.createElement("div");
+          const addBtn = document.createElement("button");
+          const cancelBtn = document.createElement("button");
+
+          projectName.type = "text";
+          projectName.name = `new-project`;
+          projectName.id = `${++projectCount}`;
+          projectName.classList.add("project-name-field");
+          projectName.placeholder = "Project Name";
+
+          addBtn.type = "submit";
+          addBtn.innerHTML = "Add";
+          cancelBtn.type = "reset";
+          cancelBtn.innerHTML = "Cancel";
+
+          // Add classes
+          projectForm.classList.add("project-form");
+          projectBtns.classList.add("project-btns");
+          addBtn.classList.add("add-project-btn");
+          cancelBtn.classList.add("cancel-project-btn");
+
+          // Append children
+          projectBtns.append(cancelBtn, addBtn);
+
+          // Append children
+          projectForm.append(projectName, projectBtns);
+
+          // Append project name input field to projects container
+          projectsContainer.appendChild(projectForm);
+     };
+
+     const getProjectData = function (event) {
+          const projectsContainer = document.querySelector(".projects-container");
+          const projectName = document.querySelector(".project-name-field");
+          event.preventDefault();
+          const projectData = {};
+          projectData.name = projectName.name;
+          projectData.id = projectName.id;
+          projectData.value = projectName.value;
+          projectsContainer.removeChild(projectsContainer.lastChild);
+          return projectData;
+     };
+
+     const addProjectToDom = function (projectData) {
+          const projectsContainer = document.querySelector(".projects-container");
+
+          const newProjectContainer = document.createElement("div");
+          newProjectContainer.id = `${projectData.id}`;
+          newProjectContainer.classList.add("new-project-container");
+
+          const projectIcon = new Image();
+          const removeProject = new Image();
+
+          projectIcon.src = projectListIcon;
+          removeProject.src = removeIcon;
+
+          projectIcon.style.width = "20rem";
+          removeProject.style.width = "20rem";
+          projectIcon.classList.add("project-first-icon");
+          removeProject.classList.add("project-last-icon");
+
+          const newProject = document.createElement("span");
+          newProject.classList.add("new-project");
+
+          newProject.innerHTML = `${projectData.value}`;
+
+          newProjectContainer.append(projectIcon, newProject, removeProject);
+
+          projectsContainer.appendChild(newProjectContainer);
+     };
+
+     const toggleProjectRemoveIcon = function (event) {
+          const projectsHeader = document.querySelector(".projects-header");
+
+          if (event.target !== projectsHeader) {
+               const newProjectContainer = document.querySelector(".new-project-container");
+               console.log(newProjectContainer)
+               // const removeIcon = newProjectContainer.querySelector(".last-project-icon");
+               // removeIcon.classList.toggle("show-remove-icon");
+          }
+     };
+
+     const cancelProject = function () {
+          const projectsContainer = document.querySelector("projects-container");
+          projectsContainer.remove(projectsContainer.lastChild);
      };
 
      return {
@@ -171,6 +293,10 @@ const domManipulation = (function () {
           toggleSidebar,
           showProjectIcons,
           hideProjectIcons,
+          showProjectForm,
+          getProjectData,
+          addProjectToDom,
+          toggleProjectRemoveIcon,
      };
 })();
 
