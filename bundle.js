@@ -30,7 +30,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* Set overall page structure */
      grid-template-areas:
           "header header"
           "sidebar content";
-     grid-template-columns: minmax(300rem, auto) 1fr;
+     grid-template-columns: minmax(auto, 300rem) 1fr;
      grid-template-rows: auto 1fr;
 }
 
@@ -121,28 +121,45 @@ input {
 
 .sidebar-container {
      display: flex;
+     gap: 16rem;
+     position: relative;
+     transition: ease left 0.3s;
+     left: 0;
      height: 100vh;
      flex-direction: column;
      background-color: #f1f5f9;
      color: #222;
-     padding: 10rem;
+     padding: 40rem 10rem;
 }
 
-/* .sidebar-container .toggle{
-     position: relative;
-     left: -300rem;
-} */
+/* toggle sidebar container list on menu icon click */
+.toggle {
+     left: -100%;
+}
 
-.sidebar-container .projects {
+.sidebar-container .projects-container {
      margin-top: 40rem;
 }
 
-.projects span {
-     display: inline-block;
-     margin-right: auto;
+.projects-header {
+     display: flex;
 }
 
-.sidebar-container div {
+.projects-header .projects-heading {
+     display: inline-block;
+     margin-right: auto;
+     font-weight: bold;
+}
+
+.projects-header :nth-child(n + 2) {
+     opacity: 0;
+}
+
+.projects-header .show-icon {
+     opacity: 1;
+}
+
+.sidebar-container .sidebar-item {
      display: flex;
      gap: 16rem;
      justify-content: left;
@@ -152,19 +169,94 @@ input {
      cursor: pointer;
 }
 
-.sidebar-container div:hover,
-.sidebar-container div:focus {
-     background-color: #ccc;
+.sidebar-container .sidebar-item:hover,
+.sidebar-container .sidebar-item:active {
+     /* background-color: #ccc; */
 }
 
-.projects :nth-child(n) {
-     height: 20rem;
+.projects-container:hover,
+.projects-container:active{
+     background-color:#f1f5f9;
 }
+
+.projects-container {
+     flex-direction: column;
+}
+
+.projects-container :first-child {
+     width: 100%;
+}
+
+.projects-header :nth-child(n) {
+     height: 24rem;
+}
+
+.project-form{
+     display: flex;
+     flex-direction: column;
+     gap: 5rem;
+     justify-content: center;
+     align-items:center;
+}
+
+input#new-project {
+     display: block;
+     height: 30rem;
+     outline: none;
+     border: none;
+     border-radius: 5rem;
+}
+
+.add-project-btn, .cancel-project-btn{
+     flex-grow: 0;
+     display: inline-block;
+     border: 1px solid #ccc;
+     border-radius: 5rem;
+     background-color:#bfdbfe;
+     max-width: 70rem;
+     min-width: 70rem;
+     padding: 5rem 10rem;
+
+}
+
+.project-btns{
+     display: flex;
+     align-self:flex-end;
+     gap: 10rem;
+}
+
+.new-project-container{
+     border: 1px solid;
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+     gap: 10rem;
+     align-items: center;
+}
+
+.project-first-icon{
+     justify-self:flex-start;
+     margin-left: 10rem;
+}
+
+.new-project{
+     font-weight: 700;
+     flex:1;
+}
+
+.project-last-icon{
+     opacity: 0;
+}
+
+.show-remove-icon{
+     opacity: 1;
+}
+
 
 .content-container {
      grid-area: content;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,cAAc;AACnB;;AAEA;;;GAGG;;AAEH;KACK,iBAAiB;AACtB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,sBAAsB;AAC3B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(300rem, auto) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 10rem;\n}\n\n/* .sidebar-container .toggle{\n     position: relative;\n     left: -300rem;\n} */\n\n.sidebar-container .projects {\n     margin-top: 40rem;\n}\n\n.projects span {\n     display: inline-block;\n     margin-right: auto;\n}\n\n.sidebar-container div {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container div:hover,\n.sidebar-container div:focus {\n     background-color: #ccc;\n}\n\n.projects :nth-child(n) {\n     height: 20rem;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,kBAAkB;KAClB,0BAA0B;KAC1B,OAAO;KACP,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,oBAAoB;AACzB;;AAEA,qDAAqD;AACrD;KACK,WAAW;AAChB;;AAEA;KACK,iBAAiB;AACtB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;KAClB,iBAAiB;AACtB;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,4BAA4B;AACjC;;AAEA;;KAEK,wBAAwB;AAC7B;;AAEA;KACK,sBAAsB;AAC3B;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,sBAAsB;KACtB,SAAS;KACT,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,YAAY;KACZ,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,wBAAwB;KACxB,gBAAgB;KAChB,gBAAgB;KAChB,mBAAmB;;AAExB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,UAAU;AACf;;AAEA;KACK,iBAAiB;KACjB,aAAa;KACb,8BAA8B;KAC9B,WAAW;KACX,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,gBAAgB;KAChB,MAAM;AACX;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;;AAGA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 300rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container .sidebar-item {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:active {\n     /* background-color: #ccc; */\n}\n\n.projects-container:hover,\n.projects-container:active{\n     background-color:#f1f5f9;\n}\n\n.projects-container {\n     flex-direction: column;\n}\n\n.projects-container :first-child {\n     width: 100%;\n}\n\n.projects-header :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form{\n     display: flex;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items:center;\n}\n\ninput#new-project {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.add-project-btn, .cancel-project-btn{\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color:#bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n\n}\n\n.project-btns{\n     display: flex;\n     align-self:flex-end;\n     gap: 10rem;\n}\n\n.new-project-container{\n     border: 1px solid;\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n}\n\n.project-first-icon{\n     justify-self:flex-start;\n     margin-left: 10rem;\n}\n\n.new-project{\n     font-weight: 700;\n     flex:1;\n}\n\n.project-last-icon{\n     opacity: 0;\n}\n\n.show-remove-icon{\n     opacity: 1;\n}\n\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1282,6 +1374,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_sidebar_plus_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/sidebar/plus.svg */ "./src/assets/sidebar/plus.svg");
 /* harmony import */ var _assets_sidebar_chevron_down_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/sidebar/chevron-down.svg */ "./src/assets/sidebar/chevron-down.svg");
 /* harmony import */ var _assets_sidebar_chevron_left_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/sidebar/chevron-left.svg */ "./src/assets/sidebar/chevron-left.svg");
+/* harmony import */ var _assets_sidebar_circle_outline_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/sidebar/circle-outline.svg */ "./src/assets/sidebar/circle-outline.svg");
+/* harmony import */ var _assets_sidebar_close_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/sidebar/close.svg */ "./src/assets/sidebar/close.svg");
 // Import required assets for header section
 
 
@@ -1289,6 +1383,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Import required assets for sidebar section
+
+
 
 
 
@@ -1339,7 +1435,7 @@ const domManipulation = (function () {
           const searchItem = new Image();
           const userPicture = new Image();
 
-          menuItem.src = menuIcon;
+          menuItem.src = _assets_header_menu_icon_svg__WEBPACK_IMPORTED_MODULE_0__;
           homeItem.src = _assets_header_home_svg__WEBPACK_IMPORTED_MODULE_1__;
           searchItem.src = _assets_header_search_svg__WEBPACK_IMPORTED_MODULE_2__;
           userPicture.src = _assets_header_user_icon_svg__WEBPACK_IMPORTED_MODULE_3__;
@@ -1374,22 +1470,24 @@ const domManipulation = (function () {
           // Call sidebar container
           const sidebarContainer = document.querySelector(".sidebar-container");
 
-          // Define containers of each sidebar item
-          // const todayTaskContainer = document.createElement("div");
-          // const thisWeekContainer = document.createElement("div");
-          // const allTasksContainer = document.createElement("div");
-          // const projectsContainer = document.createElement("div");
-
           const todayTask = document.createElement("div");
           const thisWeekTasks = document.createElement("div");
           const allTasks = document.createElement("div");
-          const projects = document.createElement("div");
-
+          const projectsContainer = document.createElement("div");
+          const projectsHeader = document.createElement("div");
           // Add classes
           todayTask.classList.add("sidebar-item", "today-task");
           thisWeekTasks.classList.add("sidebar-item", "this-week-tasks");
-          allTasks.classList.add("sidebar-item", "all-taks");
-          projects.classList.add("sidebar-item", "projects");
+          allTasks.classList.add("sidebar-item", "all-tasks");
+          projectsHeader.classList.add("projects-header");
+          projectsContainer.classList.add("sidebar-item", "projects-container");
+
+          // Add tabindex attributes to make them focusable
+          todayTask.setAttribute("tabindex", "-1");
+          thisWeekTasks.setAttribute("tabindex", "-1");
+          allTasks.setAttribute("tabindex", "-1");
+          projectsHeader.setAttribute("tabindex", "-1");
+          projectsContainer.setAttribute("tabindex", "-1");
 
           const todayTaskIcon = document.createElement("span");
           const todayTaskText = document.createElement("span");
@@ -1426,35 +1524,184 @@ const domManipulation = (function () {
           projectPlusIcon.src = _assets_sidebar_plus_svg__WEBPACK_IMPORTED_MODULE_4__;
           projectChevronIcon.src = _assets_sidebar_chevron_down_svg__WEBPACK_IMPORTED_MODULE_5__;
 
+          // Add classes
+          projectText.classList.add("projects-heading");
+          projectPlusIcon.classList.add("add-project");
+          projectChevronIcon.classList.add("toggle-projects-list");
+
           // Append them to their parent
-          projects.append(projectText, projectPlusIcon, projectChevronIcon);
+          projectsHeader.append(projectText, projectPlusIcon, projectChevronIcon);
+
+          // Append projects header to projectsContainer
+          projectsContainer.appendChild(projectsHeader);
 
           // Append sidebar children
-          sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projects);
+          sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projectsContainer);
      };
 
      // Toggle sidebar container on 'menu icon' click
+     const toggleSidebar = function () {
+          const sidebarContainer = document.querySelector(".sidebar-container");
+          sidebarContainer.classList.toggle("toggle");
+     };
 
-     const sidebarContainer = document.querySelector('.sidebar-container')
-     const menuIcon = document.querySelector(".menu-item")
-     
-     // Listen click events on menu icon
-     menuIcon.onclick = function () {
-          
-     }
+     // show/hide projects' add icons on mouse enter to/leave from sidebar container
+     const showProjectIcons = function () {
+          const projectsHeader = document.querySelector(".projects-header");
+          projectsHeader.querySelectorAll("img").forEach((image) => {
+               image.classList.add("show-icon");
+          });
+     };
 
+     const hideProjectIcons = function () {
+          const projectsHeader = document.querySelector(".projects-header");
+          projectsHeader.querySelectorAll("img").forEach((image) => {
+               image.classList.remove("show-icon");
+          });
+     };
 
+     // Show addTask form
+     const showAddTaskForm = function () {
+          // TODO - show task form stuff here
+     };
 
+     // Get taskForm data
+
+     const getTaskFormData = function () {
+          // TODO - related stuff here
+     };
+     // Count total projects
+     let projectCount = 0;
+     const showProjectForm = function () {
+          const projectsContainer = document.querySelector(".projects-container");
+
+          const projectForm = document.createElement("form");
+          const projectName = document.createElement("input");
+          const projectBtns = document.createElement("div");
+          const addBtn = document.createElement("button");
+          const cancelBtn = document.createElement("button");
+
+          projectName.type = "text";
+          projectName.name = `new-project`;
+          projectName.id = `${++projectCount}`;
+          projectName.classList.add("project-name-field");
+          projectName.placeholder = "Project Name";
+
+          addBtn.type = "submit";
+          addBtn.innerHTML = "Add";
+          cancelBtn.type = "reset";
+          cancelBtn.innerHTML = "Cancel";
+
+          // Add classes
+          projectForm.classList.add("project-form");
+          projectBtns.classList.add("project-btns");
+          addBtn.classList.add("add-project-btn");
+          cancelBtn.classList.add("cancel-project-btn");
+
+          // Append children
+          projectBtns.append(cancelBtn, addBtn);
+
+          // Append children
+          projectForm.append(projectName, projectBtns);
+
+          // Append project name input field to projects container
+          projectsContainer.appendChild(projectForm);
+     };
+
+     const getProjectData = function (event) {
+          const projectsContainer = document.querySelector(".projects-container");
+          const projectName = document.querySelector(".project-name-field");
+          event.preventDefault();
+          const projectData = {};
+          projectData.name = projectName.name;
+          projectData.id = projectName.id;
+          projectData.value = projectName.value;
+          projectsContainer.removeChild(projectsContainer.lastChild);
+          return projectData;
+     };
+
+     const addProjectToDom = function (projectData) {
+          const projectsContainer = document.querySelector(".projects-container");
+
+          const newProjectContainer = document.createElement("div");
+          newProjectContainer.id = `${projectData.id}`;
+          newProjectContainer.classList.add("new-project-container");
+
+          const projectIcon = new Image();
+          const removeProject = new Image();
+
+          projectIcon.src = _assets_sidebar_circle_outline_svg__WEBPACK_IMPORTED_MODULE_7__;
+          removeProject.src = _assets_sidebar_close_svg__WEBPACK_IMPORTED_MODULE_8__;
+
+          projectIcon.style.width = "20rem";
+          removeProject.style.width = "20rem";
+          projectIcon.classList.add("project-first-icon");
+          removeProject.classList.add("project-last-icon");
+
+          const newProject = document.createElement("span");
+          newProject.classList.add("new-project");
+
+          newProject.innerHTML = `${projectData.value}`;
+
+          newProjectContainer.append(projectIcon, newProject, removeProject);
+
+          projectsContainer.appendChild(newProjectContainer);
+     };
+
+     const toggleProjectRemoveIcon = function (event) {
+          const projectsHeader = document.querySelector(".projects-header");
+
+          if (event.target !== projectsHeader) {
+               const newProjectContainer = document.querySelector(".new-project-container");
+               console.log(newProjectContainer)
+               // const removeIcon = newProjectContainer.querySelector(".last-project-icon");
+               // removeIcon.classList.toggle("show-remove-icon");
+          }
+     };
+
+     const cancelProject = function () {
+          const projectsContainer = document.querySelector("projects-container");
+          projectsContainer.remove(projectsContainer.lastChild);
+     };
 
      return {
           setPageStructure,
           setHeaderStructure,
           setSidebarStructure,
+          toggleSidebar,
+          showProjectIcons,
+          hideProjectIcons,
+          showProjectForm,
+          getProjectData,
+          addProjectToDom,
+          toggleProjectRemoveIcon,
      };
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (domManipulation);
 
+
+/***/ }),
+
+/***/ "./src/script-files/project-manager.js":
+/*!*********************************************!*\
+  !*** ./src/script-files/project-manager.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const projectManager = (function () {
+     const projectsList = []
+     const saveProject = function (projectData) {
+        projectsList.push(projectData)
+     }  
+     return {saveProject}
+})()
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (projectManager);
 
 /***/ }),
 
@@ -1515,6 +1762,26 @@ module.exports = __webpack_require__.p + "da1d4548b671a011dfa4.svg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "3490f5eea08639f690a3.svg";
+
+/***/ }),
+
+/***/ "./src/assets/sidebar/circle-outline.svg":
+/*!***********************************************!*\
+  !*** ./src/assets/sidebar/circle-outline.svg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fecdc070e9b39da8fba6.svg";
+
+/***/ }),
+
+/***/ "./src/assets/sidebar/close.svg":
+/*!**************************************!*\
+  !*** ./src/assets/sidebar/close.svg ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "97d4c0a10ac97607dc65.svg";
 
 /***/ }),
 
@@ -1648,6 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _stylesheets_typography_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stylesheets/typography.css */ "./src/stylesheets/typography.css");
 /* harmony import */ var _stylesheets_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stylesheets/index.css */ "./src/stylesheets/index.css");
 /* harmony import */ var _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dom-manipulation */ "./src/script-files/dom-manipulation.js");
+/* harmony import */ var _project_manager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./project-manager */ "./src/script-files/project-manager.js");
 // Import necessary stylesheets
 
 
@@ -1655,6 +1923,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Import Modules into main/index script file
+
 
 
 // set overall page structure
@@ -1666,6 +1935,43 @@ _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].setHeaderStructure();
 // Add sidebar items
 _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].setSidebarStructure();
 
+// Toggle sidebar container on menu icon click
+const menuIcon = document.querySelector(".menu-item");
+menuIcon.onclick = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].toggleSidebar; 
+
+// show/hide projects' add icons on mouse enter to/leave from sidebar container
+const sidebarContainer = document.querySelector(".sidebar-container");
+
+sidebarContainer.onmouseover = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].showProjectIcons;
+sidebarContainer.onmouseleave = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].hideProjectIcons;
+
+// Add project when user click on Plus icon in projects
+const addProject = document.querySelector('.add-project')
+addProject.addEventListener("click", _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].showProjectForm)
+
+// get project data for further use when user press add button
+const projectsContainer = document.querySelector('.projects-container')
+const addProjectBtn = document.querySelector('.add-project-btn')
+
+projectsContainer.addEventListener("submit", (event) => {
+     const projectData = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].getProjectData(event)
+     _project_manager__WEBPACK_IMPORTED_MODULE_5__["default"].saveProject(projectData)
+     _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].addProjectToDom(projectData)
+}) 
+
+// Todo... 
+// Show/hide project cancel icon on mouseover/mouseleave
+projectsContainer.onmouseover = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].toggleProjectRemoveIcon;
+projectsContainer.onmouseleave = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].toggleProjectRemoveIcon;
+// Todo...
+// Cancel adding of the project
+const cancelProjectBtn = document.querySelector('.cancel-project-btn')
+
+// cancelProjectBtn.onclick = domManipulation.cancelProject;
+
+// Toggle projects list on "Chevron Icon" click
+const toggleProjectsList = document.querySelector(".toggle-projects-list");
+// toggleProjectsList.addEventListener('click', domManipulation.toggleProjectsList)
 })();
 
 /******/ })()
