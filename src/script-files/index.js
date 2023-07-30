@@ -19,34 +19,46 @@ domManipulation.setSidebarStructure();
 
 // Toggle sidebar container on menu icon click
 const menuIcon = document.querySelector(".menu-item");
-menuIcon.onclick = domManipulation.toggleSidebar; 
+menuIcon.onclick = domManipulation.toggleSidebar;
 
 // show/hide projects' add icons on mouse enter to/leave from sidebar container
 const sidebarContainer = document.querySelector(".sidebar-container");
 
-sidebarContainer.onmouseover = domManipulation.showProjectIcons;
-sidebarContainer.onmouseleave = domManipulation.hideProjectIcons;
+sidebarContainer.addEventListener("mouseover", domManipulation.showProjectIcons);
+sidebarContainer.addEventListener("mouseleave", domManipulation.hideProjectIcons);
 
 // Add project when user click on Plus icon in projects
-const addProject = document.querySelector('.add-project')
-addProject.addEventListener("click", domManipulation.showProjectForm)
+const addProject = document.querySelector(".add-project");
+addProject.addEventListener("click", domManipulation.showProjectForm);
 
 // get project data for further use when user press add button
-const projectsContainer = document.querySelector('.projects-container')
-const addProjectBtn = document.querySelector('.add-project-btn')
+const projectsContainer = document.querySelector(".projects-container");
+const addProjectBtn = document.querySelector(".add-project-btn");
 
 projectsContainer.addEventListener("submit", (event) => {
-     const projectData = domManipulation.getProjectData(event)
-     projectManager.saveProject(projectData)
-     domManipulation.addProjectToDom(projectData)
-}) 
+     const projectData = domManipulation.getProjectData(event);
+     console.log(projectData);
+     projectManager.saveProject(projectData);
+     domManipulation.addProjectToDom(projectData);
+});
 
-// Todo... 
-// Show/hide project cancel icon on mouseover/mouseleave
+// Todo... hide/show delete icon on mouseover/mouseleave
+// Show/hide project delete icon on mouseover/mouseleave
 
 // Cancel adding of the project
-projectsContainer.addEventListener('click',domManipulation.cancelProject)
+projectsContainer.addEventListener("click", domManipulation.cancelProject);
 
+// TODO... Toggle projects list
 // Toggle projects list on "Chevron Icon" click
 const toggleProjectsList = document.querySelector(".toggle-projects-list");
 // toggleProjectsList.addEventListener('click', domManipulation.toggleProjectsList)
+
+// TODO... Delete project
+// Delete project on cross icon click against each project name
+projectsContainer.addEventListener("click", (event) => {
+     if (event.target.matches(".project-last-icon")) {
+          const projectId = event.target.parentNode.id;
+          domManipulation.deleteProject(event);
+          projectManager.deleteProjectFromList(projectId)
+     }
+});

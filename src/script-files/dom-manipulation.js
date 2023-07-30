@@ -272,10 +272,10 @@ const domManipulation = (function () {
      };
 
      const cancelProject = function (event) {
-          if (event.target.matches('.cancel-project-btn')) {
-               const projectsContainer  = document.querySelector('.projects-container')
-               const projectForm = document.querySelector('.project-form')
-               projectsContainer.removeChild(projectForm)
+          if (event.target.matches(".cancel-project-btn")) {
+               const projectsContainer = document.querySelector(".projects-container");
+               const projectForm = document.querySelector(".project-form");
+               projectsContainer.removeChild(projectForm);
           }
      };
 
@@ -298,6 +298,11 @@ const domManipulation = (function () {
           // }
      };
 
+     const deleteProject = function (event) {
+          const projectsContainer = document.querySelector(".projects-container");
+          projectsContainer.removeChild(event.target.parentNode);
+     };
+
      return {
           setPageStructure,
           setHeaderStructure,
@@ -311,6 +316,7 @@ const domManipulation = (function () {
           cancelProject,
           showProjectRemoveIcon,
           hideProjectRemoveIcon,
+          deleteProject,
      };
 })();
 

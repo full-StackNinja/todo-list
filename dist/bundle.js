@@ -151,7 +151,7 @@ input {
      font-weight: bold;
 }
 
-.projects-header :nth-child(n + 2) {
+.projects-header > :nth-child(n + 2) {
      opacity: 0;
 }
 
@@ -159,7 +159,7 @@ input {
      opacity: 1;
 }
 
-.sidebar-container .sidebar-item {
+.sidebar-container > :nth-child(n) {
      display: flex;
      gap: 16rem;
      justify-content: left;
@@ -170,34 +170,44 @@ input {
 }
 
 .sidebar-container .sidebar-item:hover,
-.sidebar-container .sidebar-item:active {
-     /* background-color: #ccc; */
+.sidebar-container .sidebar-item:focus {
+     background-color: #ccc;
 }
 
-.projects-container:hover,
-.projects-container:active{
-     background-color:#f1f5f9;
-}
 
 .projects-container {
      flex-direction: column;
-     border: 1px solid;
+     /* border: 1px solid; */
 }
 
-.projects-container :first-child {
+.projects-container > :nth-child(n){
+     padding: 5rem;
+     border-radius: 5rem;
+}
+
+.projects-container > :nth-child(n):not(.project-form):hover,
+.projects-container > :nth-child(n):not(.project-form):focus {
+     background-color: #ccc;
+}
+
+.projects-container > :nth-child(n):not(.project-form){
+     cursor: pointer;
+}
+
+.projects-container > :first-child {
      width: 100%;
 }
 
-.projects-header :nth-child(n) {
+.projects-header > :nth-child(n) {
      height: 24rem;
 }
 
-.project-form{
+.project-form {
      display: flex;
      flex-direction: column;
      gap: 5rem;
      justify-content: center;
-     align-items:center;
+     align-items: center;
 }
 
 input#new-project {
@@ -208,26 +218,26 @@ input#new-project {
      border-radius: 5rem;
 }
 
-.add-project-btn, .cancel-project-btn{
+.add-project-btn,
+.cancel-project-btn {
      flex-grow: 0;
      display: inline-block;
      border: 1px solid #ccc;
      border-radius: 5rem;
-     background-color:#bfdbfe;
+     background-color: #bfdbfe;
      max-width: 70rem;
      min-width: 70rem;
      padding: 5rem 10rem;
-
 }
 
-.project-btns{
+.project-btns {
      display: flex;
-     align-self:flex-end;
+     align-self: flex-end;
      gap: 10rem;
 }
 
-.new-project-container{
-     border: 1px solid;
+.new-project-container {
+     /* border: 1px solid; */
      display: flex;
      justify-content: space-between;
      width: 100%;
@@ -235,33 +245,32 @@ input#new-project {
      align-items: center;
 }
 
-.project-first-icon{
-     justify-self:flex-start;
+.project-first-icon {
+     justify-self: flex-start;
      margin-left: 10rem;
 }
 
-.new-project{
+.new-project {
      font-weight: 700;
-     flex:1;
+     flex: 1;
 }
 
-.project-last-icon{
-     opacity: 0;
+.project-last-icon {
+     /* opacity: 0; */
 }
 
-.new-project-container:hover{
+/* .new-project-container :hover{
+     opacity: 1;
+} */
+
+.show-remove-icon {
      opacity: 1;
 }
-
-.show-remove-icon{
-     opacity: 1;
-}
-
 
 .content-container {
      grid-area: content;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,kBAAkB;KAClB,0BAA0B;KAC1B,OAAO;KACP,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,oBAAoB;AACzB;;AAEA,qDAAqD;AACrD;KACK,WAAW;AAChB;;AAEA;KACK,iBAAiB;AACtB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;KAClB,iBAAiB;AACtB;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,4BAA4B;AACjC;;AAEA;;KAEK,wBAAwB;AAC7B;;AAEA;KACK,sBAAsB;KACtB,iBAAiB;AACtB;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,sBAAsB;KACtB,SAAS;KACT,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,YAAY;KACZ,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,wBAAwB;KACxB,gBAAgB;KAChB,gBAAgB;KAChB,mBAAmB;;AAExB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,UAAU;AACf;;AAEA;KACK,iBAAiB;KACjB,aAAa;KACb,8BAA8B;KAC9B,WAAW;KACX,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,gBAAgB;KAChB,MAAM;AACX;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;;AAGA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 300rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container .sidebar-item {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:active {\n     /* background-color: #ccc; */\n}\n\n.projects-container:hover,\n.projects-container:active{\n     background-color:#f1f5f9;\n}\n\n.projects-container {\n     flex-direction: column;\n     border: 1px solid;\n}\n\n.projects-container :first-child {\n     width: 100%;\n}\n\n.projects-header :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form{\n     display: flex;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items:center;\n}\n\ninput#new-project {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.add-project-btn, .cancel-project-btn{\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color:#bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n\n}\n\n.project-btns{\n     display: flex;\n     align-self:flex-end;\n     gap: 10rem;\n}\n\n.new-project-container{\n     border: 1px solid;\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n}\n\n.project-first-icon{\n     justify-self:flex-start;\n     margin-left: 10rem;\n}\n\n.new-project{\n     font-weight: 700;\n     flex:1;\n}\n\n.project-last-icon{\n     opacity: 0;\n}\n\n.new-project-container:hover{\n     opacity: 1;\n}\n\n.show-remove-icon{\n     opacity: 1;\n}\n\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,kBAAkB;KAClB,0BAA0B;KAC1B,OAAO;KACP,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,oBAAoB;AACzB;;AAEA,qDAAqD;AACrD;KACK,WAAW;AAChB;;AAEA;KACK,iBAAiB;AACtB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;KAClB,iBAAiB;AACtB;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,sBAAsB;AAC3B;;;AAGA;KACK,sBAAsB;KACtB,uBAAuB;AAC5B;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;;KAEK,sBAAsB;AAC3B;;AAEA;KACK,eAAe;AACpB;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,sBAAsB;KACtB,SAAS;KACT,uBAAuB;KACvB,mBAAmB;AACxB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,YAAY;KACZ,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,yBAAyB;KACzB,gBAAgB;KAChB,gBAAgB;KAChB,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,oBAAoB;KACpB,UAAU;AACf;;AAEA;KACK,uBAAuB;KACvB,aAAa;KACb,8BAA8B;KAC9B,WAAW;KACX,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,wBAAwB;KACxB,kBAAkB;AACvB;;AAEA;KACK,gBAAgB;KAChB,OAAO;AACZ;;AAEA;KACK,gBAAgB;AACrB;;AAEA;;GAEG;;AAEH;KACK,UAAU;AACf;;AAEA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 300rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header > :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container > :nth-child(n) {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:focus {\n     background-color: #ccc;\n}\n\n\n.projects-container {\n     flex-direction: column;\n     /* border: 1px solid; */\n}\n\n.projects-container > :nth-child(n){\n     padding: 5rem;\n     border-radius: 5rem;\n}\n\n.projects-container > :nth-child(n):not(.project-form):hover,\n.projects-container > :nth-child(n):not(.project-form):focus {\n     background-color: #ccc;\n}\n\n.projects-container > :nth-child(n):not(.project-form){\n     cursor: pointer;\n}\n\n.projects-container > :first-child {\n     width: 100%;\n}\n\n.projects-header > :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form {\n     display: flex;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items: center;\n}\n\ninput#new-project {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.add-project-btn,\n.cancel-project-btn {\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color: #bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.project-btns {\n     display: flex;\n     align-self: flex-end;\n     gap: 10rem;\n}\n\n.new-project-container {\n     /* border: 1px solid; */\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n}\n\n.project-first-icon {\n     justify-self: flex-start;\n     margin-left: 10rem;\n}\n\n.new-project {\n     font-weight: 700;\n     flex: 1;\n}\n\n.project-last-icon {\n     /* opacity: 0; */\n}\n\n/* .new-project-container :hover{\n     opacity: 1;\n} */\n\n.show-remove-icon {\n     opacity: 1;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1485,7 +1494,7 @@ const domManipulation = (function () {
           thisWeekTasks.classList.add("sidebar-item", "this-week-tasks");
           allTasks.classList.add("sidebar-item", "all-tasks");
           projectsHeader.classList.add("projects-header");
-          projectsContainer.classList.add("sidebar-item", "projects-container");
+          projectsContainer.classList.add("projects-container");
 
           // Add tabindex attributes to make them focusable
           todayTask.setAttribute("tabindex", "-1");
@@ -1588,7 +1597,7 @@ const domManipulation = (function () {
 
           projectName.type = "text";
           projectName.name = `new-project`;
-          projectName.id = `${++projectCount}`;
+          projectName.id = `${projectCount++}`;
           projectName.classList.add("project-name-field");
           projectName.placeholder = "Project Name";
 
@@ -1631,6 +1640,7 @@ const domManipulation = (function () {
           const newProjectContainer = document.createElement("div");
           newProjectContainer.id = `${projectData.id}`;
           newProjectContainer.classList.add("new-project-container");
+          newProjectContainer.setAttribute("tabindex", "-1");
 
           const projectIcon = new Image();
           const removeProject = new Image();
@@ -1653,26 +1663,31 @@ const domManipulation = (function () {
           projectsContainer.appendChild(newProjectContainer);
      };
 
-     const showProjectRemoveIcon = function (event) {
-          const newProjectContainer = document.querySelector(".new-project-container");
-
-          if (event.target === newProjectContainer) {
-               const removeIcon = document.querySelector(".project-last-icon");
-               removeIcon.classList.toggle("show-remove-icon");
+     const cancelProject = function (event) {
+          if (event.target.matches('.cancel-project-btn')) {
+               const projectsContainer  = document.querySelector('.projects-container')
+               const projectForm = document.querySelector('.project-form')
+               projectsContainer.removeChild(projectForm)
           }
      };
 
-     const hideProjectRemoveIcon = function (event) {
-               console.log('mouse left: ',event.relatedTarget)
+     const showProjectRemoveIcon = function (event) {
           // const newProjectContainer = document.querySelector(".new-project-container");
-          //      const removeIcon = document.querySelector(".project-last-icon");
-          //      removeIcon.classList.toggle("show-remove-icon");
-          
+          console.log("onmouseover: ", event.target);
+          // console.log("relatedtarget:", event.relatedTarget)
+          // if (event.target === newProjectContainer) {
+          const removeIcon = document.querySelector(".project-last-icon");
+          removeIcon.classList.toggle("show-remove-icon");
+          // }
      };
 
-     const cancelProject = function () {
-          const projectsContainer = document.querySelector("projects-container");
-          projectsContainer.remove(projectsContainer.lastChild);
+     const hideProjectRemoveIcon = function (event) {
+          // console.log("onmouseover relatedtarget: ", event.relatedTarget);
+          // const newProjectContainer = document.querySelector(".new-project-container");
+          // if (event.relatedTarget === newProjectContainer) {
+          const removeIcon = document.querySelector(".project-last-icon");
+          removeIcon.classList.toggle("show-remove-icon");
+          // }
      };
 
      return {
@@ -1685,8 +1700,9 @@ const domManipulation = (function () {
           showProjectForm,
           getProjectData,
           addProjectToDom,
+          cancelProject,
           showProjectRemoveIcon,
-          hideProjectRemoveIcon
+          hideProjectRemoveIcon,
      };
 })();
 
@@ -1971,20 +1987,25 @@ projectsContainer.addEventListener("submit", (event) => {
      _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].addProjectToDom(projectData)
 }) 
 
-// Todo... 
-// Show/hide project cancel icon on mouseover/mouseleave
-projectsContainer.onmouseover = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].showProjectRemoveIcon;
-projectsContainer.onmouseleave = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].hideProjectRemoveIcon;
+// Todo... hide/show delete icon on mouseover/mouseleave
+// Show/hide project delete icon on mouseover/mouseleave
 
-// Todo...
 // Cancel adding of the project
-const cancelProjectBtn = document.querySelector('.cancel-project-btn')
+projectsContainer.addEventListener('click',_dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].cancelProject)
 
-// cancelProjectBtn.onclick = domManipulation.cancelProject;
-
+// TODO... Toggle projects list
 // Toggle projects list on "Chevron Icon" click
 const toggleProjectsList = document.querySelector(".toggle-projects-list");
 // toggleProjectsList.addEventListener('click', domManipulation.toggleProjectsList)
+
+// TODO... Delete project
+// Delete project on cross icon click against each project name
+projectsContainer.addEventListener('click', (event) => {
+     
+     if (event.target.matches(".project-last-icon")) {
+          console.log("true")
+     }
+})
 })();
 
 /******/ })()
