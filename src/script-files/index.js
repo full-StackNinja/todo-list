@@ -43,13 +43,9 @@ projectsContainer.addEventListener("submit", (event) => {
 
 // Todo... 
 // Show/hide project cancel icon on mouseover/mouseleave
-projectsContainer.onmouseover = domManipulation.toggleProjectRemoveIcon;
-projectsContainer.onmouseleave = domManipulation.toggleProjectRemoveIcon;
-// Todo...
-// Cancel adding of the project
-const cancelProjectBtn = document.querySelector('.cancel-project-btn')
 
-// cancelProjectBtn.onclick = domManipulation.cancelProject;
+// Cancel adding of the project
+projectsContainer.addEventListener('click',domManipulation.cancelProject)
 
 // Toggle projects list on "Chevron Icon" click
 const toggleProjectsList = document.querySelector(".toggle-projects-list");

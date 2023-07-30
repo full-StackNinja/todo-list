@@ -181,6 +181,7 @@ input {
 
 .projects-container {
      flex-direction: column;
+     border: 1px solid;
 }
 
 .projects-container :first-child {
@@ -248,6 +249,10 @@ input#new-project {
      opacity: 0;
 }
 
+.new-project-container:hover{
+     opacity: 1;
+}
+
 .show-remove-icon{
      opacity: 1;
 }
@@ -256,7 +261,7 @@ input#new-project {
 .content-container {
      grid-area: content;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,kBAAkB;KAClB,0BAA0B;KAC1B,OAAO;KACP,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,oBAAoB;AACzB;;AAEA,qDAAqD;AACrD;KACK,WAAW;AAChB;;AAEA;KACK,iBAAiB;AACtB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;KAClB,iBAAiB;AACtB;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,4BAA4B;AACjC;;AAEA;;KAEK,wBAAwB;AAC7B;;AAEA;KACK,sBAAsB;AAC3B;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,sBAAsB;KACtB,SAAS;KACT,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,YAAY;KACZ,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,wBAAwB;KACxB,gBAAgB;KAChB,gBAAgB;KAChB,mBAAmB;;AAExB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,UAAU;AACf;;AAEA;KACK,iBAAiB;KACjB,aAAa;KACb,8BAA8B;KAC9B,WAAW;KACX,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,gBAAgB;KAChB,MAAM;AACX;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;;AAGA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 300rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container .sidebar-item {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:active {\n     /* background-color: #ccc; */\n}\n\n.projects-container:hover,\n.projects-container:active{\n     background-color:#f1f5f9;\n}\n\n.projects-container {\n     flex-direction: column;\n}\n\n.projects-container :first-child {\n     width: 100%;\n}\n\n.projects-header :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form{\n     display: flex;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items:center;\n}\n\ninput#new-project {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.add-project-btn, .cancel-project-btn{\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color:#bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n\n}\n\n.project-btns{\n     display: flex;\n     align-self:flex-end;\n     gap: 10rem;\n}\n\n.new-project-container{\n     border: 1px solid;\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n}\n\n.project-first-icon{\n     justify-self:flex-start;\n     margin-left: 10rem;\n}\n\n.new-project{\n     font-weight: 700;\n     flex:1;\n}\n\n.project-last-icon{\n     opacity: 0;\n}\n\n.show-remove-icon{\n     opacity: 1;\n}\n\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;AAClB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,kBAAkB;KAClB,0BAA0B;KAC1B,OAAO;KACP,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,oBAAoB;AACzB;;AAEA,qDAAqD;AACrD;KACK,WAAW;AAChB;;AAEA;KACK,iBAAiB;AACtB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;KAClB,iBAAiB;AACtB;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,4BAA4B;AACjC;;AAEA;;KAEK,wBAAwB;AAC7B;;AAEA;KACK,sBAAsB;KACtB,iBAAiB;AACtB;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,sBAAsB;KACtB,SAAS;KACT,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,YAAY;KACZ,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,wBAAwB;KACxB,gBAAgB;KAChB,gBAAgB;KAChB,mBAAmB;;AAExB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,UAAU;AACf;;AAEA;KACK,iBAAiB;KACjB,aAAa;KACb,8BAA8B;KAC9B,WAAW;KACX,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,uBAAuB;KACvB,kBAAkB;AACvB;;AAEA;KACK,gBAAgB;KAChB,MAAM;AACX;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;;AAGA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 300rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container .sidebar-item {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:active {\n     /* background-color: #ccc; */\n}\n\n.projects-container:hover,\n.projects-container:active{\n     background-color:#f1f5f9;\n}\n\n.projects-container {\n     flex-direction: column;\n     border: 1px solid;\n}\n\n.projects-container :first-child {\n     width: 100%;\n}\n\n.projects-header :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form{\n     display: flex;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items:center;\n}\n\ninput#new-project {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.add-project-btn, .cancel-project-btn{\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color:#bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n\n}\n\n.project-btns{\n     display: flex;\n     align-self:flex-end;\n     gap: 10rem;\n}\n\n.new-project-container{\n     border: 1px solid;\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n}\n\n.project-first-icon{\n     justify-self:flex-start;\n     margin-left: 10rem;\n}\n\n.new-project{\n     font-weight: 700;\n     flex:1;\n}\n\n.project-last-icon{\n     opacity: 0;\n}\n\n.new-project-container:hover{\n     opacity: 1;\n}\n\n.show-remove-icon{\n     opacity: 1;\n}\n\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1648,15 +1653,21 @@ const domManipulation = (function () {
           projectsContainer.appendChild(newProjectContainer);
      };
 
-     const toggleProjectRemoveIcon = function (event) {
-          const projectsHeader = document.querySelector(".projects-header");
+     const showProjectRemoveIcon = function (event) {
+          const newProjectContainer = document.querySelector(".new-project-container");
 
-          if (event.target !== projectsHeader) {
-               const newProjectContainer = document.querySelector(".new-project-container");
-               console.log(newProjectContainer)
-               // const removeIcon = newProjectContainer.querySelector(".last-project-icon");
-               // removeIcon.classList.toggle("show-remove-icon");
+          if (event.target === newProjectContainer) {
+               const removeIcon = document.querySelector(".project-last-icon");
+               removeIcon.classList.toggle("show-remove-icon");
           }
+     };
+
+     const hideProjectRemoveIcon = function (event) {
+               console.log('mouse left: ',event.relatedTarget)
+          // const newProjectContainer = document.querySelector(".new-project-container");
+          //      const removeIcon = document.querySelector(".project-last-icon");
+          //      removeIcon.classList.toggle("show-remove-icon");
+          
      };
 
      const cancelProject = function () {
@@ -1674,7 +1685,8 @@ const domManipulation = (function () {
           showProjectForm,
           getProjectData,
           addProjectToDom,
-          toggleProjectRemoveIcon,
+          showProjectRemoveIcon,
+          hideProjectRemoveIcon
      };
 })();
 
@@ -1961,8 +1973,9 @@ projectsContainer.addEventListener("submit", (event) => {
 
 // Todo... 
 // Show/hide project cancel icon on mouseover/mouseleave
-projectsContainer.onmouseover = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].toggleProjectRemoveIcon;
-projectsContainer.onmouseleave = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].toggleProjectRemoveIcon;
+projectsContainer.onmouseover = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].showProjectRemoveIcon;
+projectsContainer.onmouseleave = _dom_manipulation__WEBPACK_IMPORTED_MODULE_4__["default"].hideProjectRemoveIcon;
+
 // Todo...
 // Cancel adding of the project
 const cancelProjectBtn = document.querySelector('.cancel-project-btn')

@@ -102,7 +102,7 @@ const domManipulation = (function () {
           thisWeekTasks.classList.add("sidebar-item", "this-week-tasks");
           allTasks.classList.add("sidebar-item", "all-tasks");
           projectsHeader.classList.add("projects-header");
-          projectsContainer.classList.add("sidebar-item", "projects-container");
+          projectsContainer.classList.add("projects-container");
 
           // Add tabindex attributes to make them focusable
           todayTask.setAttribute("tabindex", "-1");
@@ -205,7 +205,7 @@ const domManipulation = (function () {
 
           projectName.type = "text";
           projectName.name = `new-project`;
-          projectName.id = `${++projectCount}`;
+          projectName.id = `${projectCount++}`;
           projectName.classList.add("project-name-field");
           projectName.placeholder = "Project Name";
 
@@ -248,6 +248,7 @@ const domManipulation = (function () {
           const newProjectContainer = document.createElement("div");
           newProjectContainer.id = `${projectData.id}`;
           newProjectContainer.classList.add("new-project-container");
+          newProjectContainer.setAttribute("tabindex", "-1");
 
           const projectIcon = new Image();
           const removeProject = new Image();
@@ -270,20 +271,31 @@ const domManipulation = (function () {
           projectsContainer.appendChild(newProjectContainer);
      };
 
-     const toggleProjectRemoveIcon = function (event) {
-          const projectsHeader = document.querySelector(".projects-header");
-
-          if (event.target !== projectsHeader) {
-               const newProjectContainer = document.querySelector(".new-project-container");
-               console.log(newProjectContainer)
-               // const removeIcon = newProjectContainer.querySelector(".last-project-icon");
-               // removeIcon.classList.toggle("show-remove-icon");
+     const cancelProject = function (event) {
+          if (event.target.matches('.cancel-project-btn')) {
+               const projectsContainer  = document.querySelector('.projects-container')
+               const projectForm = document.querySelector('.project-form')
+               projectsContainer.removeChild(projectForm)
           }
      };
 
-     const cancelProject = function () {
-          const projectsContainer = document.querySelector("projects-container");
-          projectsContainer.remove(projectsContainer.lastChild);
+     const showProjectRemoveIcon = function (event) {
+          // const newProjectContainer = document.querySelector(".new-project-container");
+          console.log("onmouseover: ", event.target);
+          // console.log("relatedtarget:", event.relatedTarget)
+          // if (event.target === newProjectContainer) {
+          const removeIcon = document.querySelector(".project-last-icon");
+          removeIcon.classList.toggle("show-remove-icon");
+          // }
+     };
+
+     const hideProjectRemoveIcon = function (event) {
+          // console.log("onmouseover relatedtarget: ", event.relatedTarget);
+          // const newProjectContainer = document.querySelector(".new-project-container");
+          // if (event.relatedTarget === newProjectContainer) {
+          const removeIcon = document.querySelector(".project-last-icon");
+          removeIcon.classList.toggle("show-remove-icon");
+          // }
      };
 
      return {
@@ -296,7 +308,9 @@ const domManipulation = (function () {
           showProjectForm,
           getProjectData,
           addProjectToDom,
-          toggleProjectRemoveIcon,
+          cancelProject,
+          showProjectRemoveIcon,
+          hideProjectRemoveIcon,
      };
 })();
 

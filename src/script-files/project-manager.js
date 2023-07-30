@@ -3,7 +3,6 @@ const projectManager = (function () {
      const saveProject = function (projectData) {
         projectsList.push(projectData)
      }  
-     console.log(projectsList)
      return {saveProject}
 })()
 
