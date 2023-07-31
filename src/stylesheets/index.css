@@ -7,7 +7,7 @@
      grid-template-areas:
           "header header"
           "sidebar content";
-     grid-template-columns: minmax(auto, 300rem) 1fr;
+     grid-template-columns: minmax(auto, 250rem) 1fr;
      grid-template-rows: auto 1fr;
 }
 
@@ -154,7 +154,6 @@ input {
 
 .projects-container {
      flex-direction: column;
-     /* border: 1px solid; */
 }
 
 .projects-container > :nth-child(n){
@@ -181,6 +180,7 @@ input {
 
 .project-form {
      display: flex;
+     width: 100%;
      flex-direction: column;
      gap: 5rem;
      justify-content: center;
@@ -195,6 +195,12 @@ input#new-project {
      border-radius: 5rem;
 }
 
+.project-btns {
+     display: flex;
+     align-self: flex-end;
+     gap: 10rem;
+}
+
 .add-project-btn,
 .cancel-project-btn {
      flex-grow: 0;
@@ -207,14 +213,7 @@ input#new-project {
      padding: 5rem 10rem;
 }
 
-.project-btns {
-     display: flex;
-     align-self: flex-end;
-     gap: 10rem;
-}
-
 .new-project-container {
-     /* border: 1px solid; */
      display: flex;
      justify-content: space-between;
      width: 100%;
@@ -222,12 +221,18 @@ input#new-project {
      align-items: center;
 }
 
+.project-name-field{
+     width: 100%;
+}
+
 .project-first-icon {
      justify-self: flex-start;
      margin-left: 10rem;
+     pointer-events: none;
 }
 
 .new-project {
+     pointer-events: none;
      font-weight: 700;
      flex: 1;
 }

@@ -3,10 +3,12 @@ import "../stylesheets/normalize.css";
 import "../stylesheets/my-css-reset.css";
 import "../stylesheets/typography.css";
 import "../stylesheets/index.css";
+import "../stylesheets/content-container.css";
 
 // Import Modules into main/index script file
 import domManipulation from "./dom-manipulation";
 import projectManager from "./project-manager";
+import todoListManager from "./todoListManager";
 
 // set overall page structure
 domManipulation.setPageStructure();
@@ -53,12 +55,26 @@ projectsContainer.addEventListener("click", domManipulation.cancelProject);
 const toggleProjectsList = document.querySelector(".toggle-projects-list");
 // toggleProjectsList.addEventListener('click', domManipulation.toggleProjectsList)
 
-// TODO... Delete project
 // Delete project on cross icon click against each project name
 projectsContainer.addEventListener("click", (event) => {
      if (event.target.matches(".project-last-icon")) {
           const projectId = event.target.parentNode.id;
           domManipulation.deleteProject(event);
-          projectManager.deleteProjectFromList(projectId)
+          projectManager.deleteProjectFromList(projectId);
+     }
+});
+
+// TODO...  Display project tasks in content-container on respective project click
+projectsContainer.addEventListener("click", (event) => {
+     if (event.target.matches(".new-project-container")) {
+          const projectId = event.target.id;
+          const projectName = projectManager.getProjectName(projectId);
+          const projectTaskList = todoListManager.getTaskList(projectName);
+
+          // First clear the content container from any previous content
+          domManipulation.clearContentContainer();
+
+          // Then display project tasks in content area
+          domManipulation.displayProjectTasks(projectName, projectTaskList);
      }
 });

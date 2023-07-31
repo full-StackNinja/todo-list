@@ -11,6 +11,9 @@ import chevronLeftPath from "../assets/sidebar/chevron-left.svg";
 import projectListIcon from "../assets/sidebar/circle-outline.svg";
 import removeIcon from "../assets/sidebar/close.svg";
 
+// Import required assets for content section
+import taskPlusIcon from "../assets/content/plus.svg";
+
 // IIFE Module for all the dom-manipulation related tasks
 const domManipulation = (function () {
      // Set overall page structure
@@ -303,6 +306,34 @@ const domManipulation = (function () {
           projectsContainer.removeChild(event.target.parentNode);
      };
 
+     const clearContentContainer = function () {
+          const contentContainer = document.querySelector(".content-container");
+          while (contentContainer.firstChild) {
+               contentContainer.removeChild(contentContainer.lastChild);
+          }
+     };
+     // TODO... Display respective project tasks in the content area
+     const displayProjectTasks = function (projectName, projectTaskList) {
+          const contentContainer = document.querySelector(".content-container");
+
+          const projectHeading = document.createElement("div");
+          const addTask = document.createElement("div");
+          const addTaskIcon = new Image();
+          const addTaskText = document.createElement("span");
+
+          projectHeading.classList.add("project-heading");
+          addTask.classList.add("add-task");
+          addTaskIcon.classList.add("add-task-icon");
+          addTaskText.classList.add("add-task-text");
+
+          addTaskIcon.src = taskPlusIcon;
+          addTaskText.innerHTML = "Add Task";
+          projectHeading.innerHTML = projectName;
+
+          addTask.append(addTaskIcon, addTaskText);
+
+          contentContainer.append(projectHeading, addTask);
+     };
      return {
           setPageStructure,
           setHeaderStructure,
@@ -317,6 +348,8 @@ const domManipulation = (function () {
           showProjectRemoveIcon,
           hideProjectRemoveIcon,
           deleteProject,
+          clearContentContainer,
+          displayProjectTasks,
      };
 })();
 

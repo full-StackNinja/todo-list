@@ -1,0 +1,33 @@
+.content-container{
+     padding: 50rem;
+     display: flex;
+     flex-direction: column;
+     gap: 5rem;
+}
+
+.content-container .project-heading{
+     font-size: x-large;
+     font-weight: bold;
+     margin-bottom: 20rem;
+}
+.content-container > :nth-child(n+2){
+     border: 1rem solid #ccc;
+     width:fit-content;
+     padding: 5rem 10rem;
+     border-radius: 5rem;
+}
+
+.add-task {
+     display: flex;
+     /* justify-content: left; */
+     align-items: center;
+}
+
+.add-task:hover{
+     background-color: #ccc;
+     cursor: pointer;
+}
+
+.add-task > .add-task-icon{
+     width: 24rem;
+}

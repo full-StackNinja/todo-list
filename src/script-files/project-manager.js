@@ -12,7 +12,14 @@ const projectManager = (function () {
           }
      };
 
-     return { saveProject, deleteProjectFromList };
+     const getProjectName = function (projectId) {
+          for (let project of projectsList) {
+               if (project.id === projectId) {
+                    return project.value
+               };
+          }
+     };
+     return { saveProject, deleteProjectFromList, getProjectName };
 })();
 
 export default projectManager;
