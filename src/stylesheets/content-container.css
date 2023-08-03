@@ -1,33 +1,95 @@
-.content-container{
+.content-container {
      padding: 50rem;
      display: flex;
      flex-direction: column;
      gap: 5rem;
 }
 
-.content-container .project-heading{
+.content-container .project-heading {
      font-size: x-large;
      font-weight: bold;
      margin-bottom: 20rem;
 }
-.content-container > :nth-child(n+2){
+.content-container > :nth-child(n + 2) {
      border: 1rem solid #ccc;
-     width:fit-content;
+     width: fit-content;
      padding: 5rem 10rem;
      border-radius: 5rem;
 }
 
 .add-task {
      display: flex;
-     /* justify-content: left; */
      align-items: center;
+     position: relative;
+     pointer-events: all;
 }
 
-.add-task:hover{
+.add-task > :nth-child(n) {
+     pointer-events: none;
+}
+
+.add-task:hover {
      background-color: #ccc;
      cursor: pointer;
 }
 
-.add-task > .add-task-icon{
+.add-task > .add-task-icon {
      width: 24rem;
+     pointer-events: none;
+}
+
+.task-form {
+     display: flex;
+     padding: 10rem;
+     flex-direction: column;
+     gap: 5rem;
+     position: relative;
+     z-index: 1;
+     max-width: 300rem;
+     /* background-color: #e2e8f0; */
+     top: -10rem;
+     left: -10rem;
+     border: 1px solid #ccc;
+     border-radius: 10rem;
+}
+
+.task-form #title {
+     display: block;
+     height: 24rem;
+     border: none;
+     border-radius: 5rem;
+}
+
+.task-form #title:focus,
+.task-form #description:focus {
+     outline: none;
+}
+
+.task-form #description {
+     display: block;
+     height: 24rem;
+     border: none;
+     border-radius: 5rem;
+}
+
+.task-form #due-date {
+     display: block;
+     height: 24rem;
+     border-radius: 5rem;
+     border: none;
+}
+
+.task-form .task-btns {
+     align-self: flex-end;
+     display: flex;
+     gap: 10rem;
+}
+
+.task-form .add-task-btn,
+.task-form .cancel-task-btn {
+     display: inline-block;
+     border: 1px solid #ccc;
+     border-radius: 5rem;
+     width: 70rem;
+     padding: 5rem 10rem;
 }

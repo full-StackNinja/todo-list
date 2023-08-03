@@ -187,13 +187,13 @@ input {
      align-items: center;
 }
 
-input#new-project {
+.project-name-field {
      display: block;
      height: 30rem;
      outline: none;
      border: none;
      border-radius: 5rem;
-}
+} 
 
 .project-btns {
      display: flex;
@@ -238,12 +238,8 @@ input#new-project {
 }
 
 .project-last-icon {
-     /* opacity: 0; */
+     opacity: 0;
 }
-
-/* .new-project-container :hover{
-     opacity: 1;
-} */
 
 .show-remove-icon {
      opacity: 1;

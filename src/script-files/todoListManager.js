@@ -1,24 +1,26 @@
 const todoListManager = (function () {
      const projectList = {};
-     const addProject = function (projectName) {
-          projectList[projectName] = [];
+     const addProject = function (projectId) {
+          projectList[projectId] = [];
+          console.log("Project Id", projectList);
      };
 
-     const deleteProject = function (projectName) {
-          delete projectList[projectName];
+     const deleteProject = function (projectId) {
+          delete projectList[projectId];
      };
-     const getTaskList = function (projectName) {
-          return projectList.projectName;
-     };
-
-     const addProjectTask = function (projectName, taskData) {
-          projectList[projectName].push(taskData);
+     const getTaskList = function (projectId) {
+          console.log("taskList", projectList[projectId]);
+          return projectList[projectId];
      };
 
-     const deleteProjectTask = function (projectName, taskId) {
-          for (let task of projectList[projectName]) {
+     const addProjectTask = function (projectId, taskData) {
+          projectList[projectId].push(taskData);
+     };
+
+     const deleteProjectTask = function (projectId, taskId) {
+          for (let task of projectList[projectId]) {
                if (task.id === taskId) {
-                    projectList[projectName].splice(task, 1);
+                    projectList[projectId].splice(task, 1);
                }
           }
      };

@@ -185,16 +185,6 @@ const domManipulation = (function () {
           });
      };
 
-     // Show addTask form
-     const showAddTaskForm = function () {
-          // TODO - show task form stuff here
-     };
-
-     // Get taskForm data
-
-     const getTaskFormData = function () {
-          // TODO - related stuff here
-     };
      // Count total projects
      let projectCount = 0;
      const showProjectForm = function () {
@@ -211,6 +201,7 @@ const domManipulation = (function () {
           projectName.id = `${projectCount++}`;
           projectName.classList.add("project-name-field");
           projectName.placeholder = "Project Name";
+          projectName.required = true;
 
           addBtn.type = "submit";
           addBtn.innerHTML = "Add";
@@ -241,6 +232,7 @@ const domManipulation = (function () {
           projectData.name = projectName.name;
           projectData.id = projectName.id;
           projectData.value = projectName.value;
+          // After getting data remove project Form
           projectsContainer.removeChild(projectsContainer.lastChild);
           return projectData;
      };
@@ -283,22 +275,11 @@ const domManipulation = (function () {
      };
 
      const showProjectRemoveIcon = function (event) {
-          // const newProjectContainer = document.querySelector(".new-project-container");
-          console.log("onmouseover: ", event.target);
-          // console.log("relatedtarget:", event.relatedTarget)
-          // if (event.target === newProjectContainer) {
-          const removeIcon = document.querySelector(".project-last-icon");
-          removeIcon.classList.toggle("show-remove-icon");
-          // }
+          event.target.lastChild.classList.add("show-remove-icon");
      };
 
      const hideProjectRemoveIcon = function (event) {
-          // console.log("onmouseover relatedtarget: ", event.relatedTarget);
-          // const newProjectContainer = document.querySelector(".new-project-container");
-          // if (event.relatedTarget === newProjectContainer) {
-          const removeIcon = document.querySelector(".project-last-icon");
-          removeIcon.classList.toggle("show-remove-icon");
-          // }
+          event.target.lastChild.classList.remove("show-remove-icon");
      };
 
      const deleteProject = function (event) {
@@ -312,27 +293,128 @@ const domManipulation = (function () {
                contentContainer.removeChild(contentContainer.lastChild);
           }
      };
-     // TODO... Display respective project tasks in the content area
-     const displayProjectTasks = function (projectName, projectTaskList) {
+
+     // TODO... Create task element from task object
+     const getShortTaskDetail = function (task) {
+          const taskContainer = document.createElement("div");
+          const title = document.createElement("p");
+          const description = document.createElement("p");
+          const dueDate = document.createElement("p");
+
+          title.innerHTML = task.title;
+          description.innerHTML = task.description;
+          dueDate.innerHTML = "due date: " + task.dueDate;
+
+          taskContainer.id = task.taskId;
+          taskContainer.setAttribute("data-project-name", task.projectName);
+
+          taskContainer.append(title, description, dueDate);
+          return taskContainer;
+     };
+
+     let taskId = 0;
+     // Todo... Show task form
+     const showTaskForm = function (event) {
           const contentContainer = document.querySelector(".content-container");
 
-          const projectHeading = document.createElement("div");
+          const taskForm = document.createElement("form");
+          const title = document.createElement("input");
+          const description = document.createElement("input");
+          const dueDate = document.createElement("input");
+          const addBtn = document.createElement("button");
+          const cancelBtn = document.createElement("button");
+          const taskBtns = document.createElement("div");
+
+          taskForm.classList.add("task-form");
+          taskForm.id = `${++taskId}`;
+          title.name = "title";
+          title.id = "title";
+          title.title = "Enter task title";
+          title.placeholder = "Title";
+          description.name = "desctiption";
+          description.id = "description";
+          description.title = "Add short description";
+          description.placeholder = "Description";
+          dueDate.name = "due-date";
+          dueDate.id = "due-date";
+
+          title.required = true;
+          dueDate.required = true;
+
+          addBtn.innerHTML = "Add";
+          cancelBtn.innerHTML = "Cancel";
+          addBtn.type = "submit";
+          cancelBtn.type = "reset";
+          taskBtns.classList.add("task-btns");
+          addBtn.classList.add("add-task-btn");
+          cancelBtn.classList.add("cancel-task-btn");
+
+          taskBtns.append(cancelBtn, addBtn);
+          taskForm.append(title, description, dueDate, taskBtns);
+
+          // Remove "Add task" element to add taskForm in place of that
+          contentContainer.removeChild(contentContainer.lastChild);
+          contentContainer.appendChild(taskForm);
+     };
+
+     // Todo... get task data on user submit of the form
+     const getTaskData = function (event) {
+          const contentContainer = document.querySelector(".content-container");
+          const taskForm = document.querySelector(".task-form");
+          const projectHeading = document.querySelector(".project-heading");
+
+          const taskData = {};
+          taskData.title = taskForm.elements["title"].value;
+          taskData.description = taskForm.elements["description"].value;
+          taskData.dueDate = taskForm.elements["due-date"].value;
+          taskData.taskId = taskForm.id;
+          taskData.projectName = projectHeading.innerHTML;
+
+          // Now delete form and append "add task" element at the end
+          contentContainer.removeChild(taskForm);
+          contentContainer.appendChild(getAddTaskElement());
+          return taskData;
+     };
+
+     // todo... Add Task to Dom after user submits task form
+     const addTaskToDom = function (task) {
+          const contentContainer = document.querySelector(".content-container");
+          const taskContainer = getShortTaskDetail(task);
+          contentContainer.insertBefore(taskContainer, contentContainer.lastChild);
+     };
+     const getAddTaskElement = () => {
           const addTask = document.createElement("div");
           const addTaskIcon = new Image();
           const addTaskText = document.createElement("span");
-
-          projectHeading.classList.add("project-heading");
           addTask.classList.add("add-task");
           addTaskIcon.classList.add("add-task-icon");
           addTaskText.classList.add("add-task-text");
 
           addTaskIcon.src = taskPlusIcon;
           addTaskText.innerHTML = "Add Task";
-          projectHeading.innerHTML = projectName;
-
           addTask.append(addTaskIcon, addTaskText);
+          return addTask;
+     };
+     // TODO... Display respective project tasks in the content area
+     const displayProjectTasks = function (projectName, projectTaskList) {
+          const contentContainer = document.querySelector(".content-container");
 
-          contentContainer.append(projectHeading, addTask);
+          // Create required elements for every project display
+          const projectHeading = document.createElement("div");
+          projectHeading.classList.add("project-heading");
+          projectHeading.innerHTML = projectName;
+          contentContainer.appendChild(projectHeading);
+
+          // Now loop through tasks list and display them one by one.
+
+          if (projectTaskList.length) {
+               for (let task of projectTaskList) {
+                    const taskContainer = getShortTaskDetail(task);
+                    contentContainer.appendChild(taskContainer);
+               }
+          }
+
+          contentContainer.appendChild(getAddTaskElement());
      };
      return {
           setPageStructure,
@@ -350,6 +432,9 @@ const domManipulation = (function () {
           deleteProject,
           clearContentContainer,
           displayProjectTasks,
+          showTaskForm,
+          getTaskData,
+          addTaskToDom,
      };
 })();
 
