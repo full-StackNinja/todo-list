@@ -294,21 +294,40 @@ const domManipulation = (function () {
           }
      };
 
+     const truncateText = (text, charLimit) => {
+          if (text.length <= charLimit) return text;
+          else return text.slice(0, charLimit) + "...";
+     };
      // TODO... Create task element from task object
      const getShortTaskDetail = function (task) {
           const taskContainer = document.createElement("div");
           const title = document.createElement("p");
           const description = document.createElement("p");
-          const dueDate = document.createElement("p");
-
+          const dueDate = document.createElement("input");
+          const dateLabel = document.createElement("label");
+          const dateContainer = document.createElement("div");
+          const charLimit = 60;
           title.innerHTML = task.title;
-          description.innerHTML = task.description;
-          dueDate.innerHTML = "due date: " + task.dueDate;
+          description.innerHTML = truncateText(task.description, charLimit);
 
+          dateContainer.classList.add("date-container");
+          dateLabel.setAttribute("for", "due-date");
+          dateLabel.innerHTML = "due date:  ";
+          dueDate.type = "date";
+          dueDate.id = "due-date";
+          dueDate.name = "due-date";
+          dueDate.value = task.dueDate;
+
+          title.classList.add("task-title");
+          description.classList.add("task-description");
+          dueDate.classList.add("task-due-date");
           taskContainer.id = task.taskId;
           taskContainer.setAttribute("data-project-name", task.projectName);
+          taskContainer.setAttribute("data-project-id", task.projectId);
+          taskContainer.classList.add("task-container");
 
-          taskContainer.append(title, description, dueDate);
+          dateContainer.append(dateLabel, dueDate);
+          taskContainer.append(title, description, dateContainer);
           return taskContainer;
      };
 
@@ -320,10 +339,13 @@ const domManipulation = (function () {
           const taskForm = document.createElement("form");
           const title = document.createElement("input");
           const description = document.createElement("input");
-          const dueDate = document.createElement("input");
+
           const addBtn = document.createElement("button");
           const cancelBtn = document.createElement("button");
           const taskBtns = document.createElement("div");
+          const dateContainer = document.createElement("div");
+          const dueDateLabel = document.createElement("label");
+          const dueDate = document.createElement("input");
 
           taskForm.classList.add("task-form");
           taskForm.id = `${++taskId}`;
@@ -335,6 +357,11 @@ const domManipulation = (function () {
           description.id = "description";
           description.title = "Add short description";
           description.placeholder = "Description";
+
+          dateContainer.classList.add("date-container");
+          dueDateLabel.setAttribute("for", "due-date");
+          dueDateLabel.innerHTML = "due date:";
+          dueDate.type = "date";
           dueDate.name = "due-date";
           dueDate.id = "due-date";
 
@@ -349,8 +376,9 @@ const domManipulation = (function () {
           addBtn.classList.add("add-task-btn");
           cancelBtn.classList.add("cancel-task-btn");
 
+          dateContainer.append(dueDateLabel, dueDate);
           taskBtns.append(cancelBtn, addBtn);
-          taskForm.append(title, description, dueDate, taskBtns);
+          taskForm.append(title, description, dateContainer, taskBtns);
 
           // Remove "Add task" element to add taskForm in place of that
           contentContainer.removeChild(contentContainer.lastChild);
@@ -358,7 +386,7 @@ const domManipulation = (function () {
      };
 
      // Todo... get task data on user submit of the form
-     const getTaskData = function (event) {
+     const getTaskData = function () {
           const contentContainer = document.querySelector(".content-container");
           const taskForm = document.querySelector(".task-form");
           const projectHeading = document.querySelector(".project-heading");
@@ -368,7 +396,8 @@ const domManipulation = (function () {
           taskData.description = taskForm.elements["description"].value;
           taskData.dueDate = taskForm.elements["due-date"].value;
           taskData.taskId = taskForm.id;
-          taskData.projectName = projectHeading.innerHTML;
+          taskData.projectId = projectHeading.getAttribute("data-project-id");
+          taskData.projectName = projectHeading.getAttribute("data-project-name");
 
           // Now delete form and append "add task" element at the end
           contentContainer.removeChild(taskForm);
@@ -396,12 +425,14 @@ const domManipulation = (function () {
           return addTask;
      };
      // TODO... Display respective project tasks in the content area
-     const displayProjectTasks = function (projectName, projectTaskList) {
+     const displayProjectTasks = function (projectName, projectId, projectTaskList) {
           const contentContainer = document.querySelector(".content-container");
 
           // Create required elements for every project display
           const projectHeading = document.createElement("div");
           projectHeading.classList.add("project-heading");
+          projectHeading.setAttribute("data-project-id", projectId);
+          projectHeading.setAttribute("data-project-name", projectName);
           projectHeading.innerHTML = projectName;
           contentContainer.appendChild(projectHeading);
 

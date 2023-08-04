@@ -2,7 +2,8 @@
      padding: 50rem;
      display: flex;
      flex-direction: column;
-     gap: 5rem;
+     gap: 24rem;
+     border-left: 5rem;
 }
 
 .content-container .project-heading {
@@ -10,18 +11,14 @@
      font-weight: bold;
      margin-bottom: 20rem;
 }
-.content-container > :nth-child(n + 2) {
-     border: 1rem solid #ccc;
-     width: fit-content;
-     padding: 5rem 10rem;
-     border-radius: 5rem;
-}
 
 .add-task {
      display: flex;
      align-items: center;
      position: relative;
-     pointer-events: all;
+     width: fit-content;
+     padding: 5rem 10rem;
+     border-radius: 5rem;
 }
 
 .add-task > :nth-child(n) {
@@ -35,18 +32,17 @@
 
 .add-task > .add-task-icon {
      width: 24rem;
-     pointer-events: none;
 }
 
 .task-form {
      display: flex;
      padding: 10rem;
      flex-direction: column;
-     gap: 5rem;
+     gap: 10rem;
      position: relative;
      z-index: 1;
-     max-width: 300rem;
-     /* background-color: #e2e8f0; */
+     max-width: 350rem;
+     color: #64748b;
      top: -10rem;
      left: -10rem;
      border: 1px solid #ccc;
@@ -54,6 +50,8 @@
 }
 
 .task-form #title {
+     font-weight:bold;
+     color: #334155;
      display: block;
      height: 24rem;
      border: none;
@@ -69,20 +67,32 @@
      display: block;
      height: 24rem;
      border: none;
+     color: #64748b;
      border-radius: 5rem;
+}
+
+.task-form label{
+     display: inline-block;
+     margin-right: 5rem;
 }
 
 .task-form #due-date {
-     display: block;
-     height: 24rem;
+
      border-radius: 5rem;
-     border: none;
+     border: 1px solid #ccc;
+     outline: none;
+     color: #64748b;
+     width: 130rem;
+     padding: 5rem;
 }
 
+.task-form #due-date:hover{
+     outline: none;
+}
 .task-form .task-btns {
      align-self: flex-end;
      display: flex;
-     gap: 10rem;
+     gap: 5rem;
 }
 
 .task-form .add-task-btn,
@@ -92,4 +102,37 @@
      border-radius: 5rem;
      width: 70rem;
      padding: 5rem 10rem;
+}
+
+.add-task-btn:hover, .cancel-task-btn:hover{
+     background-color: #ccc;
+     color: #334155;
+}
+
+.task-container{
+     width: 500rem;
+     flex: 0 1 0;
+     gap: 10rem;
+     border-radius: 10rem;
+     padding: 5rem 10rem;
+     border-left: 10rem solid #64748b;
+     border-right: 1rem solid #64748b;
+     border-top: 1rem solid #64748b;
+     border-bottom: 1rem solid #64748b;
+}
+
+.task-container .task-description {
+     margin: 10rem 0;
+}
+.task-container #due-date{
+     border-radius: 5rem;
+     border: 1px solid #ccc;
+     outline: none;
+     width: 130rem;
+     padding: 5rem;
+
+}
+
+.task-title{
+     font-weight: bold
 }

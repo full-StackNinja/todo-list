@@ -90,7 +90,7 @@ projectsContainer.addEventListener("click", (event) => {
           domManipulation.clearContentContainer();
 
           // Then display project tasks in content area
-          domManipulation.displayProjectTasks(projectName, projectTaskList);
+          domManipulation.displayProjectTasks(projectName, projectId, projectTaskList);
      }
 });
 
@@ -116,7 +116,8 @@ contentContainer.addEventListener("click", (event) => {
 contentContainer.addEventListener("submit", (event) => {
      if (event.target.matches(".task-form")) {
           event.preventDefault();
-          const taskData = domManipulation.getTaskData()
-          domManipulation.addTaskToDom(taskData)
+          const taskData = domManipulation.getTaskData();
+          domManipulation.addTaskToDom(taskData);
+          todoListManager.addProjectTask(taskData);
      }
 });
