@@ -25,7 +25,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      padding: 50rem;
      display: flex;
      flex-direction: column;
-     gap: 5rem;
+     gap: 24rem;
+     border-left: 5rem;
 }
 
 .content-container .project-heading {
@@ -33,18 +34,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      font-weight: bold;
      margin-bottom: 20rem;
 }
-.content-container > :nth-child(n + 2) {
-     border: 1rem solid #ccc;
-     width: fit-content;
-     padding: 5rem 10rem;
-     border-radius: 5rem;
-}
 
 .add-task {
      display: flex;
      align-items: center;
      position: relative;
-     pointer-events: all;
+     width: fit-content;
+     padding: 5rem 10rem;
+     border-radius: 5rem;
 }
 
 .add-task > :nth-child(n) {
@@ -58,7 +55,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
 
 .add-task > .add-task-icon {
      width: 24rem;
-     pointer-events: none;
 }
 
 .task-form {
@@ -69,7 +65,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      position: relative;
      z-index: 1;
      max-width: 300rem;
-     /* background-color: #e2e8f0; */
+     color: #64748b;
      top: -10rem;
      left: -10rem;
      border: 1px solid #ccc;
@@ -77,6 +73,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
 }
 
 .task-form #title {
+     font-weight:bold;
+     color: #64748b;
      display: block;
      height: 24rem;
      border: none;
@@ -92,6 +90,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      display: block;
      height: 24rem;
      border: none;
+     color: #64748b;
      border-radius: 5rem;
 }
 
@@ -100,6 +99,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      height: 24rem;
      border-radius: 5rem;
      border: none;
+     color: #64748b;
 }
 
 .task-form .task-btns {
@@ -116,7 +116,21 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      width: 70rem;
      padding: 5rem 10rem;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/content-container.css"],"names":[],"mappings":"AAAA;KACK,cAAc;KACd,aAAa;KACb,sBAAsB;KACtB,SAAS;AACd;;AAEA;KACK,kBAAkB;KAClB,iBAAiB;KACjB,oBAAoB;AACzB;AACA;KACK,uBAAuB;KACvB,kBAAkB;KAClB,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,kBAAkB;KAClB,mBAAmB;AACxB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,YAAY;KACZ,oBAAoB;AACzB;;AAEA;KACK,aAAa;KACb,cAAc;KACd,sBAAsB;KACtB,SAAS;KACT,kBAAkB;KAClB,UAAU;KACV,iBAAiB;KACjB,+BAA+B;KAC/B,WAAW;KACX,YAAY;KACZ,sBAAsB;KACtB,oBAAoB;AACzB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,aAAa;AAClB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,mBAAmB;KACnB,YAAY;AACjB;;AAEA;KACK,oBAAoB;KACpB,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB","sourcesContent":[".content-container {\n     padding: 50rem;\n     display: flex;\n     flex-direction: column;\n     gap: 5rem;\n}\n\n.content-container .project-heading {\n     font-size: x-large;\n     font-weight: bold;\n     margin-bottom: 20rem;\n}\n.content-container > :nth-child(n + 2) {\n     border: 1rem solid #ccc;\n     width: fit-content;\n     padding: 5rem 10rem;\n     border-radius: 5rem;\n}\n\n.add-task {\n     display: flex;\n     align-items: center;\n     position: relative;\n     pointer-events: all;\n}\n\n.add-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.add-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.add-task > .add-task-icon {\n     width: 24rem;\n     pointer-events: none;\n}\n\n.task-form {\n     display: flex;\n     padding: 10rem;\n     flex-direction: column;\n     gap: 5rem;\n     position: relative;\n     z-index: 1;\n     max-width: 300rem;\n     /* background-color: #e2e8f0; */\n     top: -10rem;\n     left: -10rem;\n     border: 1px solid #ccc;\n     border-radius: 10rem;\n}\n\n.task-form #title {\n     display: block;\n     height: 24rem;\n     border: none;\n     border-radius: 5rem;\n}\n\n.task-form #title:focus,\n.task-form #description:focus {\n     outline: none;\n}\n\n.task-form #description {\n     display: block;\n     height: 24rem;\n     border: none;\n     border-radius: 5rem;\n}\n\n.task-form #due-date {\n     display: block;\n     height: 24rem;\n     border-radius: 5rem;\n     border: none;\n}\n\n.task-form .task-btns {\n     align-self: flex-end;\n     display: flex;\n     gap: 10rem;\n}\n\n.task-form .add-task-btn,\n.task-form .cancel-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n"],"sourceRoot":""}]);
+
+.task-container{
+     width: 500rem;
+     flex: 0 1 0;
+     border-radius: 10rem;
+     padding: 5rem 10rem;
+     border-left: 10rem solid #64748b;
+     border-right: 1rem solid #64748b;
+     border-top: 1rem solid #64748b;
+     border-bottom: 1rem solid #64748b;
+}
+
+.task-title{
+     font-weight: bold
+}`, "",{"version":3,"sources":["webpack://./src/stylesheets/content-container.css"],"names":[],"mappings":"AAAA;KACK,cAAc;KACd,aAAa;KACb,sBAAsB;KACtB,UAAU;KACV,iBAAiB;AACtB;;AAEA;KACK,kBAAkB;KAClB,iBAAiB;KACjB,oBAAoB;AACzB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,kBAAkB;KAClB,kBAAkB;KAClB,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,YAAY;AACjB;;AAEA;KACK,aAAa;KACb,cAAc;KACd,sBAAsB;KACtB,SAAS;KACT,kBAAkB;KAClB,UAAU;KACV,iBAAiB;KACjB,cAAc;KACd,WAAW;KACX,YAAY;KACZ,sBAAsB;KACtB,oBAAoB;AACzB;;AAEA;KACK,gBAAgB;KAChB,cAAc;KACd,cAAc;KACd,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,aAAa;AAClB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,YAAY;KACZ,cAAc;KACd,mBAAmB;AACxB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,mBAAmB;KACnB,YAAY;KACZ,cAAc;AACnB;;AAEA;KACK,oBAAoB;KACpB,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,WAAW;KACX,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;AACtC;;AAEA;KACK;AACL","sourcesContent":[".content-container {\n     padding: 50rem;\n     display: flex;\n     flex-direction: column;\n     gap: 24rem;\n     border-left: 5rem;\n}\n\n.content-container .project-heading {\n     font-size: x-large;\n     font-weight: bold;\n     margin-bottom: 20rem;\n}\n\n.add-task {\n     display: flex;\n     align-items: center;\n     position: relative;\n     width: fit-content;\n     padding: 5rem 10rem;\n     border-radius: 5rem;\n}\n\n.add-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.add-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.add-task > .add-task-icon {\n     width: 24rem;\n}\n\n.task-form {\n     display: flex;\n     padding: 10rem;\n     flex-direction: column;\n     gap: 5rem;\n     position: relative;\n     z-index: 1;\n     max-width: 300rem;\n     color: #64748b;\n     top: -10rem;\n     left: -10rem;\n     border: 1px solid #ccc;\n     border-radius: 10rem;\n}\n\n.task-form #title {\n     font-weight:bold;\n     color: #64748b;\n     display: block;\n     height: 24rem;\n     border: none;\n     border-radius: 5rem;\n}\n\n.task-form #title:focus,\n.task-form #description:focus {\n     outline: none;\n}\n\n.task-form #description {\n     display: block;\n     height: 24rem;\n     border: none;\n     color: #64748b;\n     border-radius: 5rem;\n}\n\n.task-form #due-date {\n     display: block;\n     height: 24rem;\n     border-radius: 5rem;\n     border: none;\n     color: #64748b;\n}\n\n.task-form .task-btns {\n     align-self: flex-end;\n     display: flex;\n     gap: 10rem;\n}\n\n.task-form .add-task-btn,\n.task-form .cancel-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.task-container{\n     width: 500rem;\n     flex: 0 1 0;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n}\n\n.task-title{\n     font-weight: bold\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4329,8 +4343,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_sidebar_circle_outline_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/sidebar/circle-outline.svg */ "./src/assets/sidebar/circle-outline.svg");
 /* harmony import */ var _assets_sidebar_close_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/sidebar/close.svg */ "./src/assets/sidebar/close.svg");
 /* harmony import */ var _assets_content_plus_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../assets/content/plus.svg */ "./src/assets/content/plus.svg");
-
-
 // Import required assets for header section
 
 
@@ -4534,7 +4546,7 @@ const domManipulation = (function () {
           projectName.id = `${projectCount++}`;
           projectName.classList.add("project-name-field");
           projectName.placeholder = "Project Name";
-          projectName.required = true
+          projectName.required = true;
 
           addBtn.type = "submit";
           addBtn.innerHTML = "Add";
@@ -4565,6 +4577,7 @@ const domManipulation = (function () {
           projectData.name = projectName.name;
           projectData.id = projectName.id;
           projectData.value = projectName.value;
+          // After getting data remove project Form
           projectsContainer.removeChild(projectsContainer.lastChild);
           return projectData;
      };
@@ -4637,8 +4650,13 @@ const domManipulation = (function () {
           description.innerHTML = task.description;
           dueDate.innerHTML = "due date: " + task.dueDate;
 
+          title.classList.add("task-title");
+          description.classList.add("task-description");
+          dueDate.classList.add("task-due-date");
           taskContainer.id = task.taskId;
           taskContainer.setAttribute("data-project-name", task.projectName);
+          taskContainer.setAttribute("data-project-id", task.projectId)
+          taskContainer.classList.add("task-container");
 
           taskContainer.append(title, description, dueDate);
           return taskContainer;
@@ -4647,65 +4665,97 @@ const domManipulation = (function () {
      let taskId = 0;
      // Todo... Show task form
      const showTaskForm = function (event) {
-          const addTask = document.querySelector(".add-task");
-          const contentContainer = document.querySelector(".content-container")
+          const contentContainer = document.querySelector(".content-container");
+
           const taskForm = document.createElement("form");
           const title = document.createElement("input");
           const description = document.createElement("input");
-          const dueDate = document.createElement("input")
+          const dueDate = document.createElement("input");
           const addBtn = document.createElement("button");
           const cancelBtn = document.createElement("button");
-          const taskBtns = document.createElement('div')
+          const taskBtns = document.createElement("div");
 
           taskForm.classList.add("task-form");
-          taskForm.id = `${++taskId}`
+          taskForm.id = `${++taskId}`;
+          title.name = "title";
           title.id = "title";
-          title.title = "Enter task title"
-          title.placeholder = "Title"
+          title.title = "Enter task title";
+          title.placeholder = "Title";
+          description.name = "desctiption";
           description.id = "description";
-          description.title = "Add short description"
-          description.placeholder = "Description"
-          dueDate.id = "due-date"
+          description.title = "Add short description";
+          description.placeholder = "Description";
+          dueDate.name = "due-date";
+          dueDate.id = "due-date";
 
-          title.required = true
+          title.required = true;
           dueDate.required = true;
 
-          addBtn.innerHTML = "Add"
-          cancelBtn.innerHTML = "Cancel"
-          addBtn.type = "submit"
-          cancelBtn.type = "reset"
-          taskBtns.classList.add('task-btns')
+          addBtn.innerHTML = "Add";
+          cancelBtn.innerHTML = "Cancel";
+          addBtn.type = "submit";
+          cancelBtn.type = "reset";
+          taskBtns.classList.add("task-btns");
           addBtn.classList.add("add-task-btn");
           cancelBtn.classList.add("cancel-task-btn");
 
-          taskBtns.append(cancelBtn, addBtn)
-          taskForm.append(title, description, dueDate, taskBtns)
-          contentContainer.removeChild(contentContainer.lastChild)
-          contentContainer.appendChild(taskForm)
-          
+          taskBtns.append(cancelBtn, addBtn);
+          taskForm.append(title, description, dueDate, taskBtns);
+
+          // Remove "Add task" element to add taskForm in place of that
+          contentContainer.removeChild(contentContainer.lastChild);
+          contentContainer.appendChild(taskForm);
      };
 
-     // TODO... Display respective project tasks in the content area
-     const displayProjectTasks = function (projectName, projectTaskList) {
+     // Todo... get task data on user submit of the form
+     const getTaskData = function (event) {
           const contentContainer = document.querySelector(".content-container");
+          const taskForm = document.querySelector(".task-form");
+          const projectHeading = document.querySelector(".project-heading");
 
-          // Create required elements for every project display
-          const projectHeading = document.createElement("div");
+          const taskData = {};
+          taskData.title = taskForm.elements["title"].value;
+          taskData.description = taskForm.elements["description"].value;
+          taskData.dueDate = taskForm.elements["due-date"].value;
+          taskData.taskId = taskForm.id;
+          taskData.projectId = projectHeading.getAttribute("project-id");
+          taskData.projectName = projectHeading.getAttribute("project-name");
+
+          // Now delete form and append "add task" element at the end
+          contentContainer.removeChild(taskForm);
+          contentContainer.appendChild(getAddTaskElement());
+          return taskData;
+     };
+
+     // todo... Add Task to Dom after user submits task form
+     const addTaskToDom = function (task) {
+          const contentContainer = document.querySelector(".content-container");
+          const taskContainer = getShortTaskDetail(task);
+          contentContainer.insertBefore(taskContainer, contentContainer.lastChild);
+     };
+     const getAddTaskElement = () => {
           const addTask = document.createElement("div");
           const addTaskIcon = new Image();
           const addTaskText = document.createElement("span");
-
-          projectHeading.classList.add("project-heading");
           addTask.classList.add("add-task");
           addTaskIcon.classList.add("add-task-icon");
           addTaskText.classList.add("add-task-text");
 
           addTaskIcon.src = _assets_content_plus_svg__WEBPACK_IMPORTED_MODULE_9__;
           addTaskText.innerHTML = "Add Task";
-          projectHeading.innerHTML = projectName;
-
           addTask.append(addTaskIcon, addTaskText);
+          return addTask;
+     };
+     // TODO... Display respective project tasks in the content area
+     const displayProjectTasks = function (projectName, projectId, projectTaskList) {
+          const contentContainer = document.querySelector(".content-container");
 
+          // Create required elements for every project display
+          const projectHeading = document.createElement("div");
+          projectHeading.classList.add("project-heading");
+          projectHeading.setAttribute("data-project-id", projectId);
+          projectHeading.setAttribute("data-project-name", projectName);
+          projectHeading.innerHTML = projectName;
           contentContainer.appendChild(projectHeading);
 
           // Now loop through tasks list and display them one by one.
@@ -4717,7 +4767,7 @@ const domManipulation = (function () {
                }
           }
 
-          contentContainer.appendChild(addTask);
+          contentContainer.appendChild(getAddTaskElement());
      };
      return {
           setPageStructure,
@@ -4736,6 +4786,8 @@ const domManipulation = (function () {
           clearContentContainer,
           displayProjectTasks,
           showTaskForm,
+          getTaskData,
+          addTaskToDom,
      };
 })();
 
@@ -4808,8 +4860,8 @@ const todoListManager = (function () {
           return projectList[projectId];
      };
 
-     const addProjectTask = function (projectId, taskData) {
-          projectList[projectId].push(taskData);
+     const addProjectTask = function (taskData) {
+          projectList[taskData.projectId].push(taskData);
      };
 
      const deleteProjectTask = function (projectId, taskId) {
@@ -4840,7 +4892,7 @@ const todoListManager = (function () {
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "3cffe9a515498593b872.svg";
+module.exports = __webpack_require__.p + "cb5bd8ae8bb6fcfa9cf0.svg";
 
 /***/ }),
 
@@ -4890,7 +4942,7 @@ module.exports = __webpack_require__.p + "efdab8d30dcc8bfc8e8b.svg";
   \*********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "da1d4548b671a011dfa4.svg";
+module.exports = __webpack_require__.p + "fe0d9404b4673399b71c.svg";
 
 /***/ }),
 
@@ -4900,7 +4952,7 @@ module.exports = __webpack_require__.p + "da1d4548b671a011dfa4.svg";
   \*********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "3490f5eea08639f690a3.svg";
+module.exports = __webpack_require__.p + "1a66970e4081656f4238.svg";
 
 /***/ }),
 
@@ -4910,7 +4962,7 @@ module.exports = __webpack_require__.p + "3490f5eea08639f690a3.svg";
   \***********************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fecdc070e9b39da8fba6.svg";
+module.exports = __webpack_require__.p + "fa4639b10bdc034875ea.svg";
 
 /***/ }),
 
@@ -4920,7 +4972,7 @@ module.exports = __webpack_require__.p + "fecdc070e9b39da8fba6.svg";
   \**************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "97d4c0a10ac97607dc65.svg";
+module.exports = __webpack_require__.p + "39d8074eb2a546d7c499.svg";
 
 /***/ }),
 
@@ -4930,7 +4982,7 @@ module.exports = __webpack_require__.p + "97d4c0a10ac97607dc65.svg";
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "3cffe9a515498593b872.svg";
+module.exports = __webpack_require__.p + "cb5bd8ae8bb6fcfa9cf0.svg";
 
 /***/ }),
 
@@ -5119,13 +5171,15 @@ addProject.addEventListener("click", _dom_manipulation__WEBPACK_IMPORTED_MODULE_
 // get project data for further use when user press "add button"
 const projectsContainer = document.querySelector(".projects-container");
 projectsContainer.addEventListener("submit", (event) => {
-     const projectData = _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].getProjectData(event);
-     // Save project details
-     _project_manager__WEBPACK_IMPORTED_MODULE_6__["default"].saveProject(projectData);
-     // Add project to todo Manager to manage todo list of that project
-     _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].addProject(projectData.id);
-     // Also display project name to DOM
-     _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].addProjectToDom(projectData);
+     if (event.target.matches(".project-form")) {
+          const projectData = _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].getProjectData(event);
+          // Save project details
+          _project_manager__WEBPACK_IMPORTED_MODULE_6__["default"].saveProject(projectData);
+          // Add project to todo Manager to manage todo list of that project
+          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].addProject(projectData.id);
+          // Also display project name to DOM
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].addProjectToDom(projectData);
+     }
 });
 
 // Show project delete icon on mouseover
@@ -5170,7 +5224,7 @@ projectsContainer.addEventListener("click", (event) => {
           _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].clearContentContainer();
 
           // Then display project tasks in content area
-          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].displayProjectTasks(projectName, projectTaskList);
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].displayProjectTasks(projectName, projectId, projectTaskList);
      }
 });
 
@@ -5184,12 +5238,21 @@ projectsContainer.addEventListener("change", (event) => {
      }
 });
 
-// TODO... Show task form in respective project on user click on "Add Task" element
+// TODO... Show task form in respective project when user clicks on "Add Task" element
 const contentContainer = document.querySelector(".content-container");
 contentContainer.addEventListener("click", (event) => {
      if (event.target.matches(".add-task")) {
-          console.log(event.target)
           _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].showTaskForm(event);
+     }
+});
+
+// Todo... get data from task form when user clicks on add button...
+contentContainer.addEventListener("submit", (event) => {
+     if (event.target.matches(".task-form")) {
+          event.preventDefault();
+          const taskData = _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].getTaskData();
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].addTaskToDom(taskData);
+          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].addProjectTask(taskData);
      }
 });
 
