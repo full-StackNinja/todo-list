@@ -84,6 +84,7 @@
      color: #64748b;
      width: 130rem;
      padding: 5rem;
+     cursor: pointer;
 }
 
 .task-form #due-date:hover{
@@ -130,6 +131,7 @@
      outline: none;
      width: 130rem;
      padding: 5rem;
+     cursor: pointer;
 
 }
 

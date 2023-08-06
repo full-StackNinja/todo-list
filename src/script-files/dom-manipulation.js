@@ -185,8 +185,10 @@ const domManipulation = (function () {
           });
      };
 
-     // Count total projects
-     let projectCount = 0;
+     let projectId;
+     const setProjectId = function (previousMaxId) {
+          projectId = previousMaxId;
+     };
      const showProjectForm = function () {
           const projectsContainer = document.querySelector(".projects-container");
 
@@ -198,7 +200,7 @@ const domManipulation = (function () {
 
           projectName.type = "text";
           projectName.name = `new-project`;
-          projectName.id = `${projectCount++}`;
+          projectName.id = `${++projectId}`;
           projectName.classList.add("project-name-field");
           projectName.placeholder = "Project Name";
           projectName.required = true;
@@ -232,6 +234,7 @@ const domManipulation = (function () {
           projectData.name = projectName.name;
           projectData.id = projectName.id;
           projectData.value = projectName.value;
+
           // After getting data remove project Form
           projectsContainer.removeChild(projectsContainer.lastChild);
           return projectData;
@@ -264,6 +267,12 @@ const domManipulation = (function () {
           newProjectContainer.append(projectIcon, newProject, removeProject);
 
           projectsContainer.appendChild(newProjectContainer);
+     };
+
+     const displayProjectsToDom = function (projectsList) {
+          for (let project of projectsList) {
+               addProjectToDom(project);
+          }
      };
 
      const cancelProject = function (event) {
@@ -331,9 +340,12 @@ const domManipulation = (function () {
           return taskContainer;
      };
 
-     let taskId = 0;
+     let taskId;
+     const setTaskId = function (previousTaskId) {
+          taskId = previousTaskId;
+     };
      // Todo... Show task form
-     const showTaskForm = function (event) {
+     const showTaskForm = function () {
           const contentContainer = document.querySelector(".content-container");
 
           const taskForm = document.createElement("form");
@@ -411,6 +423,15 @@ const domManipulation = (function () {
           const taskContainer = getShortTaskDetail(task);
           contentContainer.insertBefore(taskContainer, contentContainer.lastChild);
      };
+
+     // todo... cancel task form on user click on cancel btn
+     const cancelTaskForm = function () {
+          const contentContainer = document.querySelector(".content-container");
+          contentContainer.removeChild(contentContainer.lastChild);
+
+          // Add 'Add task' element at the end
+          contentContainer.appendChild(getAddTaskElement());
+     };
      const getAddTaskElement = () => {
           const addTask = document.createElement("div");
           const addTaskIcon = new Image();
@@ -428,7 +449,7 @@ const domManipulation = (function () {
      const displayProjectTasks = function (projectName, projectId, projectTaskList) {
           const contentContainer = document.querySelector(".content-container");
 
-          // Create required elements for every project display
+          // Display Project name on top of project tasks
           const projectHeading = document.createElement("div");
           projectHeading.classList.add("project-heading");
           projectHeading.setAttribute("data-project-id", projectId);
@@ -466,6 +487,11 @@ const domManipulation = (function () {
           showTaskForm,
           getTaskData,
           addTaskToDom,
+          cancelTaskForm,
+          setProjectId,
+          displayProjectsToDom,
+          setTaskId
+
      };
 })();
 

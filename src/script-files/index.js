@@ -20,6 +20,21 @@ domManipulation.setHeaderStructure();
 // Add sidebar items
 domManipulation.setSidebarStructure();
 
+// TODO... If projects already created then load them and display them in projects area
+if (JSON.parse(localStorage.getItem("projectsList"))) {
+     const projectsList = projectManager.geProjectsList();
+     // get max project Id
+     let projectId = 0;
+     for (let project of projectsList) {
+          if (Number(project.id) > projectId) {
+               projectId = Number(project.id);
+          }
+     }
+     domManipulation.setProjectId(projectId);
+     // Now display already created projects to DOM
+     domManipulation.displayProjectsToDom(projectsList);
+}
+
 // Toggle sidebar container on menu icon click
 const menuIcon = document.querySelector(".menu-item");
 menuIcon.onclick = domManipulation.toggleSidebar;
@@ -85,6 +100,14 @@ projectsContainer.addEventListener("click", (event) => {
           const projectId = event.target.id;
           const projectName = projectManager.getProjectName(projectId);
           const projectTaskList = todoListManager.getTaskList(projectId);
+          console.log(projectTaskList);
+          let taskId = 0;
+          if (projectTaskList.length) {
+               for (let task of projectTaskList) {
+                    if (Number(task.taskId) > taskId) taskId = Number(task.taskId);
+               }
+          }
+          domManipulation.setTaskId(taskId);
 
           // First clear the content container from any previous content
           domManipulation.clearContentContainer();
@@ -94,30 +117,48 @@ projectsContainer.addEventListener("click", (event) => {
      }
 });
 
-// todo... Add event listener to allow user set due date for task...
-projectsContainer.addEventListener("change", (event) => {
-     if (event.target.matches("#due-date")) {
-          const dueDate = document.querySelector("#due-date");
-          const selectedDate = new Date(dueDate.value);
-          const formatedDate = format(selectedDate);
-          dueDate.value = formatedDate;
-     }
-});
-
 // TODO... Show task form in respective project when user clicks on "Add Task" element
 const contentContainer = document.querySelector(".content-container");
 contentContainer.addEventListener("click", (event) => {
      if (event.target.matches(".add-task")) {
-          domManipulation.showTaskForm(event);
+          domManipulation.showTaskForm();
      }
 });
 
-// Todo... get data from task form when user clicks on add button...
+// Todo... get data from task form when user clicks on add button and then display to DOM
 contentContainer.addEventListener("submit", (event) => {
      if (event.target.matches(".task-form")) {
           event.preventDefault();
           const taskData = domManipulation.getTaskData();
           domManipulation.addTaskToDom(taskData);
           todoListManager.addProjectTask(taskData);
+     }
+});
+
+// TODO... Cancel task when user clicks cancel btn on task form
+contentContainer.addEventListener("reset", (event) => {
+     if (event.target.matches(".task-form")) {
+          domManipulation.cancelTaskForm();
+     }
+});
+
+// TODO... update due date when user clicks on due date on respective task
+contentContainer.addEventListener("change", (event) => {
+     if (event.target.matches(".task-due-date")) {
+          const newDate = event.target.value;
+          console.log('newDate', newDate)
+          const projectId = event.target.parentNode.parentNode.getAttribute("data-project-id");
+          const taskId = (event.target.parentNode.parentNode.id);
+
+          console.log("taskId", taskId);
+          console.log("projectId", projectId);
+          const taskList = todoListManager.getTaskList(projectId);
+          console.log(taskList);
+          for (let task of taskList) {
+               if (task.taskId === taskId) {
+                    task.dueDate = newDate;
+               }
+          }
+          console.log(taskList);
      }
 });
