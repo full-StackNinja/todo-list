@@ -30,6 +30,9 @@ const todoListManager = (function () {
           return projectTaskList[projectId];
      };
 
+     const getprojectTaskList = function () {
+          return projectTaskList
+     }
      const addProjectTask = function (taskData) {
           projectTaskList[taskData.projectId].push(taskData);
           updateLocalStorage(projectTaskList)
@@ -51,6 +54,7 @@ const todoListManager = (function () {
           deleteProjectTask,
           addProjectTask,
           getTaskList,
+          getprojectTaskList,
      };
 })();
 

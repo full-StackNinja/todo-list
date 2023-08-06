@@ -117,6 +117,10 @@ input {
      left: -100%;
 }
 
+.today-task > :nth-child(n) {
+     pointer-events: none;
+}
+
 .sidebar-container .projects-container {
      margin-top: 40rem;
 }
@@ -154,12 +158,11 @@ input {
      background-color: #ccc;
 }
 
-
 .projects-container {
      flex-direction: column;
 }
 
-.projects-container > :nth-child(n){
+.projects-container > :nth-child(n) {
      padding: 5rem;
      border-radius: 5rem;
 }
@@ -169,7 +172,7 @@ input {
      background-color: #ccc;
 }
 
-.projects-container > :nth-child(n):not(.project-form){
+.projects-container > :nth-child(n):not(.project-form) {
      cursor: pointer;
 }
 
@@ -196,7 +199,7 @@ input {
      outline: none;
      border: none;
      border-radius: 5rem;
-} 
+}
 
 .project-btns {
      display: flex;
@@ -224,7 +227,7 @@ input {
      align-items: center;
 }
 
-.project-name-field{
+.project-name-field {
      width: 100%;
 }
 

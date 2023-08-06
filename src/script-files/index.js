@@ -142,23 +142,45 @@ contentContainer.addEventListener("reset", (event) => {
      }
 });
 
-// TODO... update due date when user clicks on due date on respective task
+// Update due date when user clicks on due date on respective task
 contentContainer.addEventListener("change", (event) => {
      if (event.target.matches(".task-due-date")) {
           const newDate = event.target.value;
-          console.log('newDate', newDate)
           const projectId = event.target.parentNode.parentNode.getAttribute("data-project-id");
-          const taskId = (event.target.parentNode.parentNode.id);
-
-          console.log("taskId", taskId);
-          console.log("projectId", projectId);
+          const taskId = git(event.target.parentNode.parentNode.id);
           const taskList = todoListManager.getTaskList(projectId);
-          console.log(taskList);
+
+          // find task to update it's dueDate
           for (let task of taskList) {
                if (task.taskId === taskId) {
                     task.dueDate = newDate;
                }
           }
-          console.log(taskList);
+     }
+});
+
+// TODO... Add tasks to today project which fall in today's date
+const todayTask = document.querySelector(".today-task");
+todayTask.addEventListener("click", (e) => {
+     if (e.target.matches(".today-task")) {
+          const todayDate = new Date().toDateString();
+          const todayTaskList = [];
+          const projectTaskObject = todoListManager.getprojectTaskList();
+          const projectTaskList = Object.values(projectTaskObject);
+
+          for (let projectTasks of projectTaskList) {
+               for (let task of projectTasks) {
+                    let date = new Date(task.dueDate);
+                    date = date.toDateString();
+                    // console.log((new Date(task.dueDate)).toDateString())
+                    if (date === todayDate) {
+                         todayTaskList.push(task);
+                    }
+               }
+          }
+          // First clear content area if already filled
+          domManipulation.clearContentContainer();
+          // Then display today's tasks
+          domManipulation.displayTodaysTask(todayTaskList);
      }
 });

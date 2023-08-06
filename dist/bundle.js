@@ -1801,7 +1801,7 @@ const domManipulation = (function () {
           });
      };
 
-     let projectId = 0;
+     let projectId;
      const setProjectId = function (previousMaxId) {
           projectId = previousMaxId;
      };
@@ -1887,7 +1887,6 @@ const domManipulation = (function () {
 
      const displayProjectsToDom = function (projectsList) {
           for (let project of projectsList) {
-               console.log('project', project)
                addProjectToDom(project);
           }
      };
@@ -1957,7 +1956,10 @@ const domManipulation = (function () {
           return taskContainer;
      };
 
-     let taskId = 0;
+     let taskId;
+     const setTaskId = function (previousTaskId) {
+          taskId = previousTaskId;
+     };
      // Todo... Show task form
      const showTaskForm = function () {
           const contentContainer = document.querySelector(".content-container");
@@ -2063,7 +2065,7 @@ const domManipulation = (function () {
      const displayProjectTasks = function (projectName, projectId, projectTaskList) {
           const contentContainer = document.querySelector(".content-container");
 
-          // Create required elements for every project display
+          // Display Project name on top of project tasks
           const projectHeading = document.createElement("div");
           projectHeading.classList.add("project-heading");
           projectHeading.setAttribute("data-project-id", projectId);
@@ -2104,6 +2106,8 @@ const domManipulation = (function () {
           cancelTaskForm,
           setProjectId,
           displayProjectsToDom,
+          setTaskId
+
      };
 })();
 
@@ -2132,9 +2136,7 @@ const projectManager = (function () {
      const populateLocalStorage = function () {
           if (localStorage.getItem("projectsList")) {
                const projectsListJson = localStorage.getItem("projectsList");
-               console.log("Json file",projectsListJson)
                const projectsList = JSON.parse(projectsListJson);
-               console.log(projectsList)
                return projectsList
           } else {
                return []
@@ -2144,7 +2146,6 @@ const projectManager = (function () {
 
      const saveProject = function (projectData) {
           projectsList.push(projectData);
-          console.log(projectsList)
           updateLocalStorage(projectsList);
      };
 
@@ -2500,7 +2501,6 @@ _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].setSidebarStructure();
 // TODO... If projects already created then load them and display them in projects area
 if (JSON.parse(localStorage.getItem("projectsList"))) {
      const projectsList = _project_manager__WEBPACK_IMPORTED_MODULE_6__["default"].geProjectsList();
-     console.log("ProjectsList", projectsList);
      // get max project Id
      let projectId = 0;
      for (let project of projectsList) {
@@ -2578,6 +2578,14 @@ projectsContainer.addEventListener("click", (event) => {
           const projectId = event.target.id;
           const projectName = _project_manager__WEBPACK_IMPORTED_MODULE_6__["default"].getProjectName(projectId);
           const projectTaskList = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getTaskList(projectId);
+          console.log(projectTaskList);
+          let taskId = 0;
+          if (projectTaskList.length) {
+               for (let task of projectTaskList) {
+                    if (Number(task.taskId) > taskId) taskId = Number(task.taskId);
+               }
+          }
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].setTaskId(taskId);
 
           // First clear the content container from any previous content
           _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].clearContentContainer();
@@ -2587,16 +2595,6 @@ projectsContainer.addEventListener("click", (event) => {
      }
 });
 
-// // todo... Add event listener to allow user set due date for task...
-// projectsContainer.addEventListener("change", (event) => {
-//      if (event.target.matches("#due-date")) {
-//           const dueDate = document.querySelector("#due-date");
-//           const selectedDate = new Date(dueDate.value);
-//           const formatedDate = format(selectedDate);
-//           dueDate.value = formatedDate;
-//      }
-// });
-
 // TODO... Show task form in respective project when user clicks on "Add Task" element
 const contentContainer = document.querySelector(".content-container");
 contentContainer.addEventListener("click", (event) => {
@@ -2605,7 +2603,7 @@ contentContainer.addEventListener("click", (event) => {
      }
 });
 
-// Todo... get data from task form when user clicks on add button...
+// Todo... get data from task form when user clicks on add button and then display to DOM
 contentContainer.addEventListener("submit", (event) => {
      if (event.target.matches(".task-form")) {
           event.preventDefault();
@@ -2619,6 +2617,27 @@ contentContainer.addEventListener("submit", (event) => {
 contentContainer.addEventListener("reset", (event) => {
      if (event.target.matches(".task-form")) {
           _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].cancelTaskForm();
+     }
+});
+
+// TODO... update due date when user clicks on due date on respective task
+contentContainer.addEventListener("change", (event) => {
+     if (event.target.matches(".task-due-date")) {
+          const newDate = event.target.value;
+          console.log('newDate', newDate)
+          const projectId = event.target.parentNode.parentNode.getAttribute("data-project-id");
+          const taskId = git(event.target.parentNode.parentNode.id);
+
+          console.log("taskId", taskId);
+          console.log("projectId", projectId);
+          const taskList = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getTaskList(projectId);
+          console.log(taskList);
+          for (let task of taskList) {
+               if (task.taskId === taskId) {
+                    task.dueDate = newDate;
+               }
+          }
+          console.log(taskList);
      }
 });
 

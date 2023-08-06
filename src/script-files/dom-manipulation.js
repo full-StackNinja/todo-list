@@ -468,6 +468,23 @@ const domManipulation = (function () {
 
           contentContainer.appendChild(getAddTaskElement());
      };
+
+     // TODO... Dispay today's tasks
+     const displayTodaysTask = function (taskList) {
+          const contentContainer = document.querySelector(".content-container");
+
+          // Display "Today" on top of project tasks
+          const projectHeading = document.createElement("div");
+          projectHeading.classList.add("project-heading");
+          projectHeading.innerHTML = "Today";
+          contentContainer.appendChild(projectHeading);
+
+          for (let task of taskList) {
+               let taskContainer = getShortTaskDetail(task);
+               contentContainer.appendChild(taskContainer);
+          }
+     };
+
      return {
           setPageStructure,
           setHeaderStructure,
@@ -490,8 +507,8 @@ const domManipulation = (function () {
           cancelTaskForm,
           setProjectId,
           displayProjectsToDom,
-          setTaskId
-
+          setTaskId,
+          displayTodaysTask,
      };
 })();
 
