@@ -40,7 +40,7 @@ const todoListManager = (function () {
 
      const deleteProjectTask = function (projectId, taskId) {
           for (let task of projectTaskList[projectId]) {
-               if (task.id === taskId) {
+               if (task.taskId === taskId) {
                     projectTaskList[projectId].splice(task, 1);
                     updateLocalStorage();
                }

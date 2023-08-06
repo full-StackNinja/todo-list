@@ -1,24 +1,22 @@
 const projectManager = (function () {
-
-     const updateLocalStorage = function (projectsList) {
-          const projectsListJson = JSON.stringify(projectsList)
-          localStorage.setItem("projectsList", projectsListJson);
-     };
-
      const populateLocalStorage = function () {
           if (localStorage.getItem("projectsList")) {
                const projectsListJson = localStorage.getItem("projectsList");
                const projectsList = JSON.parse(projectsListJson);
-               return projectsList
+               return projectsList;
           } else {
-               return []
+               return [];
           }
      };
      const projectsList = populateLocalStorage();
 
+     const updateLocalStorage = function () {
+          const projectsListJson = JSON.stringify(projectsList);
+          localStorage.setItem("projectsList", projectsListJson);
+     };
      const saveProject = function (projectData) {
           projectsList.push(projectData);
-          updateLocalStorage(projectsList);
+          updateLocalStorage();
      };
 
      const geProjectsList = function () {
@@ -28,7 +26,7 @@ const projectManager = (function () {
           for (let project of projectsList) {
                if (project.id === projectId) {
                     projectsList.splice(projectsList.indexOf(project), 1);
-                    updateLocalStorage(projectsList);
+                    updateLocalStorage();
                }
           }
      };

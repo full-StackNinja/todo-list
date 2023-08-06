@@ -21,10 +21,11 @@ domManipulation.setHeaderStructure();
 domManipulation.setSidebarStructure();
 
 // TODO... If projects already created then load them and display them in projects area
+let projectId = 0;
 if (JSON.parse(localStorage.getItem("projectsList"))) {
      const projectsList = projectManager.geProjectsList();
      // get max project Id
-     let projectId = 0;
+
      for (let project of projectsList) {
           if (Number(project.id) > projectId) {
                projectId = Number(project.id);
@@ -100,7 +101,7 @@ projectsContainer.addEventListener("click", (event) => {
           const projectId = event.target.id;
           const projectName = projectManager.getProjectName(projectId);
           const projectTaskList = todoListManager.getTaskList(projectId);
-          console.log(projectTaskList);
+
           let taskId = 0;
           if (projectTaskList.length) {
                for (let task of projectTaskList) {
@@ -142,6 +143,17 @@ contentContainer.addEventListener("reset", (event) => {
      }
 });
 
+// TODO... Delete task when user clicks on delete icon
+contentContainer.addEventListener("click", (e) => {
+     if (e.target.matches(".delete-task")) {
+          const contentContainer = document.querySelector(".content-container")
+          const taskId = e.target.parentNode.id
+          const projectId = e.target.parentNode.getAttribute("data-project-id");
+          todoListManager.deleteProjectTask(projectId, taskId)
+          contentContainer.removeChild(e.target.parentNode)
+     }
+})
+
 // Update due date when user clicks on due date on respective task
 contentContainer.addEventListener("change", (event) => {
      if (event.target.matches(".task-due-date")) {
@@ -156,6 +168,7 @@ contentContainer.addEventListener("change", (event) => {
                     task.dueDate = newDate;
                }
           }
+          // Also update local storage
           todoListManager.updateLocalStorage();
      }
 });
@@ -200,3 +213,7 @@ allTasks.addEventListener("click", () => {
      // Then display all tasks
      domManipulation.displayAllTasks(taskList);
 });
+
+// TODO... Display this week tasks when user clicks on 'this week' tab
+const thisWeekTasks = document.querySelector(".this-week-tasks");
+thisWeekTasks.addEventListener("click", () => {});

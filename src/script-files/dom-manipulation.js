@@ -13,6 +13,7 @@ import removeIcon from "../assets/sidebar/close.svg";
 
 // Import required assets for content section
 import taskPlusIcon from "../assets/content/plus.svg";
+import deleteTaskIcon from "../assets/content/deleteTask.svg";
 
 // IIFE Module for all the dom-manipulation related tasks
 const domManipulation = (function () {
@@ -204,7 +205,6 @@ const domManipulation = (function () {
           projectName.classList.add("project-name-field");
           projectName.placeholder = "Project Name";
           projectName.required = true;
-
           addBtn.type = "submit";
           addBtn.innerHTML = "Add";
           cancelBtn.type = "reset";
@@ -224,6 +224,8 @@ const domManipulation = (function () {
 
           // Append project name input field to projects container
           projectsContainer.appendChild(projectForm);
+
+          projectName.focus();
      };
 
      const getProjectData = function (event) {
@@ -307,16 +309,19 @@ const domManipulation = (function () {
           if (text.length <= charLimit) return text;
           else return text.slice(0, charLimit) + "...";
      };
-     // TODO... Create task element from task object
+     // TODO... Create task container from task object
      const getShortTaskDetail = function (task) {
           const taskContainer = document.createElement("div");
           const title = document.createElement("p");
+          const deleteTask = new Image();
           const description = document.createElement("p");
           const dueDate = document.createElement("input");
           const dateLabel = document.createElement("label");
           const dateContainer = document.createElement("div");
           const charLimit = 60;
+
           title.innerHTML = task.title;
+          deleteTask.src = deleteTaskIcon;
           description.innerHTML = truncateText(task.description, charLimit);
 
           dateContainer.classList.add("date-container");
@@ -328,6 +333,7 @@ const domManipulation = (function () {
           dueDate.value = task.dueDate;
 
           title.classList.add("task-title");
+          deleteTask.classList.add("delete-task");
           description.classList.add("task-description");
           dueDate.classList.add("task-due-date");
           taskContainer.id = task.taskId;
@@ -336,7 +342,7 @@ const domManipulation = (function () {
           taskContainer.classList.add("task-container");
 
           dateContainer.append(dateLabel, dueDate);
-          taskContainer.append(title, description, dateContainer);
+          taskContainer.append(title, deleteTask, description, dateContainer);
           return taskContainer;
      };
 
@@ -395,6 +401,9 @@ const domManipulation = (function () {
           // Remove "Add task" element to add taskForm in place of that
           contentContainer.removeChild(contentContainer.lastChild);
           contentContainer.appendChild(taskForm);
+
+          // Set focus on title input
+          title.focus();
      };
 
      // Todo... get task data on user submit of the form

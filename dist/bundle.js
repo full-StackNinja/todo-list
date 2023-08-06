@@ -305,6 +305,18 @@ input {
      left: -100%;
 }
 
+.today-task > :nth-child(n) {
+     pointer-events: none;
+}
+
+.this-week-tasks > :nth-child(n) {
+     pointer-events: none;
+}
+
+.all-tasks > :nth-child(n) {
+     pointer-events: none;
+}
+
 .sidebar-container .projects-container {
      margin-top: 40rem;
 }
@@ -342,12 +354,11 @@ input {
      background-color: #ccc;
 }
 
-
 .projects-container {
      flex-direction: column;
 }
 
-.projects-container > :nth-child(n){
+.projects-container > :nth-child(n) {
      padding: 5rem;
      border-radius: 5rem;
 }
@@ -357,7 +368,7 @@ input {
      background-color: #ccc;
 }
 
-.projects-container > :nth-child(n):not(.project-form){
+.projects-container > :nth-child(n):not(.project-form) {
      cursor: pointer;
 }
 
@@ -384,7 +395,7 @@ input {
      outline: none;
      border: none;
      border-radius: 5rem;
-} 
+}
 
 .project-btns {
      display: flex;
@@ -412,7 +423,7 @@ input {
      align-items: center;
 }
 
-.project-name-field{
+.project-name-field {
      width: 100%;
 }
 
@@ -439,7 +450,7 @@ input {
 .content-container {
      grid-area: content;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,kBAAkB;KAClB,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,mBAAmB;KACnB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;KACb,UAAU;AACf;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,kBAAkB;KAClB,0BAA0B;KAC1B,OAAO;KACP,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,oBAAoB;AACzB;;AAEA,qDAAqD;AACrD;KACK,WAAW;AAChB;;AAEA;KACK,iBAAiB;AACtB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;KAClB,iBAAiB;AACtB;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,sBAAsB;AAC3B;;;AAGA;KACK,sBAAsB;AAC3B;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;;KAEK,sBAAsB;AAC3B;;AAEA;KACK,eAAe;AACpB;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,WAAW;KACX,sBAAsB;KACtB,SAAS;KACT,uBAAuB;KACvB,mBAAmB;AACxB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,oBAAoB;KACpB,UAAU;AACf;;AAEA;;KAEK,YAAY;KACZ,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,yBAAyB;KACzB,gBAAgB;KAChB,gBAAgB;KAChB,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,8BAA8B;KAC9B,WAAW;KACX,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,wBAAwB;KACxB,kBAAkB;KAClB,oBAAoB;AACzB;;AAEA;KACK,oBAAoB;KACpB,gBAAgB;KAChB,OAAO;AACZ;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 250rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     position: relative;\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     padding-left: 25rem;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n     left: 5rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header > :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container > :nth-child(n) {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:focus {\n     background-color: #ccc;\n}\n\n\n.projects-container {\n     flex-direction: column;\n}\n\n.projects-container > :nth-child(n){\n     padding: 5rem;\n     border-radius: 5rem;\n}\n\n.projects-container > :nth-child(n):not(.project-form):hover,\n.projects-container > :nth-child(n):not(.project-form):focus {\n     background-color: #ccc;\n}\n\n.projects-container > :nth-child(n):not(.project-form){\n     cursor: pointer;\n}\n\n.projects-container > :first-child {\n     width: 100%;\n}\n\n.projects-header > :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form {\n     display: flex;\n     width: 100%;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items: center;\n}\n\n.project-name-field {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n} \n\n.project-btns {\n     display: flex;\n     align-self: flex-end;\n     gap: 10rem;\n}\n\n.add-project-btn,\n.cancel-project-btn {\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color: #bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.new-project-container {\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n}\n\n.project-name-field{\n     width: 100%;\n}\n\n.project-first-icon {\n     justify-self: flex-start;\n     margin-left: 10rem;\n     pointer-events: none;\n}\n\n.new-project {\n     pointer-events: none;\n     font-weight: 700;\n     flex: 1;\n}\n\n.project-last-icon {\n     opacity: 0;\n}\n\n.show-remove-icon {\n     opacity: 1;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"AAAA,+BAA+B;AAC/B;KACK,YAAY;KACZ,WAAW;KACX,aAAa;KACb,kBAAkB;KAClB;;2BAEsB;KACtB,+CAA+C;KAC/C,4BAA4B;AACjC;;AAEA;KACK,oBAAoB;KACpB,iBAAiB;KACjB,yBAAyB;KACzB,aAAa;KACb,sBAAsB;KACtB,gCAAgC;KAChC,8BAA8B;KAC9B,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;AACf;;AAEA;;KAEK,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,SAAS;KACT,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;;KAEK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,kBAAkB;KAClB,aAAa;KACb,mBAAmB;KACnB,SAAS;KACT,UAAU;KACV,aAAa;KACb,mBAAmB;AACxB;;AAEA;KACK,uCAAuC;AAC5C;;AAEA;KACK,YAAY;KACZ,yBAAyB;AAC9B;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,kBAAkB;KAClB,mBAAmB;KACnB,YAAY;KACZ,aAAa;KACb,mBAAmB;KACnB,kBAAkB;AACvB;;AAEA;KACK,kBAAkB;KAClB,UAAU;KACV,aAAa;KACb,UAAU;AACf;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,aAAa;KACb,UAAU;KACV,kBAAkB;KAClB,0BAA0B;KAC1B,OAAO;KACP,aAAa;KACb,sBAAsB;KACtB,yBAAyB;KACzB,WAAW;KACX,oBAAoB;AACzB;;AAEA,qDAAqD;AACrD;KACK,WAAW;AAChB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,iBAAiB;AACtB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;KAClB,iBAAiB;AACtB;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,aAAa;KACb,UAAU;KACV,qBAAqB;KACrB,mBAAmB;KACnB,aAAa;KACb,mBAAmB;KACnB,eAAe;AACpB;;AAEA;;KAEK,sBAAsB;AAC3B;;AAEA;KACK,sBAAsB;AAC3B;;AAEA;KACK,aAAa;KACb,mBAAmB;AACxB;;AAEA;;KAEK,sBAAsB;AAC3B;;AAEA;KACK,eAAe;AACpB;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,aAAa;AAClB;;AAEA;KACK,aAAa;KACb,WAAW;KACX,sBAAsB;KACtB,SAAS;KACT,uBAAuB;KACvB,mBAAmB;AACxB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,oBAAoB;KACpB,UAAU;AACf;;AAEA;;KAEK,YAAY;KACZ,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,yBAAyB;KACzB,gBAAgB;KAChB,gBAAgB;KAChB,mBAAmB;AACxB;;AAEA;KACK,aAAa;KACb,8BAA8B;KAC9B,WAAW;KACX,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,WAAW;AAChB;;AAEA;KACK,wBAAwB;KACxB,kBAAkB;KAClB,oBAAoB;AACzB;;AAEA;KACK,oBAAoB;KACpB,gBAAgB;KAChB,OAAO;AACZ;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,UAAU;AACf;;AAEA;KACK,kBAAkB;AACvB","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 250rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     position: relative;\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     padding-left: 25rem;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n     left: 5rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.today-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.this-week-tasks > :nth-child(n) {\n     pointer-events: none;\n}\n\n.all-tasks > :nth-child(n) {\n     pointer-events: none;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header > :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container > :nth-child(n) {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:focus {\n     background-color: #ccc;\n}\n\n.projects-container {\n     flex-direction: column;\n}\n\n.projects-container > :nth-child(n) {\n     padding: 5rem;\n     border-radius: 5rem;\n}\n\n.projects-container > :nth-child(n):not(.project-form):hover,\n.projects-container > :nth-child(n):not(.project-form):focus {\n     background-color: #ccc;\n}\n\n.projects-container > :nth-child(n):not(.project-form) {\n     cursor: pointer;\n}\n\n.projects-container > :first-child {\n     width: 100%;\n}\n\n.projects-header > :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form {\n     display: flex;\n     width: 100%;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items: center;\n}\n\n.project-name-field {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.project-btns {\n     display: flex;\n     align-self: flex-end;\n     gap: 10rem;\n}\n\n.add-project-btn,\n.cancel-project-btn {\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color: #bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.new-project-container {\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n}\n\n.project-name-field {\n     width: 100%;\n}\n\n.project-first-icon {\n     justify-self: flex-start;\n     margin-left: 10rem;\n     pointer-events: none;\n}\n\n.new-project {\n     pointer-events: none;\n     font-weight: 700;\n     flex: 1;\n}\n\n.project-last-icon {\n     opacity: 0;\n}\n\n.show-remove-icon {\n     opacity: 1;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2084,6 +2095,38 @@ const domManipulation = (function () {
 
           contentContainer.appendChild(getAddTaskElement());
      };
+
+     // TODO... Dispay today's tasks
+     const displayTodaysTask = function (taskList) {
+          const contentContainer = document.querySelector(".content-container");
+
+          // Display "Today" on top of project tasks
+          const projectHeading = document.createElement("div");
+          projectHeading.classList.add("project-heading");
+          projectHeading.innerHTML = "Today";
+          contentContainer.appendChild(projectHeading);
+
+          for (let task of taskList) {
+               let taskContainer = getShortTaskDetail(task);
+               contentContainer.appendChild(taskContainer);
+          }
+     };
+
+     // todo... Display all tasks when user clicks on "all tasks"
+     const displayAllTasks = function (taskList) {
+          const contentContainer = document.querySelector(".content-container");
+
+          // Display "All Tasks" on top of project tasks
+          const projectHeading = document.createElement("div");
+          projectHeading.classList.add("project-heading");
+          projectHeading.innerHTML = "All Tasks";
+          contentContainer.appendChild(projectHeading);
+
+          for (let task of taskList) {
+               let taskContainer = getShortTaskDetail(task);
+               contentContainer.appendChild(taskContainer);
+          }
+     };
      return {
           setPageStructure,
           setHeaderStructure,
@@ -2106,8 +2149,9 @@ const domManipulation = (function () {
           cancelTaskForm,
           setProjectId,
           displayProjectsToDom,
-          setTaskId
-
+          setTaskId,
+          displayTodaysTask,
+          displayAllTasks,
      };
 })();
 
@@ -2127,26 +2171,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const projectManager = (function () {
-
-     const updateLocalStorage = function (projectsList) {
-          const projectsListJson = JSON.stringify(projectsList)
-          localStorage.setItem("projectsList", projectsListJson);
-     };
-
      const populateLocalStorage = function () {
           if (localStorage.getItem("projectsList")) {
                const projectsListJson = localStorage.getItem("projectsList");
                const projectsList = JSON.parse(projectsListJson);
-               return projectsList
+               return projectsList;
           } else {
-               return []
+               return [];
           }
      };
      const projectsList = populateLocalStorage();
 
+     const updateLocalStorage = function () {
+          const projectsListJson = JSON.stringify(projectsList);
+          localStorage.setItem("projectsList", projectsListJson);
+     };
      const saveProject = function (projectData) {
           projectsList.push(projectData);
-          updateLocalStorage(projectsList);
+          updateLocalStorage();
      };
 
      const geProjectsList = function () {
@@ -2156,7 +2198,7 @@ const projectManager = (function () {
           for (let project of projectsList) {
                if (project.id === projectId) {
                     projectsList.splice(projectsList.indexOf(project), 1);
-                    updateLocalStorage(projectsList);
+                    updateLocalStorage();
                }
           }
      };
@@ -2193,11 +2235,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const todoListManager = (function () {
-
-     const updateLocalStorage = function (projectTaskList) {
-          const projectTaskListJson = JSON.stringify(projectTaskList)
-          localStorage.setItem('projectTaskList', projectTaskListJson)
-     }
      const populateLocalStorage = function () {
           let projectTaskList;
           if (localStorage.getItem("projectTaskList")) {
@@ -2211,40 +2248,50 @@ const todoListManager = (function () {
 
      const projectTaskList = populateLocalStorage();
 
+     const updateLocalStorage = function () {
+          const projectTaskListJson = JSON.stringify(projectTaskList);
+          localStorage.setItem("projectTaskList", projectTaskListJson);
+     };
+
      const addProject = function (projectId) {
           projectTaskList[projectId] = [];
-          updateLocalStorage(projectTaskList)
+          updateLocalStorage();
      };
 
      const deleteProject = function (projectId) {
           delete projectTaskList[projectId];
-          updateLocalStorage(projectTaskList)
+          updateLocalStorage();
      };
      const getTaskList = function (projectId) {
           return projectTaskList[projectId];
      };
 
+     const getprojectTaskList = function () {
+          return projectTaskList;
+     };
      const addProjectTask = function (taskData) {
           projectTaskList[taskData.projectId].push(taskData);
-          updateLocalStorage(projectTaskList)
+          updateLocalStorage();
      };
 
      const deleteProjectTask = function (projectId, taskId) {
           for (let task of projectTaskList[projectId]) {
                if (task.id === taskId) {
                     projectTaskList[projectId].splice(task, 1);
-                    updateLocalStorage(projectTaskList)
+                    updateLocalStorage();
                }
           }
      };
 
      return {
           populateLocalStorage,
+          updateLocalStorage,
           addProject,
           deleteProject,
           deleteProjectTask,
           addProjectTask,
           getTaskList,
+          getprojectTaskList,
      };
 })();
 
@@ -2620,27 +2667,70 @@ contentContainer.addEventListener("reset", (event) => {
      }
 });
 
-// TODO... update due date when user clicks on due date on respective task
+// Update due date when user clicks on due date on respective task
 contentContainer.addEventListener("change", (event) => {
      if (event.target.matches(".task-due-date")) {
           const newDate = event.target.value;
-          console.log('newDate', newDate)
           const projectId = event.target.parentNode.parentNode.getAttribute("data-project-id");
-          const taskId = git(event.target.parentNode.parentNode.id);
-
-          console.log("taskId", taskId);
-          console.log("projectId", projectId);
+          const taskId = event.target.parentNode.parentNode.id;
           const taskList = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getTaskList(projectId);
-          console.log(taskList);
+
+          // find task to update it's dueDate
           for (let task of taskList) {
                if (task.taskId === taskId) {
                     task.dueDate = newDate;
                }
           }
-          console.log(taskList);
+          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].updateLocalStorage();
      }
 });
 
+// TODO... Add tasks to today project which fall in today's date
+const todayTask = document.querySelector(".today-task");
+todayTask.addEventListener("click", () => {
+     const todayDate = new Date().toDateString();
+     const todayTaskList = [];
+     const projectTaskObject = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getprojectTaskList();
+     const projectTaskList = Object.values(projectTaskObject);
+
+     for (let projectTasks of projectTaskList) {
+          for (let task of projectTasks) {
+               let date = new Date(task.dueDate);
+               date = date.toDateString();
+               if (date === todayDate) {
+                    todayTaskList.push(task);
+               }
+          }
+     }
+     // First clear content area if already filled
+     _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].clearContentContainer();
+
+     // Then display today's tasks
+     _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].displayTodaysTask(todayTaskList);
+});
+
+// todo... Display all tasks when user clicks on "All Tasks" tab
+const allTasks = document.querySelector(".all-tasks");
+allTasks.addEventListener("click", () => {
+     const taskList = [];
+     const projectTaskObject = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getprojectTaskList();
+     const projectTaskList = Object.values(projectTaskObject);
+     for (let projectTasks of projectTaskList) {
+          for (let task of projectTasks) {
+               taskList.push(task);
+          }
+     }
+     // First clear content area if already filled
+     _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].clearContentContainer();
+     // Then display all tasks
+     _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].displayAllTasks(taskList);
+});
+
+// TODO... Display this week tasks when user clicks on 'this week' tab
+const thisWeekTasks = document.querySelector(".this-week-tasks")
+thisWeekTasks.addEventListener("click", () => {
+     
+})
 })();
 
 /******/ })()
