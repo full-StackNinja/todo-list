@@ -485,6 +485,21 @@ const domManipulation = (function () {
           }
      };
 
+     // todo... Display all tasks when user clicks on "all tasks"
+     const displayAllTasks = function (taskList) {
+          const contentContainer = document.querySelector(".content-container");
+
+          // Display "All Tasks" on top of project tasks
+          const projectHeading = document.createElement("div");
+          projectHeading.classList.add("project-heading");
+          projectHeading.innerHTML = "All Tasks";
+          contentContainer.appendChild(projectHeading);
+
+          for (let task of taskList) {
+               let taskContainer = getShortTaskDetail(task);
+               contentContainer.appendChild(taskContainer);
+          }
+     };
      return {
           setPageStructure,
           setHeaderStructure,
@@ -509,6 +524,7 @@ const domManipulation = (function () {
           displayProjectsToDom,
           setTaskId,
           displayTodaysTask,
+          displayAllTasks,
      };
 })();
 

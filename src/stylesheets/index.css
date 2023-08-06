@@ -121,6 +121,14 @@ input {
      pointer-events: none;
 }
 
+.this-week-tasks > :nth-child(n) {
+     pointer-events: none;
+}
+
+.all-tasks > :nth-child(n) {
+     pointer-events: none;
+}
+
 .sidebar-container .projects-container {
      margin-top: 40rem;
 }

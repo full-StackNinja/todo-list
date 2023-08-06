@@ -147,7 +147,7 @@ contentContainer.addEventListener("change", (event) => {
      if (event.target.matches(".task-due-date")) {
           const newDate = event.target.value;
           const projectId = event.target.parentNode.parentNode.getAttribute("data-project-id");
-          const taskId = git(event.target.parentNode.parentNode.id);
+          const taskId = event.target.parentNode.parentNode.id;
           const taskList = todoListManager.getTaskList(projectId);
 
           // find task to update it's dueDate
@@ -156,31 +156,47 @@ contentContainer.addEventListener("change", (event) => {
                     task.dueDate = newDate;
                }
           }
+          todoListManager.updateLocalStorage();
      }
 });
 
 // TODO... Add tasks to today project which fall in today's date
 const todayTask = document.querySelector(".today-task");
-todayTask.addEventListener("click", (e) => {
-     if (e.target.matches(".today-task")) {
-          const todayDate = new Date().toDateString();
-          const todayTaskList = [];
-          const projectTaskObject = todoListManager.getprojectTaskList();
-          const projectTaskList = Object.values(projectTaskObject);
+todayTask.addEventListener("click", () => {
+     const todayDate = new Date().toDateString();
+     const todayTaskList = [];
+     const projectTaskObject = todoListManager.getprojectTaskList();
+     const projectTaskList = Object.values(projectTaskObject);
 
-          for (let projectTasks of projectTaskList) {
-               for (let task of projectTasks) {
-                    let date = new Date(task.dueDate);
-                    date = date.toDateString();
-                    // console.log((new Date(task.dueDate)).toDateString())
-                    if (date === todayDate) {
-                         todayTaskList.push(task);
-                    }
+     for (let projectTasks of projectTaskList) {
+          for (let task of projectTasks) {
+               let date = new Date(task.dueDate);
+               date = date.toDateString();
+               if (date === todayDate) {
+                    todayTaskList.push(task);
                }
           }
-          // First clear content area if already filled
-          domManipulation.clearContentContainer();
-          // Then display today's tasks
-          domManipulation.displayTodaysTask(todayTaskList);
      }
+     // First clear content area if already filled
+     domManipulation.clearContentContainer();
+
+     // Then display today's tasks
+     domManipulation.displayTodaysTask(todayTaskList);
+});
+
+// todo... Display all tasks when user clicks on "All Tasks" tab
+const allTasks = document.querySelector(".all-tasks");
+allTasks.addEventListener("click", () => {
+     const taskList = [];
+     const projectTaskObject = todoListManager.getprojectTaskList();
+     const projectTaskList = Object.values(projectTaskObject);
+     for (let projectTasks of projectTaskList) {
+          for (let task of projectTasks) {
+               taskList.push(task);
+          }
+     }
+     // First clear content area if already filled
+     domManipulation.clearContentContainer();
+     // Then display all tasks
+     domManipulation.displayAllTasks(taskList);
 });

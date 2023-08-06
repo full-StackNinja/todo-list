@@ -1,9 +1,4 @@
 const todoListManager = (function () {
-
-     const updateLocalStorage = function (projectTaskList) {
-          const projectTaskListJson = JSON.stringify(projectTaskList)
-          localStorage.setItem('projectTaskList', projectTaskListJson)
-     }
      const populateLocalStorage = function () {
           let projectTaskList;
           if (localStorage.getItem("projectTaskList")) {
@@ -17,38 +12,44 @@ const todoListManager = (function () {
 
      const projectTaskList = populateLocalStorage();
 
+     const updateLocalStorage = function () {
+          const projectTaskListJson = JSON.stringify(projectTaskList);
+          localStorage.setItem("projectTaskList", projectTaskListJson);
+     };
+
      const addProject = function (projectId) {
           projectTaskList[projectId] = [];
-          updateLocalStorage(projectTaskList)
+          updateLocalStorage();
      };
 
      const deleteProject = function (projectId) {
           delete projectTaskList[projectId];
-          updateLocalStorage(projectTaskList)
+          updateLocalStorage();
      };
      const getTaskList = function (projectId) {
           return projectTaskList[projectId];
      };
 
      const getprojectTaskList = function () {
-          return projectTaskList
-     }
+          return projectTaskList;
+     };
      const addProjectTask = function (taskData) {
           projectTaskList[taskData.projectId].push(taskData);
-          updateLocalStorage(projectTaskList)
+          updateLocalStorage();
      };
 
      const deleteProjectTask = function (projectId, taskId) {
           for (let task of projectTaskList[projectId]) {
                if (task.id === taskId) {
                     projectTaskList[projectId].splice(task, 1);
-                    updateLocalStorage(projectTaskList)
+                    updateLocalStorage();
                }
           }
      };
 
      return {
           populateLocalStorage,
+          updateLocalStorage,
           addProject,
           deleteProject,
           deleteProjectTask,
