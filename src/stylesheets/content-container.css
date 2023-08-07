@@ -123,10 +123,25 @@
      border-bottom: 1rem solid #64748b;
 }
 
-.task-container .task-description {
+.task-title, .task-description{
+     pointer-events: none;
+}
+
+
+
+.task-container:hover{
+     background-color: #f1f5f9;
+     cursor: pointer;
+}
+
+.date-container{
+     width: fit-content;
+}
+
+ .task-description {
      margin: 10rem 0;
 }
-.task-container #due-date{
+ #due-date{
      border-radius: 5rem;
      border: 1px solid #ccc;
      outline: none;
@@ -152,4 +167,18 @@
 .delete-task:hover{
      background-color: #ccc;
      cursor: pointer;
+}
+
+.task-long-detail{
+     width: 80%;
+     position:relative;
+     flex: 0 1 0;
+     gap: 10rem;
+     border-radius: 10rem;
+     padding: 5rem 10rem;
+     border-left: 10rem solid #64748b;
+     border-right: 1rem solid #64748b;
+     border-top: 1rem solid #64748b;
+     border-bottom: 1rem solid #64748b;
+     border: 1px solid;
 }

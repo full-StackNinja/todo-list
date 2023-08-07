@@ -30,6 +30,14 @@ const todoListManager = (function () {
           return projectTaskList[projectId];
      };
 
+     const getTaskData = function (projectId, taskId) {
+          for (let task of projectTaskList[projectId]) {
+               if (task.taskId === taskId) {
+                    return task;
+               }
+          }
+          return "-1";
+     };
      const getprojectTaskList = function () {
           return projectTaskList;
      };
@@ -39,9 +47,10 @@ const todoListManager = (function () {
      };
 
      const deleteProjectTask = function (projectId, taskId) {
-          for (let task of projectTaskList[projectId]) {
-               if (task.taskId === taskId) {
-                    projectTaskList[projectId].splice(task, 1);
+          const project = projectTaskList[projectId];
+          for (let i = 0; i < project.length; i++) {
+               if (project[i].taskId === taskId) {
+                    project.splice(i, 1);
                     updateLocalStorage();
                }
           }
@@ -55,6 +64,7 @@ const todoListManager = (function () {
           deleteProjectTask,
           addProjectTask,
           getTaskList,
+          getTaskData,
           getprojectTaskList,
      };
 })();

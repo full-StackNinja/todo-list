@@ -155,6 +155,18 @@ contentContainer.addEventListener("submit", (event) => {
      }
 });
 
+// TODO... Display task in detail when user click on the respective task
+
+contentContainer.addEventListener("click", (e) => {
+     if (e.target.matches(".task-container")) {
+          const taskId = e.target.id;
+          const projectId = e.target.getAttribute("data-project-id");
+
+          const taskData = todoListManager.getTaskData(projectId, taskId);
+          domManipulation.expandTask(taskData)
+     }
+});
+
 // TODO... Cancel task when user clicks cancel btn on task form
 contentContainer.addEventListener("reset", (event) => {
      if (event.target.matches(".task-form")) {
@@ -166,10 +178,16 @@ contentContainer.addEventListener("reset", (event) => {
 contentContainer.addEventListener("click", (e) => {
      if (e.target.matches(".delete-task")) {
           const contentContainer = document.querySelector(".content-container");
+          console.log(e.target)
           const taskId = e.target.parentNode.id;
+          console.log("task id",taskId)
           const projectId = e.target.parentNode.getAttribute("data-project-id");
-          todoListManager.deleteProjectTask(projectId, taskId);
+          console.log("project id", projectId)
+          console.log("parent node", e.target.parentNode);
           contentContainer.removeChild(e.target.parentNode);
+          todoListManager.deleteProjectTask(projectId, taskId);
+          
+          
      }
 });
 

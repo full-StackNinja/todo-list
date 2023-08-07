@@ -366,6 +366,17 @@ const domManipulation = (function () {
           return taskContainer;
      };
 
+     const getLongTaskDetail = function (task) {
+          // First get task container from short taskdetail which only lacks full length of
+          // description which we can get in next step
+          const taskContainer = getShortTaskDetail(task)
+          taskContainer.querySelector(".task-description").innerHTML = task.description
+    
+          taskContainer.classList.toggle("task-container")
+          taskContainer.classList.add("task-long-detail")
+          return taskContainer
+     }
+
      let taskId;
      const setTaskId = function (previousTaskId) {
           taskId = previousTaskId;
@@ -451,6 +462,18 @@ const domManipulation = (function () {
           const contentContainer = document.querySelector(".content-container");
           const taskContainer = getShortTaskDetail(task);
           contentContainer.insertBefore(taskContainer, contentContainer.lastChild);
+     };
+
+     // TODO... expand task when user clicks on task container
+     const expandTask = function (task) {
+          const contentContainer = document.querySelector(".content-container");
+          const taskContainer = getLongTaskDetail(task);
+
+          // First clear content container
+          domManipulation.clearContentContainer()
+
+          // Then insert task container
+          contentContainer.appendChild(taskContainer)
      };
 
      // todo... cancel task form on user click on cancel btn
@@ -561,6 +584,7 @@ const domManipulation = (function () {
           deleteProject,
           clearContentContainer,
           displayProjectTasks,
+          expandTask,
           showTaskForm,
           getTaskData,
           addTaskToDom,
