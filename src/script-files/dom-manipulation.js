@@ -154,6 +154,7 @@ const domManipulation = (function () {
           projectText.classList.add("projects-heading");
           projectPlusIcon.classList.add("add-project");
           projectChevronIcon.classList.add("toggle-projects-list");
+          projectChevronIcon.setAttribute("data-icon", "down");
 
           // Append them to their parent
           projectsHeader.append(projectText, projectPlusIcon, projectChevronIcon);
@@ -163,12 +164,31 @@ const domManipulation = (function () {
 
           // Append sidebar children
           sidebarContainer.append(todayTask, thisWeekTasks, allTasks, projectsContainer);
+          allTasks.focus();
      };
 
      // Toggle sidebar container on 'menu icon' click
      const toggleSidebar = function () {
           const sidebarContainer = document.querySelector(".sidebar-container");
           sidebarContainer.classList.toggle("toggle");
+     };
+
+     const toggleProjectsList = function () {
+          let currentIcon = this.getAttribute("data-icon");
+          const newProjectContainer = document.querySelectorAll(".new-project-container");
+          if (currentIcon === "down") {
+               this.src = chevronLeftPath;
+               this.setAttribute("data-icon", "left");
+               newProjectContainer.forEach((newProject) => {
+                    newProject.style.left = "-100%";
+               });
+          } else if (currentIcon === "left") {
+               this.src = chevronDownPath;
+               this.setAttribute("data-icon", "down");
+               newProjectContainer.forEach((newProject) => {
+                    newProject.style.left = "0%";
+               });
+          }
      };
 
      // show/hide projects' add icons on mouse enter to/leave from sidebar container
@@ -494,7 +514,23 @@ const domManipulation = (function () {
           }
      };
 
-     // todo... Display all tasks when user clicks on "all tasks"
+     // TODO... Display one week tasks when user clicks on "This Week" tab
+     const displayThisWeekTasks = function (taskList) {
+          const contentContainer = document.querySelector(".content-container");
+
+          // Display "This Week" on top of project tasks
+          const projectHeading = document.createElement("div");
+          projectHeading.classList.add("project-heading");
+          projectHeading.innerHTML = "This Week";
+          contentContainer.appendChild(projectHeading);
+
+          for (let task of taskList) {
+               let taskContainer = getShortTaskDetail(task);
+               contentContainer.appendChild(taskContainer);
+          }
+     };
+
+     // todo... Display all tasks when user clicks on "All Tasks"
      const displayAllTasks = function (taskList) {
           const contentContainer = document.querySelector(".content-container");
 
@@ -534,6 +570,8 @@ const domManipulation = (function () {
           setTaskId,
           displayTodaysTask,
           displayAllTasks,
+          displayThisWeekTasks,
+          toggleProjectsList,
      };
 })();
 

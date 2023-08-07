@@ -10,6 +10,7 @@ import { format } from "date-fns";
 import domManipulation from "./dom-manipulation";
 import projectManager from "./project-manager";
 import todoListManager from "./todoListManager";
+import { bn } from "date-fns/locale";
 
 // set overall page structure
 domManipulation.setPageStructure();
@@ -20,18 +21,21 @@ domManipulation.setHeaderStructure();
 // Add sidebar items
 domManipulation.setSidebarStructure();
 
-// TODO... If projects already created then load them and display them in projects area
+// If projects already created then load them and display
+// them in projects area on page load
 let projectId = 0;
 if (JSON.parse(localStorage.getItem("projectsList"))) {
      const projectsList = projectManager.geProjectsList();
-     // get max project Id
 
+     // get max project Id in order to assign ids to new projects next to that.
      for (let project of projectsList) {
           if (Number(project.id) > projectId) {
                projectId = Number(project.id);
           }
      }
+
      domManipulation.setProjectId(projectId);
+
      // Now display already created projects to DOM
      domManipulation.displayProjectsToDom(projectsList);
 }
@@ -82,39 +86,54 @@ projectsContainer.addEventListener("mouseout", (event) => {
 projectsContainer.addEventListener("click", domManipulation.cancelProject);
 
 // TODO... Toggle projects list on "Chevron Icon" click
-const toggleProjectsList = document.querySelector(".toggle-projects-list");
-// toggleProjectsList.addEventListener('click', domManipulation.toggleProjectsList)
+const projectChevronIcon = document.querySelector(".toggle-projects-list");
+projectChevronIcon.addEventListener("click", domManipulation.toggleProjectsList);
 
 // Delete project on cross icon click against each project name
 projectsContainer.addEventListener("click", (event) => {
      if (event.target.matches(".project-last-icon")) {
           const projectId = event.target.parentNode.id;
+
+          // First check whether deleted project was being displayed in content area
+          // If yes then update content container with default display
+          const contentContainer = document.querySelector(".content-container");
+          const projectHeading = document.querySelector(".project-heading");
+          const exProjectId = projectHeading.getAttribute("data-project-id");
+          if (projectId === exProjectId) {
+               displayAllTasks();
+          }
+
+          // Then delete the project
           domManipulation.deleteProject(event);
           projectManager.deleteProjectFromList(projectId);
           todoListManager.deleteProject(projectId);
      }
 });
 
+const displayProjectTAsks = function (event) {
+     const projectId = event.target.id;
+     const projectName = projectManager.getProjectName(projectId);
+     const projectTaskList = todoListManager.getTaskList(projectId);
+
+     let taskId = 0;
+     if (projectTaskList.length) {
+          for (let task of projectTaskList) {
+               if (Number(task.taskId) > taskId) taskId = Number(task.taskId);
+          }
+     }
+     domManipulation.setTaskId(taskId);
+
+     // First clear the content container from any previous content
+     domManipulation.clearContentContainer();
+
+     // Then display project tasks in content area
+     domManipulation.displayProjectTasks(projectName, projectId, projectTaskList);
+};
+
 // TODO...  Display project tasks in content-container on respective project click
 projectsContainer.addEventListener("click", (event) => {
      if (event.target.matches(".new-project-container")) {
-          const projectId = event.target.id;
-          const projectName = projectManager.getProjectName(projectId);
-          const projectTaskList = todoListManager.getTaskList(projectId);
-
-          let taskId = 0;
-          if (projectTaskList.length) {
-               for (let task of projectTaskList) {
-                    if (Number(task.taskId) > taskId) taskId = Number(task.taskId);
-               }
-          }
-          domManipulation.setTaskId(taskId);
-
-          // First clear the content container from any previous content
-          domManipulation.clearContentContainer();
-
-          // Then display project tasks in content area
-          domManipulation.displayProjectTasks(projectName, projectId, projectTaskList);
+          displayProjectTAsks(event);
      }
 });
 
@@ -146,15 +165,15 @@ contentContainer.addEventListener("reset", (event) => {
 // TODO... Delete task when user clicks on delete icon
 contentContainer.addEventListener("click", (e) => {
      if (e.target.matches(".delete-task")) {
-          const contentContainer = document.querySelector(".content-container")
-          const taskId = e.target.parentNode.id
+          const contentContainer = document.querySelector(".content-container");
+          const taskId = e.target.parentNode.id;
           const projectId = e.target.parentNode.getAttribute("data-project-id");
-          todoListManager.deleteProjectTask(projectId, taskId)
-          contentContainer.removeChild(e.target.parentNode)
+          todoListManager.deleteProjectTask(projectId, taskId);
+          contentContainer.removeChild(e.target.parentNode);
      }
-})
+});
 
-// Update due date when user clicks on due date on respective task
+// Update due-date when user clicks on due date on respective task
 contentContainer.addEventListener("change", (event) => {
      if (event.target.matches(".task-due-date")) {
           const newDate = event.target.value;
@@ -177,7 +196,7 @@ contentContainer.addEventListener("change", (event) => {
 const todayTask = document.querySelector(".today-task");
 todayTask.addEventListener("click", () => {
      const todayDate = new Date().toDateString();
-     const todayTaskList = [];
+     const taskList = [];
      const projectTaskObject = todoListManager.getprojectTaskList();
      const projectTaskList = Object.values(projectTaskObject);
 
@@ -186,20 +205,26 @@ todayTask.addEventListener("click", () => {
                let date = new Date(task.dueDate);
                date = date.toDateString();
                if (date === todayDate) {
-                    todayTaskList.push(task);
+                    taskList.push(task);
                }
           }
      }
+
+     taskList.sort((a, b) => {
+          // Convert date string to Time Stamp to make numeric comparison
+          const aNew = new Date(a.dueDate).getTime();
+          const bNew = new Date(b.dueDate).getTime();
+          return aNew - bNew;
+     });
+
      // First clear content area if already filled
      domManipulation.clearContentContainer();
 
      // Then display today's tasks
-     domManipulation.displayTodaysTask(todayTaskList);
+     domManipulation.displayTodaysTask(taskList);
 });
 
-// todo... Display all tasks when user clicks on "All Tasks" tab
-const allTasks = document.querySelector(".all-tasks");
-allTasks.addEventListener("click", () => {
+const displayAllTasks = function () {
      const taskList = [];
      const projectTaskObject = todoListManager.getprojectTaskList();
      const projectTaskList = Object.values(projectTaskObject);
@@ -208,12 +233,58 @@ allTasks.addEventListener("click", () => {
                taskList.push(task);
           }
      }
+
+     taskList.sort((a, b) => {
+          // Convert date string to Time Stamp to make numeric comparison
+          const aNew = new Date(a.dueDate).getTime();
+          const bNew = new Date(b.dueDate).getTime();
+          return aNew - bNew;
+     });
+
      // First clear content area if already filled
      domManipulation.clearContentContainer();
      // Then display all tasks
      domManipulation.displayAllTasks(taskList);
-});
+};
+
+window.onload = displayAllTasks;
+
+// todo... Display all tasks when user clicks on "All Tasks" tab
+const allTasks = document.querySelector(".all-tasks");
+allTasks.addEventListener("click", displayAllTasks);
 
 // TODO... Display this week tasks when user clicks on 'this week' tab
 const thisWeekTasks = document.querySelector(".this-week-tasks");
-thisWeekTasks.addEventListener("click", () => {});
+thisWeekTasks.addEventListener("click", () => {
+     const todayDate = new Date();
+     todayDate.setHours(0, 0, 0, 0);
+     const oneWeekAhead = new Date(todayDate);
+     oneWeekAhead.setDate(oneWeekAhead.getDate() + 7);
+
+     const taskList = [];
+     const projectTaskObject = todoListManager.getprojectTaskList();
+     const projectTaskList = Object.values(projectTaskObject);
+
+     for (let projectTasks of projectTaskList) {
+          for (let task of projectTasks) {
+               const date = new Date(task.dueDate);
+               date.setHours(0, 0, 0, 0);
+               if (date >= todayDate && date <= oneWeekAhead) {
+                    taskList.push(task);
+               }
+          }
+     }
+
+     taskList.sort((a, b) => {
+          // Convert date string to Time Stamp to make numeric comparison
+          const aNew = new Date(a.dueDate).getTime();
+          const bNew = new Date(b.dueDate).getTime();
+          return aNew - bNew;
+     });
+
+     // First clear content container
+     domManipulation.clearContentContainer();
+
+     // Then display tasks which fall under one week ahead from today
+     domManipulation.displayThisWeekTasks(taskList);
+});

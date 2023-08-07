@@ -125,12 +125,18 @@ input {
      pointer-events: none;
 }
 
+.all-tasks:focus {
+     border: none;
+     outline: none;
+}
+
 .all-tasks > :nth-child(n) {
      pointer-events: none;
 }
 
 .sidebar-container .projects-container {
      margin-top: 40rem;
+     position: relative;
 }
 
 .projects-header {
@@ -228,11 +234,14 @@ input {
 }
 
 .new-project-container {
+     position: relative;
+     left: 0;
      display: flex;
      justify-content: space-between;
      width: 100%;
      gap: 10rem;
      align-items: center;
+     transition: ease left 0.3s;
 }
 
 .project-name-field {
