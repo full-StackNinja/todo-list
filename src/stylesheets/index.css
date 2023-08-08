@@ -100,12 +100,12 @@ input {
 }
 
 .sidebar-container {
+     min-height: 100vh;
      display: flex;
      gap: 16rem;
      position: relative;
      transition: ease left 0.3s;
      left: 0;
-     height: 100vh;
      flex-direction: column;
      background-color: #f1f5f9;
      color: #222;
@@ -205,6 +205,7 @@ input {
      gap: 5rem;
      justify-content: center;
      align-items: center;
+     margin-bottom: 30rem;
 }
 
 .project-name-field {

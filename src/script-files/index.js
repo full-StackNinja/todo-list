@@ -6,11 +6,9 @@ import "../stylesheets/index.css";
 import "../stylesheets/content-container.css";
 
 // Import Modules into main/index script file
-import { format } from "date-fns";
 import domManipulation from "./dom-manipulation";
 import projectManager from "./project-manager";
 import todoListManager from "./todoListManager";
-import { bn } from "date-fns/locale";
 
 // set overall page structure
 domManipulation.setPageStructure();
@@ -92,21 +90,23 @@ projectChevronIcon.addEventListener("click", domManipulation.toggleProjectsList)
 // Delete project on cross icon click against each project name
 projectsContainer.addEventListener("click", (event) => {
      if (event.target.matches(".project-last-icon")) {
-          const projectId = event.target.parentNode.id;
+          const deletedProjectId = event.target.parentNode.id;
 
           // First check whether deleted project was being displayed in content area
           // If yes then update content container with default display
           const contentContainer = document.querySelector(".content-container");
           const projectHeading = document.querySelector(".project-heading");
           const exProjectId = projectHeading.getAttribute("data-project-id");
-          if (projectId === exProjectId) {
+
+          // If displayed project is being deleted then replace tasks with all tasks
+          if (deletedProjectId === exProjectId) {
                displayAllTasks();
           }
 
           // Then delete the project
           domManipulation.deleteProject(event);
-          projectManager.deleteProjectFromList(projectId);
-          todoListManager.deleteProject(projectId);
+          projectManager.deleteProjectFromList(deletedProjectId);
+          todoListManager.deleteProject(deletedProjectId);
      }
 });
 
@@ -155,6 +155,35 @@ contentContainer.addEventListener("submit", (event) => {
      }
 });
 
+// Display edited task
+contentContainer.addEventListener("submit", (e) => {
+     if (e.target.matches(".edit-task-form")) {
+          e.preventDefault();
+          const taskData = domManipulation.getEditTaskData(e);
+
+          // Update task in content container
+          domManipulation.updateTask(taskData);
+
+          // Also update task in todo listmanager
+          todoListManager.updateTask(taskData);
+     }
+});
+
+// TODO... Cancel updating task
+contentContainer.addEventListener("reset", (e) => {
+     if (e.target.matches(".edit-task-form")) {
+          e.preventDefault();
+          const taskId = e.target.id;
+          const projectId = e.target.getAttribute("data-project-id");
+
+          const taskData = todoListManager.getTaskData(projectId, taskId);
+
+          e.target.parentNode.removeChild(e.target);
+
+          domManipulation.updateTask(taskData);
+     }
+});
+
 // TODO... Display task in detail when user click on the respective task
 
 contentContainer.addEventListener("click", (e) => {
@@ -163,7 +192,17 @@ contentContainer.addEventListener("click", (e) => {
           const projectId = e.target.getAttribute("data-project-id");
 
           const taskData = todoListManager.getTaskData(projectId, taskId);
-          domManipulation.expandTask(taskData)
+          domManipulation.expandTask(taskData);
+     }
+});
+
+// Edit task when in expand mode
+contentContainer.addEventListener("click", (e) => {
+     if (e.target.matches(".task-long-detail")) {
+          const taskId = e.target.id;
+          const projectId = e.target.getAttribute("data-project-id");
+          const taskData = todoListManager.getTaskData(projectId, taskId);
+          domManipulation.editTask(taskData);
      }
 });
 
@@ -178,16 +217,12 @@ contentContainer.addEventListener("reset", (event) => {
 contentContainer.addEventListener("click", (e) => {
      if (e.target.matches(".delete-task")) {
           const contentContainer = document.querySelector(".content-container");
-          console.log(e.target)
+
           const taskId = e.target.parentNode.id;
-          console.log("task id",taskId)
           const projectId = e.target.parentNode.getAttribute("data-project-id");
-          console.log("project id", projectId)
-          console.log("parent node", e.target.parentNode);
+
           contentContainer.removeChild(e.target.parentNode);
           todoListManager.deleteProjectTask(projectId, taskId);
-          
-          
      }
 });
 
@@ -264,7 +299,7 @@ const displayAllTasks = function () {
      // Then display all tasks
      domManipulation.displayAllTasks(taskList);
 };
-
+// By default, on window reload and reopen, display all tasks
 window.onload = displayAllTasks;
 
 // todo... Display all tasks when user clicks on "All Tasks" tab
@@ -293,6 +328,7 @@ thisWeekTasks.addEventListener("click", () => {
           }
      }
 
+     //Sort tasks in ascending order of the due date
      taskList.sort((a, b) => {
           // Convert date string to Time Stamp to make numeric comparison
           const aNew = new Date(a.dueDate).getTime();

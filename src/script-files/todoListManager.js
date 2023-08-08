@@ -31,9 +31,9 @@ const todoListManager = (function () {
      };
 
      const getTaskData = function (projectId, taskId) {
-          for (let task of projectTaskList[projectId]) {
-               if (task.taskId === taskId) {
-                    return task;
+          for (let taskData of projectTaskList[projectId]) {
+               if (taskData.taskId === taskId) {
+                    return taskData;
                }
           }
           return "-1";
@@ -43,6 +43,17 @@ const todoListManager = (function () {
      };
      const addProjectTask = function (taskData) {
           projectTaskList[taskData.projectId].push(taskData);
+          updateLocalStorage();
+     };
+
+     const updateTask = function (taskData) {
+          const project = projectTaskList[taskData.projectId];
+          for (let i = 0; i < project.length; i++) {
+               if (project[i].taskId === taskData.taskId) {
+                    project[i] = taskData;
+               }
+          }
+          // Update local storage to sync changes
           updateLocalStorage();
      };
 
@@ -66,6 +77,7 @@ const todoListManager = (function () {
           getTaskList,
           getTaskData,
           getprojectTaskList,
+          updateTask,
      };
 })();
 

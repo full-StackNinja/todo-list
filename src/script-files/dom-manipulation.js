@@ -369,13 +369,73 @@ const domManipulation = (function () {
      const getLongTaskDetail = function (task) {
           // First get task container from short taskdetail which only lacks full length of
           // description which we can get in next step
-          const taskContainer = getShortTaskDetail(task)
-          taskContainer.querySelector(".task-description").innerHTML = task.description
-    
-          taskContainer.classList.toggle("task-container")
-          taskContainer.classList.add("task-long-detail")
-          return taskContainer
-     }
+          const taskContainer = getShortTaskDetail(task);
+          taskContainer.querySelector(".task-description").innerHTML = task.description;
+
+          taskContainer.classList.toggle("task-container");
+          taskContainer.classList.add("task-long-detail");
+          return taskContainer;
+     };
+
+     const editTask = function (taskData) {
+          const contentContainer = document.querySelector(".content-container");
+
+          const taskForm = document.createElement("form");
+          const title = document.createElement("input");
+          const description = document.createElement("input");
+
+          const addBtn = document.createElement("button");
+          const cancelBtn = document.createElement("button");
+          const taskBtns = document.createElement("div");
+          const dateContainer = document.createElement("div");
+          const dueDateLabel = document.createElement("label");
+          const dueDate = document.createElement("input");
+
+          taskForm.classList.add("edit-task-form");
+          taskForm.id = taskData.taskId;
+          taskForm.setAttribute("data-project-id", taskData.projectId);
+          taskForm.setAttribute("data-project-name", taskData.projectName);
+
+          title.name = "title";
+          title.id = "title";
+          title.title = "Enter task title";
+          title.placeholder = "Title";
+          title.value = taskData.title;
+
+          description.name = "desctiption";
+          description.id = "description";
+          description.title = "Add short description";
+          description.placeholder = "Description";
+          description.value = taskData.description;
+
+          dateContainer.classList.add("date-container");
+          dueDateLabel.setAttribute("for", "due-date");
+          dueDateLabel.innerHTML = "due date:";
+
+          dueDate.type = "date";
+          dueDate.name = "due-date";
+          dueDate.id = "due-date";
+          dueDate.value = taskData.dueDate;
+
+          title.required = true;
+          dueDate.required = true;
+
+          addBtn.innerHTML = "Save";
+          cancelBtn.innerHTML = "Cancel";
+          addBtn.type = "submit";
+          cancelBtn.type = "reset"
+          taskBtns.classList.add("task-btns");
+          addBtn.classList.add("save-task-btn");
+          cancelBtn.classList.add("cancel-task-btn");
+
+          dateContainer.append(dueDateLabel, dueDate);
+          taskBtns.append(cancelBtn, addBtn);
+          taskForm.append(title, description, dateContainer, taskBtns);
+
+          contentContainer.removeChild(contentContainer.firstChild);
+          contentContainer.appendChild(taskForm);
+          title.focus();
+     };
 
      let taskId;
      const setTaskId = function (previousTaskId) {
@@ -457,6 +517,30 @@ const domManipulation = (function () {
           return taskData;
      };
 
+     const getEditTaskData = function (e) {
+          const editTaskForm = e.target;
+          const taskData = {};
+          taskData.taskId = editTaskForm.id;
+          taskData.projectId = editTaskForm.getAttribute("data-project-id");
+          taskData.projectName = editTaskForm.getAttribute("data-project-name");
+          taskData.title = editTaskForm.elements["title"].value;
+          taskData.description = editTaskForm.elements["description"].value;
+          taskData.dueDate = editTaskForm.elements["due-date"].value;
+
+          return taskData;
+     };
+
+     // TODO... Update task after user saves edited task and display in content area
+     const updateTask = function (taskData) {
+          const contentContainer = document.querySelector(".content-container")
+          const taskContainer = getLongTaskDetail(taskData)
+
+          // First clear content container
+          clearContentContainer()
+
+          contentContainer.appendChild(taskContainer)
+     }
+
      // todo... Add Task to Dom after user submits task form
      const addTaskToDom = function (task) {
           const contentContainer = document.querySelector(".content-container");
@@ -470,10 +554,10 @@ const domManipulation = (function () {
           const taskContainer = getLongTaskDetail(task);
 
           // First clear content container
-          domManipulation.clearContentContainer()
+          domManipulation.clearContentContainer();
 
           // Then insert task container
-          contentContainer.appendChild(taskContainer)
+          contentContainer.appendChild(taskContainer);
      };
 
      // todo... cancel task form on user click on cancel btn
@@ -596,6 +680,9 @@ const domManipulation = (function () {
           displayAllTasks,
           displayThisWeekTasks,
           toggleProjectsList,
+          editTask,
+          getEditTaskData,
+          updateTask,
      };
 })();
 

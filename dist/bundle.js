@@ -73,7 +73,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
 }
 
 .task-form #title {
-     font-weight:bold;
+     font-weight: bold;
      color: #334155;
      display: block;
      height: 24rem;
@@ -94,13 +94,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      border-radius: 5rem;
 }
 
-.task-form label{
+.task-form label {
      display: inline-block;
      margin-right: 5rem;
 }
 
 .task-form #due-date {
-
      border-radius: 5rem;
      border: 1px solid #ccc;
      outline: none;
@@ -110,7 +109,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      cursor: pointer;
 }
 
-.task-form #due-date:hover{
+.task-form #due-date:hover {
      outline: none;
 }
 .task-form .task-btns {
@@ -128,13 +127,27 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      padding: 5rem 10rem;
 }
 
-.add-task-btn:hover, .cancel-task-btn:hover{
+.save-task-btn {
+     display: inline-block;
+     border: 1px solid #ccc;
+     border-radius: 5rem;
+     width: 70rem;
+     padding: 5rem 10rem;
+}
+
+.add-task-btn:hover,
+.cancel-task-btn:hover {
      background-color: #ccc;
      color: #334155;
 }
 
-.task-container{
-     position:relative;
+.save-task-btn:hover {
+     background-color: #ccc;
+     color: #334155;
+}
+
+.task-container {
+     position: relative;
      width: 500rem;
      flex: 0 1 0;
      gap: 10rem;
@@ -146,40 +159,38 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      border-bottom: 1rem solid #64748b;
 }
 
-.task-title, .task-description{
+.task-title,
+.task-description {
      pointer-events: none;
 }
 
-
-
-.task-container:hover{
+.task-container:hover {
      background-color: #f1f5f9;
      cursor: pointer;
 }
 
-.date-container{
+.date-container {
      width: fit-content;
 }
 
-.task-container .task-description {
+.task-description {
      margin: 10rem 0;
 }
-.task-container #due-date{
+#due-date {
      border-radius: 5rem;
      border: 1px solid #ccc;
      outline: none;
      width: 130rem;
      padding: 5rem;
      cursor: pointer;
-
 }
 
-.task-title{
+.task-title {
      font-weight: bold;
      width: 90%;
 }
 
-.delete-task{
+.delete-task {
      position: absolute;
      width: 24rem;
      right: 10rem;
@@ -187,14 +198,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      border-radius: 3rem;
 }
 
-.delete-task:hover{
+.delete-task:hover {
      background-color: #ccc;
      cursor: pointer;
 }
 
-.task-container .task-long-detail{
-     width: 100%;
-}`, "",{"version":3,"sources":["webpack://./src/stylesheets/content-container.css"],"names":[],"mappings":"AAAA;KACK,cAAc;KACd,aAAa;KACb,sBAAsB;KACtB,UAAU;KACV,iBAAiB;AACtB;;AAEA;KACK,kBAAkB;KAClB,iBAAiB;KACjB,oBAAoB;AACzB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,kBAAkB;KAClB,kBAAkB;KAClB,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,YAAY;AACjB;;AAEA;KACK,aAAa;KACb,cAAc;KACd,sBAAsB;KACtB,UAAU;KACV,kBAAkB;KAClB,UAAU;KACV,iBAAiB;KACjB,cAAc;KACd,WAAW;KACX,YAAY;KACZ,sBAAsB;KACtB,oBAAoB;AACzB;;AAEA;KACK,gBAAgB;KAChB,cAAc;KACd,cAAc;KACd,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,aAAa;AAClB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,YAAY;KACZ,cAAc;KACd,mBAAmB;AACxB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;AACvB;;AAEA;;KAEK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,cAAc;KACd,aAAa;KACb,aAAa;KACb,eAAe;AACpB;;AAEA;KACK,aAAa;AAClB;AACA;KACK,oBAAoB;KACpB,aAAa;KACb,SAAS;AACd;;AAEA;;KAEK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,sBAAsB;KACtB,cAAc;AACnB;;AAEA;KACK,iBAAiB;KACjB,aAAa;KACb,WAAW;KACX,UAAU;KACV,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;AACtC;;AAEA;KACK,oBAAoB;AACzB;;;;AAIA;KACK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,eAAe;AACpB;AACA;KACK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,aAAa;KACb,aAAa;KACb,eAAe;;AAEpB;;AAEA;KACK,iBAAiB;KACjB,UAAU;AACf;;AAEA;KACK,kBAAkB;KAClB,YAAY;KACZ,YAAY;KACZ,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,WAAW;AAChB","sourcesContent":[".content-container {\n     padding: 50rem;\n     display: flex;\n     flex-direction: column;\n     gap: 24rem;\n     border-left: 5rem;\n}\n\n.content-container .project-heading {\n     font-size: x-large;\n     font-weight: bold;\n     margin-bottom: 20rem;\n}\n\n.add-task {\n     display: flex;\n     align-items: center;\n     position: relative;\n     width: fit-content;\n     padding: 5rem 10rem;\n     border-radius: 5rem;\n}\n\n.add-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.add-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.add-task > .add-task-icon {\n     width: 24rem;\n}\n\n.task-form {\n     display: flex;\n     padding: 10rem;\n     flex-direction: column;\n     gap: 10rem;\n     position: relative;\n     z-index: 1;\n     max-width: 350rem;\n     color: #64748b;\n     top: -10rem;\n     left: -10rem;\n     border: 1px solid #ccc;\n     border-radius: 10rem;\n}\n\n.task-form #title {\n     font-weight:bold;\n     color: #334155;\n     display: block;\n     height: 24rem;\n     border: none;\n     border-radius: 5rem;\n}\n\n.task-form #title:focus,\n.task-form #description:focus {\n     outline: none;\n}\n\n.task-form #description {\n     display: block;\n     height: 24rem;\n     border: none;\n     color: #64748b;\n     border-radius: 5rem;\n}\n\n.task-form label{\n     display: inline-block;\n     margin-right: 5rem;\n}\n\n.task-form #due-date {\n\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     color: #64748b;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n}\n\n.task-form #due-date:hover{\n     outline: none;\n}\n.task-form .task-btns {\n     align-self: flex-end;\n     display: flex;\n     gap: 5rem;\n}\n\n.task-form .add-task-btn,\n.task-form .cancel-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.add-task-btn:hover, .cancel-task-btn:hover{\n     background-color: #ccc;\n     color: #334155;\n}\n\n.task-container{\n     position:relative;\n     width: 500rem;\n     flex: 0 1 0;\n     gap: 10rem;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n}\n\n.task-title, .task-description{\n     pointer-events: none;\n}\n\n\n\n.task-container:hover{\n     background-color: #f1f5f9;\n     cursor: pointer;\n}\n\n.date-container{\n     width: fit-content;\n}\n\n.task-container .task-description {\n     margin: 10rem 0;\n}\n.task-container #due-date{\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n\n}\n\n.task-title{\n     font-weight: bold;\n     width: 90%;\n}\n\n.delete-task{\n     position: absolute;\n     width: 24rem;\n     right: 10rem;\n     top: 10rem;\n     border-radius: 3rem;\n}\n\n.delete-task:hover{\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.task-container .task-long-detail{\n     width: 100%;\n}"],"sourceRoot":""}]);
+.task-long-detail {
+     width: 80%;
+     position: relative;
+     flex: 0 1 0;
+     gap: 10rem;
+     border-radius: 10rem;
+     padding: 5rem 10rem;
+     border-left: 10rem solid #64748b;
+     border-right: 1rem solid #64748b;
+     border-top: 1rem solid #64748b;
+     border-bottom: 1rem solid #64748b;
+     border: 1px solid;
+}
+
+.task-long-detail:hover {
+     cursor: pointer;
+     background-color: #f1f5f9;
+}
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/content-container.css"],"names":[],"mappings":"AAAA;KACK,cAAc;KACd,aAAa;KACb,sBAAsB;KACtB,UAAU;KACV,iBAAiB;AACtB;;AAEA;KACK,kBAAkB;KAClB,iBAAiB;KACjB,oBAAoB;AACzB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,kBAAkB;KAClB,kBAAkB;KAClB,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,YAAY;AACjB;;AAEA;KACK,aAAa;KACb,cAAc;KACd,sBAAsB;KACtB,UAAU;KACV,kBAAkB;KAClB,UAAU;KACV,iBAAiB;KACjB,cAAc;KACd,WAAW;KACX,YAAY;KACZ,sBAAsB;KACtB,oBAAoB;AACzB;;AAEA;KACK,iBAAiB;KACjB,cAAc;KACd,cAAc;KACd,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,aAAa;AAClB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,YAAY;KACZ,cAAc;KACd,mBAAmB;AACxB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;AACvB;;AAEA;KACK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,cAAc;KACd,aAAa;KACb,aAAa;KACb,eAAe;AACpB;;AAEA;KACK,aAAa;AAClB;AACA;KACK,oBAAoB;KACpB,aAAa;KACb,SAAS;AACd;;AAEA;;KAEK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,sBAAsB;KACtB,cAAc;AACnB;;AAEA;KACK,sBAAsB;KACtB,cAAc;AACnB;;AAEA;KACK,kBAAkB;KAClB,aAAa;KACb,WAAW;KACX,UAAU;KACV,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;AACtC;;AAEA;;KAEK,oBAAoB;AACzB;;AAEA;KACK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,eAAe;AACpB;AACA;KACK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,aAAa;KACb,aAAa;KACb,eAAe;AACpB;;AAEA;KACK,iBAAiB;KACjB,UAAU;AACf;;AAEA;KACK,kBAAkB;KAClB,YAAY;KACZ,YAAY;KACZ,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,UAAU;KACV,kBAAkB;KAClB,WAAW;KACX,UAAU;KACV,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;KACjC,iBAAiB;AACtB;;AAEA;KACK,eAAe;KACf,yBAAyB;AAC9B","sourcesContent":[".content-container {\n     padding: 50rem;\n     display: flex;\n     flex-direction: column;\n     gap: 24rem;\n     border-left: 5rem;\n}\n\n.content-container .project-heading {\n     font-size: x-large;\n     font-weight: bold;\n     margin-bottom: 20rem;\n}\n\n.add-task {\n     display: flex;\n     align-items: center;\n     position: relative;\n     width: fit-content;\n     padding: 5rem 10rem;\n     border-radius: 5rem;\n}\n\n.add-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.add-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.add-task > .add-task-icon {\n     width: 24rem;\n}\n\n.task-form {\n     display: flex;\n     padding: 10rem;\n     flex-direction: column;\n     gap: 10rem;\n     position: relative;\n     z-index: 1;\n     max-width: 350rem;\n     color: #64748b;\n     top: -10rem;\n     left: -10rem;\n     border: 1px solid #ccc;\n     border-radius: 10rem;\n}\n\n.task-form #title {\n     font-weight: bold;\n     color: #334155;\n     display: block;\n     height: 24rem;\n     border: none;\n     border-radius: 5rem;\n}\n\n.task-form #title:focus,\n.task-form #description:focus {\n     outline: none;\n}\n\n.task-form #description {\n     display: block;\n     height: 24rem;\n     border: none;\n     color: #64748b;\n     border-radius: 5rem;\n}\n\n.task-form label {\n     display: inline-block;\n     margin-right: 5rem;\n}\n\n.task-form #due-date {\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     color: #64748b;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n}\n\n.task-form #due-date:hover {\n     outline: none;\n}\n.task-form .task-btns {\n     align-self: flex-end;\n     display: flex;\n     gap: 5rem;\n}\n\n.task-form .add-task-btn,\n.task-form .cancel-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.save-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.add-task-btn:hover,\n.cancel-task-btn:hover {\n     background-color: #ccc;\n     color: #334155;\n}\n\n.save-task-btn:hover {\n     background-color: #ccc;\n     color: #334155;\n}\n\n.task-container {\n     position: relative;\n     width: 500rem;\n     flex: 0 1 0;\n     gap: 10rem;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n}\n\n.task-title,\n.task-description {\n     pointer-events: none;\n}\n\n.task-container:hover {\n     background-color: #f1f5f9;\n     cursor: pointer;\n}\n\n.date-container {\n     width: fit-content;\n}\n\n.task-description {\n     margin: 10rem 0;\n}\n#due-date {\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n}\n\n.task-title {\n     font-weight: bold;\n     width: 90%;\n}\n\n.delete-task {\n     position: absolute;\n     width: 24rem;\n     right: 10rem;\n     top: 10rem;\n     border-radius: 3rem;\n}\n\n.delete-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.task-long-detail {\n     width: 80%;\n     position: relative;\n     flex: 0 1 0;\n     gap: 10rem;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n     border: 1px solid;\n}\n\n.task-long-detail:hover {\n     cursor: pointer;\n     background-color: #f1f5f9;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2040,12 +2067,69 @@ const domManipulation = (function () {
      const getLongTaskDetail = function (task) {
           // First get task container from short taskdetail which only lacks full length of
           // description which we can get in next step
-          const taskContainer = getShortTaskDetail(task)
-          taskContainer.querySelector(".task-description").innerHTML = task.description
-    
-          taskContainer.classList.add("task-long-detail")
-          return taskContainer
-     }
+          const taskContainer = getShortTaskDetail(task);
+          taskContainer.querySelector(".task-description").innerHTML = task.description;
+
+          taskContainer.classList.toggle("task-container");
+          taskContainer.classList.add("task-long-detail");
+          return taskContainer;
+     };
+
+     const editTask = function (taskData) {
+          const contentContainer = document.querySelector(".content-container");
+
+          const taskForm = document.createElement("form");
+          const title = document.createElement("input");
+          const description = document.createElement("input");
+
+          const addBtn = document.createElement("button");
+          const cancelBtn = document.createElement("button");
+          const taskBtns = document.createElement("div");
+          const dateContainer = document.createElement("div");
+          const dueDateLabel = document.createElement("label");
+          const dueDate = document.createElement("input");
+
+          taskForm.classList.add("task-form");
+          taskForm.id = taskData.taskId;
+
+          title.name = "title";
+          title.id = "title";
+          title.title = "Enter task title";
+          title.placeholder = "Title";
+          title.value = taskData.title;
+
+          description.name = "desctiption";
+          description.id = "description";
+          description.title = "Add short description";
+          description.placeholder = "Description";
+          description.value = taskData.description;
+
+          dateContainer.classList.add("date-container");
+          dueDateLabel.setAttribute("for", "due-date");
+          dueDateLabel.innerHTML = "due date:";
+
+          dueDate.type = "date";
+          dueDate.name = "due-date";
+          dueDate.id = "due-date";
+          dueDate.value = taskData.dueDate;
+
+          title.required = true;
+          dueDate.required = true;
+
+          addBtn.innerHTML = "Save";
+          cancelBtn.innerHTML = "Cancel";
+          addBtn.type = "submit";
+          taskBtns.classList.add("task-btns");
+          addBtn.classList.add("save-task-btn");
+          cancelBtn.classList.add("cancel-task-btn");
+
+          dateContainer.append(dueDateLabel, dueDate);
+          taskBtns.append(cancelBtn, addBtn);
+          taskForm.append(title, description, dateContainer, taskBtns);
+
+          contentContainer.removeChild(contentContainer.firstChild);
+          contentContainer.appendChild(taskForm);
+     };
 
      let taskId;
      const setTaskId = function (previousTaskId) {
@@ -2140,10 +2224,10 @@ const domManipulation = (function () {
           const taskContainer = getLongTaskDetail(task);
 
           // First clear content container
-          domManipulation.clearContentContainer()
+          domManipulation.clearContentContainer();
 
           // Then insert task container
-          contentContainer.appendChild(taskContainer)
+          contentContainer.appendChild(taskContainer);
      };
 
      // todo... cancel task form on user click on cancel btn
@@ -2266,6 +2350,7 @@ const domManipulation = (function () {
           displayAllTasks,
           displayThisWeekTasks,
           toggleProjectsList,
+          editTask,
      };
 })();
 
@@ -2397,9 +2482,10 @@ const todoListManager = (function () {
      };
 
      const deleteProjectTask = function (projectId, taskId) {
-          for (let task of projectTaskList[projectId]) {
-               if (task.taskId === taskId) {
-                    projectTaskList[projectId].splice(task, 1);
+          const project = projectTaskList[projectId];
+          for (let i = 0; i < project.length; i++) {
+               if (project[i].taskId === taskId) {
+                    project.splice(i, 1);
                     updateLocalStorage();
                }
           }
@@ -2804,8 +2890,8 @@ contentContainer.addEventListener("click", (event) => {
 });
 
 // Todo... get data from task form when user clicks on add button and then display to DOM
-contentContainer.addEventListener("submit", (event) => {
-     if (event.target.matches(".task-form")) {
+contentContainer.addEventListener("click", (event) => {
+     if (event.target.matches(".add-task-btn")) {
           event.preventDefault();
           const taskData = _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].getTaskData();
           _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].addTaskToDom(taskData);
@@ -2821,9 +2907,29 @@ contentContainer.addEventListener("click", (e) => {
           const projectId = e.target.getAttribute("data-project-id");
 
           const taskData = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getTaskData(projectId, taskId);
-          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].expandTask(taskData)
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].expandTask(taskData);
      }
 });
+
+// Edit task when in expand mode
+contentContainer.addEventListener("click", (e) => {
+     if (e.target.matches(".task-long-detail")) {
+          const taskId = e.target.id;
+          const projectId = e.target.getAttribute("data-project-id");
+          const taskData = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getTaskData(projectId, taskId);
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].editTask(taskData)
+     }
+});
+
+// Display edited task
+contentContainer.addEventListener("click", (e) => {
+     if (e.target.matches(".save-task-btn")) {
+          e.preventDefault()
+          console.log(e.target)
+     }
+})
+
+// 
 
 // TODO... Cancel task when user clicks cancel btn on task form
 contentContainer.addEventListener("reset", (event) => {
@@ -2836,10 +2942,14 @@ contentContainer.addEventListener("reset", (event) => {
 contentContainer.addEventListener("click", (e) => {
      if (e.target.matches(".delete-task")) {
           const contentContainer = document.querySelector(".content-container");
+          console.log(e.target);
           const taskId = e.target.parentNode.id;
+          console.log("task id", taskId);
           const projectId = e.target.parentNode.getAttribute("data-project-id");
-          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].deleteProjectTask(projectId, taskId);
+          console.log("project id", projectId);
+          console.log("parent node", e.target.parentNode);
           contentContainer.removeChild(e.target.parentNode);
+          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].deleteProjectTask(projectId, taskId);
      }
 });
 
