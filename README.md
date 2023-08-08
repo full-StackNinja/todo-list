@@ -4,6 +4,8 @@
 
 -    This project is also a part of theodinproject learning curriculum.
 -    The main purpose of the project is to apply JavaScript S.O.L.I.D Principles while writing code in order to make code maintainable and scalable.
+- All the content is created dynamically using javascript only.
+- Webpack is used for rendering of the content.
 
 ## Detailed Explanation
 
