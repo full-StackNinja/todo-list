@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
-     padding: 50rem;
+     padding: 40rem;
      display: flex;
      flex-direction: column;
      gap: 24rem;
@@ -35,6 +35,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      margin-bottom: 20rem;
 }
 
+.message{
+     font-size: 24rem;
+     font-style: italic;
+     color: #64748b;
+}
+
 .add-task {
      display: flex;
      align-items: center;
@@ -42,6 +48,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      width: fit-content;
      padding: 5rem 10rem;
      border-radius: 5rem;
+     margin-bottom: 50rem;
 }
 
 .add-task > :nth-child(n) {
@@ -72,7 +79,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      border-radius: 10rem;
 }
 
-.task-form #title {
+.edit-task-form {
+     display: flex;
+     padding: 10rem;
+     flex-direction: column;
+     gap: 10rem;
+     position: relative;
+     z-index: 1;
+     max-width: 350rem;
+     color: #64748b;
+     top: -10rem;
+     left: -10rem;
+     border: 1px solid #ccc;
+     border-radius: 10rem;
+}
+
+#title {
      font-weight: bold;
      color: #334155;
      display: block;
@@ -81,12 +103,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      border-radius: 5rem;
 }
 
-.task-form #title:focus,
-.task-form #description:focus {
+#title:focus,
+#description:focus {
      outline: none;
 }
 
-.task-form #description {
+#description {
      display: block;
      height: 24rem;
      border: none;
@@ -94,12 +116,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      border-radius: 5rem;
 }
 
-.task-form label {
+label {
      display: inline-block;
      margin-right: 5rem;
 }
 
-.task-form #due-date {
+#due-date {
      border-radius: 5rem;
      border: 1px solid #ccc;
      outline: none;
@@ -109,17 +131,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      cursor: pointer;
 }
 
-.task-form #due-date:hover {
+#due-date:hover {
      outline: none;
 }
-.task-form .task-btns {
+.task-btns {
      align-self: flex-end;
      display: flex;
      gap: 5rem;
 }
 
-.task-form .add-task-btn,
-.task-form .cancel-task-btn {
+.add-task-btn,
+.cancel-task-btn {
      display: inline-block;
      border: 1px solid #ccc;
      border-radius: 5rem;
@@ -221,7 +243,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.content-container {
      cursor: pointer;
      background-color: #f1f5f9;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/content-container.css"],"names":[],"mappings":"AAAA;KACK,cAAc;KACd,aAAa;KACb,sBAAsB;KACtB,UAAU;KACV,iBAAiB;AACtB;;AAEA;KACK,kBAAkB;KAClB,iBAAiB;KACjB,oBAAoB;AACzB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,kBAAkB;KAClB,kBAAkB;KAClB,mBAAmB;KACnB,mBAAmB;AACxB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,YAAY;AACjB;;AAEA;KACK,aAAa;KACb,cAAc;KACd,sBAAsB;KACtB,UAAU;KACV,kBAAkB;KAClB,UAAU;KACV,iBAAiB;KACjB,cAAc;KACd,WAAW;KACX,YAAY;KACZ,sBAAsB;KACtB,oBAAoB;AACzB;;AAEA;KACK,iBAAiB;KACjB,cAAc;KACd,cAAc;KACd,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,aAAa;AAClB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,YAAY;KACZ,cAAc;KACd,mBAAmB;AACxB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;AACvB;;AAEA;KACK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,cAAc;KACd,aAAa;KACb,aAAa;KACb,eAAe;AACpB;;AAEA;KACK,aAAa;AAClB;AACA;KACK,oBAAoB;KACpB,aAAa;KACb,SAAS;AACd;;AAEA;;KAEK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,sBAAsB;KACtB,cAAc;AACnB;;AAEA;KACK,sBAAsB;KACtB,cAAc;AACnB;;AAEA;KACK,kBAAkB;KAClB,aAAa;KACb,WAAW;KACX,UAAU;KACV,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;AACtC;;AAEA;;KAEK,oBAAoB;AACzB;;AAEA;KACK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,eAAe;AACpB;AACA;KACK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,aAAa;KACb,aAAa;KACb,eAAe;AACpB;;AAEA;KACK,iBAAiB;KACjB,UAAU;AACf;;AAEA;KACK,kBAAkB;KAClB,YAAY;KACZ,YAAY;KACZ,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,UAAU;KACV,kBAAkB;KAClB,WAAW;KACX,UAAU;KACV,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;KACjC,iBAAiB;AACtB;;AAEA;KACK,eAAe;KACf,yBAAyB;AAC9B","sourcesContent":[".content-container {\n     padding: 50rem;\n     display: flex;\n     flex-direction: column;\n     gap: 24rem;\n     border-left: 5rem;\n}\n\n.content-container .project-heading {\n     font-size: x-large;\n     font-weight: bold;\n     margin-bottom: 20rem;\n}\n\n.add-task {\n     display: flex;\n     align-items: center;\n     position: relative;\n     width: fit-content;\n     padding: 5rem 10rem;\n     border-radius: 5rem;\n}\n\n.add-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.add-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.add-task > .add-task-icon {\n     width: 24rem;\n}\n\n.task-form {\n     display: flex;\n     padding: 10rem;\n     flex-direction: column;\n     gap: 10rem;\n     position: relative;\n     z-index: 1;\n     max-width: 350rem;\n     color: #64748b;\n     top: -10rem;\n     left: -10rem;\n     border: 1px solid #ccc;\n     border-radius: 10rem;\n}\n\n.task-form #title {\n     font-weight: bold;\n     color: #334155;\n     display: block;\n     height: 24rem;\n     border: none;\n     border-radius: 5rem;\n}\n\n.task-form #title:focus,\n.task-form #description:focus {\n     outline: none;\n}\n\n.task-form #description {\n     display: block;\n     height: 24rem;\n     border: none;\n     color: #64748b;\n     border-radius: 5rem;\n}\n\n.task-form label {\n     display: inline-block;\n     margin-right: 5rem;\n}\n\n.task-form #due-date {\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     color: #64748b;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n}\n\n.task-form #due-date:hover {\n     outline: none;\n}\n.task-form .task-btns {\n     align-self: flex-end;\n     display: flex;\n     gap: 5rem;\n}\n\n.task-form .add-task-btn,\n.task-form .cancel-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.save-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.add-task-btn:hover,\n.cancel-task-btn:hover {\n     background-color: #ccc;\n     color: #334155;\n}\n\n.save-task-btn:hover {\n     background-color: #ccc;\n     color: #334155;\n}\n\n.task-container {\n     position: relative;\n     width: 500rem;\n     flex: 0 1 0;\n     gap: 10rem;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n}\n\n.task-title,\n.task-description {\n     pointer-events: none;\n}\n\n.task-container:hover {\n     background-color: #f1f5f9;\n     cursor: pointer;\n}\n\n.date-container {\n     width: fit-content;\n}\n\n.task-description {\n     margin: 10rem 0;\n}\n#due-date {\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n}\n\n.task-title {\n     font-weight: bold;\n     width: 90%;\n}\n\n.delete-task {\n     position: absolute;\n     width: 24rem;\n     right: 10rem;\n     top: 10rem;\n     border-radius: 3rem;\n}\n\n.delete-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.task-long-detail {\n     width: 80%;\n     position: relative;\n     flex: 0 1 0;\n     gap: 10rem;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n     border: 1px solid;\n}\n\n.task-long-detail:hover {\n     cursor: pointer;\n     background-color: #f1f5f9;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/content-container.css"],"names":[],"mappings":"AAAA;KACK,cAAc;KACd,aAAa;KACb,sBAAsB;KACtB,UAAU;KACV,iBAAiB;AACtB;;AAEA;KACK,kBAAkB;KAClB,iBAAiB;KACjB,oBAAoB;AACzB;;AAEA;KACK,gBAAgB;KAChB,kBAAkB;KAClB,cAAc;AACnB;;AAEA;KACK,aAAa;KACb,mBAAmB;KACnB,kBAAkB;KAClB,kBAAkB;KAClB,mBAAmB;KACnB,mBAAmB;KACnB,oBAAoB;AACzB;;AAEA;KACK,oBAAoB;AACzB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,YAAY;AACjB;;AAEA;KACK,aAAa;KACb,cAAc;KACd,sBAAsB;KACtB,UAAU;KACV,kBAAkB;KAClB,UAAU;KACV,iBAAiB;KACjB,cAAc;KACd,WAAW;KACX,YAAY;KACZ,sBAAsB;KACtB,oBAAoB;AACzB;;AAEA;KACK,aAAa;KACb,cAAc;KACd,sBAAsB;KACtB,UAAU;KACV,kBAAkB;KAClB,UAAU;KACV,iBAAiB;KACjB,cAAc;KACd,WAAW;KACX,YAAY;KACZ,sBAAsB;KACtB,oBAAoB;AACzB;;AAEA;KACK,iBAAiB;KACjB,cAAc;KACd,cAAc;KACd,aAAa;KACb,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,aAAa;AAClB;;AAEA;KACK,cAAc;KACd,aAAa;KACb,YAAY;KACZ,cAAc;KACd,mBAAmB;AACxB;;AAEA;KACK,qBAAqB;KACrB,kBAAkB;AACvB;;AAEA;KACK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,cAAc;KACd,aAAa;KACb,aAAa;KACb,eAAe;AACpB;;AAEA;KACK,aAAa;AAClB;AACA;KACK,oBAAoB;KACpB,aAAa;KACb,SAAS;AACd;;AAEA;;KAEK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;KACK,qBAAqB;KACrB,sBAAsB;KACtB,mBAAmB;KACnB,YAAY;KACZ,mBAAmB;AACxB;;AAEA;;KAEK,sBAAsB;KACtB,cAAc;AACnB;;AAEA;KACK,sBAAsB;KACtB,cAAc;AACnB;;AAEA;KACK,kBAAkB;KAClB,aAAa;KACb,WAAW;KACX,UAAU;KACV,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;AACtC;;AAEA;;KAEK,oBAAoB;AACzB;;AAEA;KACK,yBAAyB;KACzB,eAAe;AACpB;;AAEA;KACK,kBAAkB;AACvB;;AAEA;KACK,eAAe;AACpB;AACA;KACK,mBAAmB;KACnB,sBAAsB;KACtB,aAAa;KACb,aAAa;KACb,aAAa;KACb,eAAe;AACpB;;AAEA;KACK,iBAAiB;KACjB,UAAU;AACf;;AAEA;KACK,kBAAkB;KAClB,YAAY;KACZ,YAAY;KACZ,UAAU;KACV,mBAAmB;AACxB;;AAEA;KACK,sBAAsB;KACtB,eAAe;AACpB;;AAEA;KACK,UAAU;KACV,kBAAkB;KAClB,WAAW;KACX,UAAU;KACV,oBAAoB;KACpB,mBAAmB;KACnB,gCAAgC;KAChC,gCAAgC;KAChC,8BAA8B;KAC9B,iCAAiC;KACjC,iBAAiB;AACtB;;AAEA;KACK,eAAe;KACf,yBAAyB;AAC9B","sourcesContent":[".content-container {\n     padding: 40rem;\n     display: flex;\n     flex-direction: column;\n     gap: 24rem;\n     border-left: 5rem;\n}\n\n.content-container .project-heading {\n     font-size: x-large;\n     font-weight: bold;\n     margin-bottom: 20rem;\n}\n\n.message{\n     font-size: 24rem;\n     font-style: italic;\n     color: #64748b;\n}\n\n.add-task {\n     display: flex;\n     align-items: center;\n     position: relative;\n     width: fit-content;\n     padding: 5rem 10rem;\n     border-radius: 5rem;\n     margin-bottom: 50rem;\n}\n\n.add-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.add-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.add-task > .add-task-icon {\n     width: 24rem;\n}\n\n.task-form {\n     display: flex;\n     padding: 10rem;\n     flex-direction: column;\n     gap: 10rem;\n     position: relative;\n     z-index: 1;\n     max-width: 350rem;\n     color: #64748b;\n     top: -10rem;\n     left: -10rem;\n     border: 1px solid #ccc;\n     border-radius: 10rem;\n}\n\n.edit-task-form {\n     display: flex;\n     padding: 10rem;\n     flex-direction: column;\n     gap: 10rem;\n     position: relative;\n     z-index: 1;\n     max-width: 350rem;\n     color: #64748b;\n     top: -10rem;\n     left: -10rem;\n     border: 1px solid #ccc;\n     border-radius: 10rem;\n}\n\n#title {\n     font-weight: bold;\n     color: #334155;\n     display: block;\n     height: 24rem;\n     border: none;\n     border-radius: 5rem;\n}\n\n#title:focus,\n#description:focus {\n     outline: none;\n}\n\n#description {\n     display: block;\n     height: 24rem;\n     border: none;\n     color: #64748b;\n     border-radius: 5rem;\n}\n\nlabel {\n     display: inline-block;\n     margin-right: 5rem;\n}\n\n#due-date {\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     color: #64748b;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n}\n\n#due-date:hover {\n     outline: none;\n}\n.task-btns {\n     align-self: flex-end;\n     display: flex;\n     gap: 5rem;\n}\n\n.add-task-btn,\n.cancel-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.save-task-btn {\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.add-task-btn:hover,\n.cancel-task-btn:hover {\n     background-color: #ccc;\n     color: #334155;\n}\n\n.save-task-btn:hover {\n     background-color: #ccc;\n     color: #334155;\n}\n\n.task-container {\n     position: relative;\n     width: 500rem;\n     flex: 0 1 0;\n     gap: 10rem;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n}\n\n.task-title,\n.task-description {\n     pointer-events: none;\n}\n\n.task-container:hover {\n     background-color: #f1f5f9;\n     cursor: pointer;\n}\n\n.date-container {\n     width: fit-content;\n}\n\n.task-description {\n     margin: 10rem 0;\n}\n#due-date {\n     border-radius: 5rem;\n     border: 1px solid #ccc;\n     outline: none;\n     width: 130rem;\n     padding: 5rem;\n     cursor: pointer;\n}\n\n.task-title {\n     font-weight: bold;\n     width: 90%;\n}\n\n.delete-task {\n     position: absolute;\n     width: 24rem;\n     right: 10rem;\n     top: 10rem;\n     border-radius: 3rem;\n}\n\n.delete-task:hover {\n     background-color: #ccc;\n     cursor: pointer;\n}\n\n.task-long-detail {\n     width: 80%;\n     position: relative;\n     flex: 0 1 0;\n     gap: 10rem;\n     border-radius: 10rem;\n     padding: 5rem 10rem;\n     border-left: 10rem solid #64748b;\n     border-right: 1rem solid #64748b;\n     border-top: 1rem solid #64748b;\n     border-bottom: 1rem solid #64748b;\n     border: 1px solid;\n}\n\n.task-long-detail:hover {\n     cursor: pointer;\n     background-color: #f1f5f9;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -349,12 +371,12 @@ input {
 }
 
 .sidebar-container {
+     min-height: 100vh;
      display: flex;
      gap: 16rem;
      position: relative;
      transition: ease left 0.3s;
      left: 0;
-     height: 100vh;
      flex-direction: column;
      background-color: #f1f5f9;
      color: #222;
@@ -454,6 +476,7 @@ input {
      gap: 5rem;
      justify-content: center;
      align-items: center;
+     margin-bottom: 30rem;
 }
 
 .project-name-field {
@@ -520,7 +543,7 @@ input {
 .content-container {
      grid-area: content;
 }
-`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"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","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 250rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     position: relative;\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     padding-left: 25rem;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n     left: 5rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     height: 100vh;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.today-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.this-week-tasks > :nth-child(n) {\n     pointer-events: none;\n}\n\n.all-tasks:focus {\n     border: none;\n     outline: none;\n}\n\n.all-tasks > :nth-child(n) {\n     pointer-events: none;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n     position: relative;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header > :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container > :nth-child(n) {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:focus {\n     background-color: #ccc;\n}\n\n.projects-container {\n     flex-direction: column;\n}\n\n.projects-container > :nth-child(n) {\n     padding: 5rem;\n     border-radius: 5rem;\n}\n\n.projects-container > :nth-child(n):not(.project-form):hover,\n.projects-container > :nth-child(n):not(.project-form):focus {\n     background-color: #ccc;\n}\n\n.projects-container > :nth-child(n):not(.project-form) {\n     cursor: pointer;\n}\n\n.projects-container > :first-child {\n     width: 100%;\n}\n\n.projects-header > :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form {\n     display: flex;\n     width: 100%;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items: center;\n}\n\n.project-name-field {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.project-btns {\n     display: flex;\n     align-self: flex-end;\n     gap: 10rem;\n}\n\n.add-project-btn,\n.cancel-project-btn {\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color: #bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.new-project-container {\n     position: relative;\n     left: 0;\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n     transition: ease left 0.3s;\n}\n\n.project-name-field {\n     width: 100%;\n}\n\n.project-first-icon {\n     justify-self: flex-start;\n     margin-left: 10rem;\n     pointer-events: none;\n}\n\n.new-project {\n     pointer-events: none;\n     font-weight: 700;\n     flex: 1;\n}\n\n.project-last-icon {\n     opacity: 0;\n}\n\n.show-remove-icon {\n     opacity: 1;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/stylesheets/index.css"],"names":[],"mappings":"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","sourcesContent":["/* Set overall page structure */\n.page-container {\n     height: 100%;\n     width: 100%;\n     display: grid;\n     overflow-y: hidden;\n     grid-template-areas:\n          \"header header\"\n          \"sidebar content\";\n     grid-template-columns: minmax(auto, 250rem) 1fr;\n     grid-template-rows: auto 1fr;\n}\n\n.header-container {\n     padding: 10rem 40rem;\n     grid-area: header;\n     background-color: #e2e8f0;\n     display: grid;\n     grid-auto-flow: column;\n     grid-template-columns: auto auto;\n     justify-content: space-between;\n     align-items: center;\n}\n\n.header-item {\n     height: 40rem;\n     border-radius: 5rem;\n}\n\n.header-left {\n     display: flex;\n     gap: 10rem;\n}\n\n.header-right {\n     display: flex;\n     gap: 10rem;\n}\n\n.login-button,\n.signup-button {\n     padding: 8rem 40rem;\n     border-radius: 8rem;\n}\n\ninput {\n     margin: 0;\n     padding-left: 20rem;\n     padding-right: 10rem;\n}\n\n.header-left :hover,\n.header-right :hover {\n     background-color: #cbd5e1;\n     cursor: pointer;\n}\n\n.searchbar-container {\n     position: relative;\n     height: 30rem;\n     border-radius: 5rem;\n     margin: 0;\n     padding: 0;\n     display: flex;\n     align-items: center;\n}\n\n.searchbar-container input {\n     background-color: hsla(0, 9%, 87%, 0.8);\n}\n\n.searchbar-container :hover {\n     cursor: text;\n     background-color: #fafaf9;\n}\n\n.searchbar-container :focus {\n     width: 400rem;\n}\n\n.search-bar {\n     height: 30rem;\n     align-self: center;\n     padding-left: 25rem;\n     border: none;\n     outline: none;\n     border-radius: 5rem;\n     position: relative;\n}\n\n.search-item {\n     position: absolute;\n     z-index: 1;\n     height: 20rem;\n     left: 5rem;\n}\n\n.header-left .menu-item {\n     position: relative;\n}\n\n.sidebar-container {\n     min-height: 100vh;\n     display: flex;\n     gap: 16rem;\n     position: relative;\n     transition: ease left 0.3s;\n     left: 0;\n     flex-direction: column;\n     background-color: #f1f5f9;\n     color: #222;\n     padding: 40rem 10rem;\n}\n\n/* toggle sidebar container list on menu icon click */\n.toggle {\n     left: -100%;\n}\n\n.today-task > :nth-child(n) {\n     pointer-events: none;\n}\n\n.this-week-tasks > :nth-child(n) {\n     pointer-events: none;\n}\n\n.all-tasks:focus {\n     border: none;\n     outline: none;\n}\n\n.all-tasks > :nth-child(n) {\n     pointer-events: none;\n}\n\n.sidebar-container .projects-container {\n     margin-top: 40rem;\n     position: relative;\n}\n\n.projects-header {\n     display: flex;\n}\n\n.projects-header .projects-heading {\n     display: inline-block;\n     margin-right: auto;\n     font-weight: bold;\n}\n\n.projects-header > :nth-child(n + 2) {\n     opacity: 0;\n}\n\n.projects-header .show-icon {\n     opacity: 1;\n}\n\n.sidebar-container > :nth-child(n) {\n     display: flex;\n     gap: 16rem;\n     justify-content: left;\n     align-items: center;\n     padding: 5rem;\n     border-radius: 5rem;\n     cursor: pointer;\n}\n\n.sidebar-container .sidebar-item:hover,\n.sidebar-container .sidebar-item:focus {\n     background-color: #ccc;\n}\n\n.projects-container {\n     flex-direction: column;\n}\n\n.projects-container > :nth-child(n) {\n     padding: 5rem;\n     border-radius: 5rem;\n}\n\n.projects-container > :nth-child(n):not(.project-form):hover,\n.projects-container > :nth-child(n):not(.project-form):focus {\n     background-color: #ccc;\n}\n\n.projects-container > :nth-child(n):not(.project-form) {\n     cursor: pointer;\n}\n\n.projects-container > :first-child {\n     width: 100%;\n}\n\n.projects-header > :nth-child(n) {\n     height: 24rem;\n}\n\n.project-form {\n     display: flex;\n     width: 100%;\n     flex-direction: column;\n     gap: 5rem;\n     justify-content: center;\n     align-items: center;\n     margin-bottom: 30rem;\n}\n\n.project-name-field {\n     display: block;\n     height: 30rem;\n     outline: none;\n     border: none;\n     border-radius: 5rem;\n}\n\n.project-btns {\n     display: flex;\n     align-self: flex-end;\n     gap: 10rem;\n}\n\n.add-project-btn,\n.cancel-project-btn {\n     flex-grow: 0;\n     display: inline-block;\n     border: 1px solid #ccc;\n     border-radius: 5rem;\n     background-color: #bfdbfe;\n     max-width: 70rem;\n     min-width: 70rem;\n     padding: 5rem 10rem;\n}\n\n.new-project-container {\n     position: relative;\n     left: 0;\n     display: flex;\n     justify-content: space-between;\n     width: 100%;\n     gap: 10rem;\n     align-items: center;\n     transition: ease left 0.3s;\n}\n\n.project-name-field {\n     width: 100%;\n}\n\n.project-first-icon {\n     justify-self: flex-start;\n     margin-left: 10rem;\n     pointer-events: none;\n}\n\n.new-project {\n     pointer-events: none;\n     font-weight: 700;\n     flex: 1;\n}\n\n.project-last-icon {\n     opacity: 0;\n}\n\n.show-remove-icon {\n     opacity: 1;\n}\n\n.content-container {\n     grid-area: content;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2089,8 +2112,10 @@ const domManipulation = (function () {
           const dueDateLabel = document.createElement("label");
           const dueDate = document.createElement("input");
 
-          taskForm.classList.add("task-form");
+          taskForm.classList.add("edit-task-form");
           taskForm.id = taskData.taskId;
+          taskForm.setAttribute("data-project-id", taskData.projectId);
+          taskForm.setAttribute("data-project-name", taskData.projectName);
 
           title.name = "title";
           title.id = "title";
@@ -2119,6 +2144,7 @@ const domManipulation = (function () {
           addBtn.innerHTML = "Save";
           cancelBtn.innerHTML = "Cancel";
           addBtn.type = "submit";
+          cancelBtn.type = "reset";
           taskBtns.classList.add("task-btns");
           addBtn.classList.add("save-task-btn");
           cancelBtn.classList.add("cancel-task-btn");
@@ -2129,6 +2155,7 @@ const domManipulation = (function () {
 
           contentContainer.removeChild(contentContainer.firstChild);
           contentContainer.appendChild(taskForm);
+          title.focus();
      };
 
      let taskId;
@@ -2211,6 +2238,30 @@ const domManipulation = (function () {
           return taskData;
      };
 
+     const getEditTaskData = function (e) {
+          const editTaskForm = e.target;
+          const taskData = {};
+          taskData.taskId = editTaskForm.id;
+          taskData.projectId = editTaskForm.getAttribute("data-project-id");
+          taskData.projectName = editTaskForm.getAttribute("data-project-name");
+          taskData.title = editTaskForm.elements["title"].value;
+          taskData.description = editTaskForm.elements["description"].value;
+          taskData.dueDate = editTaskForm.elements["due-date"].value;
+
+          return taskData;
+     };
+
+     // TODO... Update task after user saves edited task and display in content area
+     const updateTask = function (taskData) {
+          const contentContainer = document.querySelector(".content-container");
+          const taskContainer = getLongTaskDetail(taskData);
+
+          // First clear content container
+          clearContentContainer();
+
+          contentContainer.appendChild(taskContainer);
+     };
+
      // todo... Add Task to Dom after user submits task form
      const addTaskToDom = function (task) {
           const contentContainer = document.querySelector(".content-container");
@@ -2283,11 +2334,20 @@ const domManipulation = (function () {
           const projectHeading = document.createElement("div");
           projectHeading.classList.add("project-heading");
           projectHeading.innerHTML = "Today";
+
+          const message = document.createElement("p");
+          message.classList.add("message");
+          message.innerHTML = "Nothing to display. Create project and then add tasks";
+
           contentContainer.appendChild(projectHeading);
 
-          for (let task of taskList) {
-               let taskContainer = getShortTaskDetail(task);
-               contentContainer.appendChild(taskContainer);
+          if (taskList.length) {
+               for (let task of taskList) {
+                    let taskContainer = getShortTaskDetail(task);
+                    contentContainer.appendChild(taskContainer);
+               }
+          } else {
+               contentContainer.appendChild(message);
           }
      };
 
@@ -2299,11 +2359,20 @@ const domManipulation = (function () {
           const projectHeading = document.createElement("div");
           projectHeading.classList.add("project-heading");
           projectHeading.innerHTML = "This Week";
+
+          const message = document.createElement("p");
+          message.classList.add("message");
+          message.innerHTML = "Nothing to display. Create project and then add tasks";
+
           contentContainer.appendChild(projectHeading);
 
-          for (let task of taskList) {
-               let taskContainer = getShortTaskDetail(task);
-               contentContainer.appendChild(taskContainer);
+          if (taskList.length) {
+               for (let task of taskList) {
+                    let taskContainer = getShortTaskDetail(task);
+                    contentContainer.appendChild(taskContainer);
+               }
+          } else {
+               contentContainer.appendChild(message);
           }
      };
 
@@ -2313,13 +2382,22 @@ const domManipulation = (function () {
 
           // Display "All Tasks" on top of project tasks
           const projectHeading = document.createElement("div");
+
           projectHeading.classList.add("project-heading");
           projectHeading.innerHTML = "All Tasks";
+          const message = document.createElement("p");
+          message.classList.add("message");
+          message.innerHTML = "Nothing to display. Create project and then add tasks";
+
           contentContainer.appendChild(projectHeading);
 
-          for (let task of taskList) {
-               let taskContainer = getShortTaskDetail(task);
-               contentContainer.appendChild(taskContainer);
+          if (taskList.length) {
+               for (let task of taskList) {
+                    let taskContainer = getShortTaskDetail(task);
+                    contentContainer.appendChild(taskContainer);
+               }
+          } else {
+               contentContainer.appendChild(message);
           }
      };
      return {
@@ -2351,6 +2429,8 @@ const domManipulation = (function () {
           displayThisWeekTasks,
           toggleProjectsList,
           editTask,
+          getEditTaskData,
+          updateTask,
      };
 })();
 
@@ -2466,9 +2546,9 @@ const todoListManager = (function () {
      };
 
      const getTaskData = function (projectId, taskId) {
-          for (let task of projectTaskList[projectId]) {
-               if (task.taskId === taskId) {
-                    return task;
+          for (let taskData of projectTaskList[projectId]) {
+               if (taskData.taskId === taskId) {
+                    return taskData;
                }
           }
           return "-1";
@@ -2478,6 +2558,17 @@ const todoListManager = (function () {
      };
      const addProjectTask = function (taskData) {
           projectTaskList[taskData.projectId].push(taskData);
+          updateLocalStorage();
+     };
+
+     const updateTask = function (taskData) {
+          const project = projectTaskList[taskData.projectId];
+          for (let i = 0; i < project.length; i++) {
+               if (project[i].taskId === taskData.taskId) {
+                    project[i] = taskData;
+               }
+          }
+          // Update local storage to sync changes
           updateLocalStorage();
      };
 
@@ -2501,6 +2592,7 @@ const todoListManager = (function () {
           getTaskList,
           getTaskData,
           getprojectTaskList,
+          updateTask,
      };
 })();
 
@@ -2754,8 +2846,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
 // set overall page structure
 _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].setPageStructure();
 
@@ -2836,21 +2926,23 @@ projectChevronIcon.addEventListener("click", _dom_manipulation__WEBPACK_IMPORTED
 // Delete project on cross icon click against each project name
 projectsContainer.addEventListener("click", (event) => {
      if (event.target.matches(".project-last-icon")) {
-          const projectId = event.target.parentNode.id;
+          const deletedProjectId = event.target.parentNode.id;
 
           // First check whether deleted project was being displayed in content area
           // If yes then update content container with default display
           const contentContainer = document.querySelector(".content-container");
           const projectHeading = document.querySelector(".project-heading");
           const exProjectId = projectHeading.getAttribute("data-project-id");
-          if (projectId === exProjectId) {
+
+          // If displayed project is being deleted then replace tasks with all tasks
+          if (deletedProjectId === exProjectId) {
                displayAllTasks();
           }
 
           // Then delete the project
           _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].deleteProject(event);
-          _project_manager__WEBPACK_IMPORTED_MODULE_6__["default"].deleteProjectFromList(projectId);
-          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].deleteProject(projectId);
+          _project_manager__WEBPACK_IMPORTED_MODULE_6__["default"].deleteProjectFromList(deletedProjectId);
+          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].deleteProject(deletedProjectId);
      }
 });
 
@@ -2890,12 +2982,41 @@ contentContainer.addEventListener("click", (event) => {
 });
 
 // Todo... get data from task form when user clicks on add button and then display to DOM
-contentContainer.addEventListener("click", (event) => {
-     if (event.target.matches(".add-task-btn")) {
+contentContainer.addEventListener("submit", (event) => {
+     if (event.target.matches(".task-form")) {
           event.preventDefault();
           const taskData = _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].getTaskData();
           _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].addTaskToDom(taskData);
           _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].addProjectTask(taskData);
+     }
+});
+
+// Display edited task
+contentContainer.addEventListener("submit", (e) => {
+     if (e.target.matches(".edit-task-form")) {
+          e.preventDefault();
+          const taskData = _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].getEditTaskData(e);
+
+          // Update task in content container
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].updateTask(taskData);
+
+          // Also update task in todo listmanager
+          _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].updateTask(taskData);
+     }
+});
+
+// TODO... Cancel updating task
+contentContainer.addEventListener("reset", (e) => {
+     if (e.target.matches(".edit-task-form")) {
+          e.preventDefault();
+          const taskId = e.target.id;
+          const projectId = e.target.getAttribute("data-project-id");
+
+          const taskData = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getTaskData(projectId, taskId);
+
+          e.target.parentNode.removeChild(e.target);
+
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].updateTask(taskData);
      }
 });
 
@@ -2917,19 +3038,9 @@ contentContainer.addEventListener("click", (e) => {
           const taskId = e.target.id;
           const projectId = e.target.getAttribute("data-project-id");
           const taskData = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getTaskData(projectId, taskId);
-          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].editTask(taskData)
+          _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].editTask(taskData);
      }
 });
-
-// Display edited task
-contentContainer.addEventListener("click", (e) => {
-     if (e.target.matches(".save-task-btn")) {
-          e.preventDefault()
-          console.log(e.target)
-     }
-})
-
-// 
 
 // TODO... Cancel task when user clicks cancel btn on task form
 contentContainer.addEventListener("reset", (event) => {
@@ -2942,12 +3053,10 @@ contentContainer.addEventListener("reset", (event) => {
 contentContainer.addEventListener("click", (e) => {
      if (e.target.matches(".delete-task")) {
           const contentContainer = document.querySelector(".content-container");
-          console.log(e.target);
+
           const taskId = e.target.parentNode.id;
-          console.log("task id", taskId);
           const projectId = e.target.parentNode.getAttribute("data-project-id");
-          console.log("project id", projectId);
-          console.log("parent node", e.target.parentNode);
+
           contentContainer.removeChild(e.target.parentNode);
           _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].deleteProjectTask(projectId, taskId);
      }
@@ -3008,6 +3117,7 @@ const displayAllTasks = function () {
      const taskList = [];
      const projectTaskObject = _todoListManager__WEBPACK_IMPORTED_MODULE_7__["default"].getprojectTaskList();
      const projectTaskList = Object.values(projectTaskObject);
+
      for (let projectTasks of projectTaskList) {
           for (let task of projectTasks) {
                taskList.push(task);
@@ -3027,6 +3137,7 @@ const displayAllTasks = function () {
      _dom_manipulation__WEBPACK_IMPORTED_MODULE_5__["default"].displayAllTasks(taskList);
 };
 
+// By default, on window reload and reopen, display all tasks
 window.onload = displayAllTasks;
 
 // todo... Display all tasks when user clicks on "All Tasks" tab
@@ -3055,6 +3166,7 @@ thisWeekTasks.addEventListener("click", () => {
           }
      }
 
+     //Sort tasks in ascending order of the due date
      taskList.sort((a, b) => {
           // Convert date string to Time Stamp to make numeric comparison
           const aNew = new Date(a.dueDate).getTime();
