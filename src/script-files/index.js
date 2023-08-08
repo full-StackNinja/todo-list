@@ -281,6 +281,7 @@ const displayAllTasks = function () {
      const taskList = [];
      const projectTaskObject = todoListManager.getprojectTaskList();
      const projectTaskList = Object.values(projectTaskObject);
+
      for (let projectTasks of projectTaskList) {
           for (let task of projectTasks) {
                taskList.push(task);
@@ -299,6 +300,7 @@ const displayAllTasks = function () {
      // Then display all tasks
      domManipulation.displayAllTasks(taskList);
 };
+
 // By default, on window reload and reopen, display all tasks
 window.onload = displayAllTasks;
 

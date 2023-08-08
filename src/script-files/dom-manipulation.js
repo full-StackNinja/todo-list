@@ -423,7 +423,7 @@ const domManipulation = (function () {
           addBtn.innerHTML = "Save";
           cancelBtn.innerHTML = "Cancel";
           addBtn.type = "submit";
-          cancelBtn.type = "reset"
+          cancelBtn.type = "reset";
           taskBtns.classList.add("task-btns");
           addBtn.classList.add("save-task-btn");
           cancelBtn.classList.add("cancel-task-btn");
@@ -532,14 +532,14 @@ const domManipulation = (function () {
 
      // TODO... Update task after user saves edited task and display in content area
      const updateTask = function (taskData) {
-          const contentContainer = document.querySelector(".content-container")
-          const taskContainer = getLongTaskDetail(taskData)
+          const contentContainer = document.querySelector(".content-container");
+          const taskContainer = getLongTaskDetail(taskData);
 
           // First clear content container
-          clearContentContainer()
+          clearContentContainer();
 
-          contentContainer.appendChild(taskContainer)
-     }
+          contentContainer.appendChild(taskContainer);
+     };
 
      // todo... Add Task to Dom after user submits task form
      const addTaskToDom = function (task) {
@@ -613,11 +613,20 @@ const domManipulation = (function () {
           const projectHeading = document.createElement("div");
           projectHeading.classList.add("project-heading");
           projectHeading.innerHTML = "Today";
+
+          const message = document.createElement("p");
+          message.classList.add("message");
+          message.innerHTML = "Nothing to display. Create project and then add tasks";
+
           contentContainer.appendChild(projectHeading);
 
-          for (let task of taskList) {
-               let taskContainer = getShortTaskDetail(task);
-               contentContainer.appendChild(taskContainer);
+          if (taskList.length) {
+               for (let task of taskList) {
+                    let taskContainer = getShortTaskDetail(task);
+                    contentContainer.appendChild(taskContainer);
+               }
+          } else {
+               contentContainer.appendChild(message);
           }
      };
 
@@ -629,11 +638,20 @@ const domManipulation = (function () {
           const projectHeading = document.createElement("div");
           projectHeading.classList.add("project-heading");
           projectHeading.innerHTML = "This Week";
+
+          const message = document.createElement("p");
+          message.classList.add("message");
+          message.innerHTML = "Nothing to display. Create project and then add tasks";
+
           contentContainer.appendChild(projectHeading);
 
-          for (let task of taskList) {
-               let taskContainer = getShortTaskDetail(task);
-               contentContainer.appendChild(taskContainer);
+          if (taskList.length) {
+               for (let task of taskList) {
+                    let taskContainer = getShortTaskDetail(task);
+                    contentContainer.appendChild(taskContainer);
+               }
+          } else {
+               contentContainer.appendChild(message);
           }
      };
 
@@ -643,13 +661,22 @@ const domManipulation = (function () {
 
           // Display "All Tasks" on top of project tasks
           const projectHeading = document.createElement("div");
+
           projectHeading.classList.add("project-heading");
           projectHeading.innerHTML = "All Tasks";
+          const message = document.createElement("p");
+          message.classList.add("message");
+          message.innerHTML = "Nothing to display. Create project and then add tasks";
+
           contentContainer.appendChild(projectHeading);
 
-          for (let task of taskList) {
-               let taskContainer = getShortTaskDetail(task);
-               contentContainer.appendChild(taskContainer);
+          if (taskList.length) {
+               for (let task of taskList) {
+                    let taskContainer = getShortTaskDetail(task);
+                    contentContainer.appendChild(taskContainer);
+               }
+          } else {
+               contentContainer.appendChild(message);
           }
      };
      return {
